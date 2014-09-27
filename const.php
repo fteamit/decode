@@ -27,3 +27,5 @@ define('TEMPLATE_URL', '/public/templates');
 //duong dan den tem plate mac dinh
 define('DEFAULT_TEMPLATE', TEMPLATE_PATH . "/default/default");
 
+//Ngon ngu mac dinh
+define('DEFAULT_LANGUAGES', 'en');

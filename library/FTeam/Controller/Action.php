@@ -3,6 +3,7 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 	
 	public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
+                $this->changLanguages();
 	}
 	
 	protected function loadTemplate($template_path, $fileConfig = 'template.ini',$sectionConfig = 'template'){
@@ -62,8 +63,26 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 		$this->view->imgUrl = $imgUrl;
                 
 		$option = array('layoutPath'=> $template_path, 'layout'=> $config['layout']);
-		Zend_Layout::startMvc($option);
-		
+		Zend_Layout::startMvc($option);	
 	}
+        protected function changLanguages($param = DEFAULT_LANGUAGES) {
+            $languages = New Zend_Session_Namespace('languages');
+            if (!empty($languages->lang)) {
+                $languages->lang = $param;
+            }
+            else{
+                $languages->lang = DEFAULT_LANGUAGES;
+            }
+            $locale = $languages->lang;
+            $module = $this->_request->getModuleName();
+            $file = APPLICATION_PATH . '/languages/' . $module . '/' . $locale . '/' . 'lang.xml';
+            $option = array(
+                'adapter' => 'Tmx',
+                'content'=> $file,
+                'locale'=> $locale
+            );
+            $translate = new Zend_Translate($option);
+            Zend_Registry::set('Zend_Translate', $translate);
+        }
 	
 }
