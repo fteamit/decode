@@ -6,7 +6,7 @@ class IndexController extends FTeam_Controller_Action {
 	}
 		
 	public function indexAction() {	
-             echo $this->getRequest()->getRequestUri();
+             
 		echo '<br>' . __METHOD__;
 	}	
 
