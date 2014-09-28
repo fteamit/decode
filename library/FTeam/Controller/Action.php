@@ -3,6 +3,7 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 	
 	public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
+                $this->changLanguages();
 	}
 	
 	protected function loadTemplate($template_path, $fileConfig = 'template.ini',$sectionConfig = 'template'){
@@ -64,13 +65,14 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 		$option = array('layoutPath'=> $template_path, 'layout'=> $config['layout']);
 		Zend_Layout::startMvc($option);	
 	}
-        protected function changLanguages($param = DEFAULT_LANGUAGES) {
+        protected function changLanguages() {
+            $_lang = $this->getRequest()->getParam('lang');
             $languages = New Zend_Session_Namespace('languages');
-            if (!empty($languages->languages)) {
-                $languages->languages = $param;
+            if(!empty($_lang)){
+                $languages->languages = $_lang;
             }
-            else{
-                $languages->languages = $param;
+            if (empty($languages->languages)) {
+                $languages->languages = DEFAULT_LANGUAGES;
             }
             $locale = $languages->languages;
             $module = $this->_request->getModuleName();

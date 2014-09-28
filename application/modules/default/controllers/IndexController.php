@@ -6,7 +6,7 @@ class IndexController extends FTeam_Controller_Action {
 	}
 		
 	public function indexAction() {	
-             echo $this->getRequest()->getRequestUri();
+             //echo $this->getRequest()->getRequestUri();
 		echo '<br>' . __METHOD__;
 	}	
 
@@ -18,8 +18,8 @@ class IndexController extends FTeam_Controller_Action {
 		$this->_helper->viewRenderer->setNoRender();
 	}
         public function langAction(){
-            $lang = $this->_request->getParam('lang');
-            $this->changLanguages($lang);
+            //$lang = $this->_request->getParam('lang');
+            $this->changLanguages();
             $this->redirect('/');
         }
 }

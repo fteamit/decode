@@ -6,6 +6,6 @@
          creationtool="XYZTool" >
  </header>
  <body>
-  <tu tuid='message1'>
-   <tuv xml:lang="en"><seg>Hello</seg></tuv>
+  <tu tuid='message'>
+   <tuv xml:lang="en"><seg>This is Enghlish of page Admin</seg></tuv>
   </tu>
