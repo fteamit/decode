@@ -64,4 +64,25 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 		$option = array('layoutPath'=> $template_path, 'layout'=> $config['layout']);
 		Zend_Layout::startMvc($option);	
 	}
+        protected function changLanguages() {
+            $_lang = $this->getRequest()->getParam('lang');
+            $languages = New Zend_Session_Namespace('languages');
+            if(!empty($_lang)){
+                $languages->languages = $_lang;
+            }
+            if (empty($languages->languages)) {
+                $languages->languages = DEFAULT_LANGUAGES;
+            }
+            $locale = $languages->languages;
+            $module = $this->_request->getModuleName();
+            $file = APPLICATION_PATH . '/languages/' . $module . '/' . $locale . '/' . 'lang.xml';
+            $option = array(
+                'adapter' => 'Tmx',
+                'content'=> $file,
+                'locale'=> $locale
+            );
+            $translate = new Zend_Translate($option);
+            Zend_Registry::set('Zend_Translate', $translate);
+        }
+	
 }

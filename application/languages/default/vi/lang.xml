@@ -6,6 +6,6 @@
          creationtool="XYZTool" >
  </header>
  <body>
-  <tu tuid='message1'>
-   <tuv xml:lang="vi"><seg>Xincaho</seg></tuv>
+  <tu tuid='message'>
+   <tuv xml:lang="vi"><seg>Đây là tiếng Việt</seg></tuv>
   </tu>
