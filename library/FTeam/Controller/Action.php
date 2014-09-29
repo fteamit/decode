@@ -3,7 +3,6 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
 	
 	public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
-                $this->changLanguages();
 	}
 	
 	protected function loadTemplate($template_path, $fileConfig = 'template.ini',$sectionConfig = 'template'){
