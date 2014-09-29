@@ -6,8 +6,9 @@ class IndexController extends FTeam_Controller_Action {
 	}
 		
 	public function indexAction() {	
-             //echo $this->getRequest()->getRequestUri();
-		echo '<br>' . __METHOD__;
+            $test = New Default_Model_Test();
+            $test->test();
+            echo '<br>' . __METHOD__;
 	}	
 
 	public function viewAction() {
