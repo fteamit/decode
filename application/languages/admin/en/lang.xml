@@ -9,3 +9,22 @@
   <tu tuid='message'>
    <tuv xml:lang="en"><seg>This is Enghlish of page Admin</seg></tuv>
   </tu>
+  <tu tuid='page'>
+   <tuv xml:lang="en"><seg>Page</seg></tuv>
+  </tu>
+  <tu tuid='of'>
+   <tuv xml:lang="en"><seg>Of</seg></tuv>
+  </tu>
+  <tu tuid='start'>
+   <tuv xml:lang="en"><seg>Start</seg></tuv>
+  </tu>
+  <tu tuid='prev'>
+   <tuv xml:lang="en"><seg>Prev</seg></tuv>
+  </tu>
+  <tu tuid='next'>
+   <tuv xml:lang="en"><seg>Next</seg></tuv>
+  </tu>
+  <tu tuid='end'>
+   <tuv xml:lang="en"><seg>End</seg></tuv>
+  </tu>
+  
