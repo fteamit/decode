@@ -1,6 +1,10 @@
 <?php
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
+    //Session
+    protected function _intSession(){
+        Zend_Session::start();
+    }
     //cau hinh ket noi db
     protected function _initDb(){	
         $optionResources = $this->getOption('resources');

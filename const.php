@@ -29,3 +29,10 @@ define('DEFAULT_TEMPLATE', TEMPLATE_PATH . "/default/default");
 
 //Ngon ngu mac dinh
 define('DEFAULT_LANGUAGES', 'en');
+
+//Số ban ghi trên 1 trang mac dinh
+define('ITEM_COUNT_PER_PAGE', 5);
+
+//Số trang hiển thị khi phân trang
+define('PAGE_RANGE', 3);
+
