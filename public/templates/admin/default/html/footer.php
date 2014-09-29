@@ -1,1 +1,1 @@
-<h1>Footer</h1>
+<span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span> 
