@@ -22,19 +22,19 @@
         <ul class="inline">
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="team building" />
-                <p class="active">Team Building</p>	
+                <p class="active">The Butchery</p>	
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="family" />
-                <p>Friends/Family</p>	
+                <p>Haunted Hotel</p>	
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="student" />
-                <p>Students/Classes</p>
+                <p>Save Santa</p>
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="Games" />
-                <p>Gamers</p>
+                <p>Mega-Nerd</p>
             </li>
         </ul>
         <?php elseif ($this->class_body === 'booking'): ?>
