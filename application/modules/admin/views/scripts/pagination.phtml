@@ -1,12 +1,12 @@
 <?php
 $linkStart = $this->currentUrl . '/page/' . $this->first;
 
-$linkPrevious = '#';
+$linkPrevious = 'javascript:void(0)';
 if (isset($this->previous))
 {
     $linkPrevious = $this->currentUrl . '/page/' . $this->previous;
 }
-$linkNext = '#';
+$linkNext = 'javascript:void(0)';
 if (isset($this->next))
 {
     $linkNext = $this->currentUrl . '/page/' . $this->next;
@@ -19,12 +19,12 @@ foreach ($this->pagesInRange as $key)
 {
     if ($this->current == $key)
     {
-        $strPage .= '<li><a href="javascript:void(0)" class="current_page">' . $key . '</a></li>';
+        $strPage .= '<li><a href="javascript:void(0)" class="current_page" title="'.__('page').' '.$key.'">' . $key . '</a></li>';
     }
     else
     {
         $linkPage = $this->currentUrl . '/page/' . $key;
-        $strPage .= '<li><a href="' . $linkPage . '">' . $key . '</a></li>';
+        $strPage .= '<li><a href="' . $linkPage . '" title="'.__('page').' '.$key.'">' . $key . '</a></li>';
     }
 }
 
@@ -32,11 +32,11 @@ $page = __('page') . ' ' . $this->current . ' ' . __('of') . ' ' . $this->last;
 ?>
 <div class="div-pagination">
     <ul class="pagination">
-        <li><a href="<?php echo $linkStart; ?>"><?php echo __('start') ?></a></li>
-        <li><a href="<?php echo $linkPrevious; ?>"><?php echo __('prev') ?></a></li>
+        <li><a href="<?php echo $linkStart; ?>" title="<?php echo __('start')?>"><?php echo __('start') ?></a></li>
+        <li><a href="<?php echo $linkPrevious; ?>" title="<?php echo __('prev')?>"><?php echo __('prev') ?></a></li>
         <?php echo $strPage ?>
-        <li><a href="<?php echo $linkNext; ?>"><?php echo __('next'); ?></a></li>
-        <li><a href="<?php echo $linkEnd; ?>"><?php echo __('end') ?></a></li>
+        <li><a href="<?php echo $linkNext; ?>" title="<?php echo __('next')?>"><?php echo __('next'); ?></a></li>
+        <li><a href="<?php echo $linkEnd; ?>" title="<?php echo __('end')?>"><?php echo __('end') ?></a></li>
         <li><?php echo $page ?></li>
     </ul>    
 </div>
