@@ -76,9 +76,9 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
             }
             $locale = $languages->languages;
             $module = $this->_request->getModuleName();
-            $file = APPLICATION_PATH . '/languages/' . $module . '/' . $locale . '/' . 'lang.xml';
+            $file = APPLICATION_PATH . '/languages/' . $module . '/' . $locale . '/' . 'lang.php';
             $option = array(
-                'adapter' => 'Tmx',
+                'adapter' => 'array',
                 'content'=> $file,
                 'locale'=> $locale
             );
