@@ -24,6 +24,12 @@ define('TEMPLATE_PATH', PUBLIC_PATH . '/templates');
 //Duong dan den thu muc /templates
 define('TEMPLATE_URL', '/public/templates');
 
+//Duong dan den thu muc /templates/default
+define('DEFAULT_TEMPLATE_URL', '/public/templates/default/default');
+
+//Duong dan den thu muc /templates/admin
+define('ADMIN_TEMPLATE_URL', '/public/templates/default/admin');
+
 //duong dan den tem plate mac dinh
 define('DEFAULT_TEMPLATE', TEMPLATE_PATH . "/default/default");
 
@@ -35,4 +41,8 @@ define('ITEM_COUNT_PER_PAGE', 5);
 
 //Số trang hiển thị khi phân trang
 define('PAGE_RANGE', 3);
+
+//Module default
+define('DEAULT_MODULE', 'default');
+
 

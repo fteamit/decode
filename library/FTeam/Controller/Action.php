@@ -1,9 +1,11 @@
 <?php
 class FTeam_Controller_Action extends Zend_Controller_Action{
 	
-	public function init(){
+    protected $class_body = 'home';
+    public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
                 $this->changLanguages();
+                $this->view->class_body = $this->class_body;
 	}
 	
 	protected function loadTemplate($template_path, $fileConfig = 'template.ini',$sectionConfig = 'template'){

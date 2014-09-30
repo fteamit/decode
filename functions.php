@@ -31,3 +31,11 @@ function Make_Title_Url($text){
     $make_title = new FTeam_MakeTitleUrl();
     return $make_title->make_title_url($text);
 }
+//return base url template default
+function BaseUrl_Template_Default(){
+    return Zend_Controller_Front::getInstance()->getBaseUrl().DEFAULT_TEMPLATE_URL; 
+} 
+//return base url template admin
+function BaseUrl_Template_Admin(){
+    return $this->baseUrl(ADMIN_TEMPLATE_URL); 
+} 

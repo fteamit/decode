@@ -8,8 +8,6 @@ class Admin_IndexController extends FTeam_Controller_AdminAction
         'pageRange' => PAGE_RANGE,
     );
     protected $_currentController;
-    
-    protected $_arrParam;
 
     public function init()
     {
@@ -17,7 +15,6 @@ class Admin_IndexController extends FTeam_Controller_AdminAction
         $this->_arrParam = $this->_request->getParams();
         $this->_currentController = '/' . $this->_arrParam['module'] . '/' . $this->_arrParam['controller'];
         $this->_paginator['currentPage'] = $this->_request->getParam('page', 1);
-        $this->_arrParam['paginator'] = $this->_paginator;
     }
 
     public function indexAction()
