@@ -9,8 +9,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
     protected function _initDb(){	
         $optionResources = $this->getOption('resources');
         $dbOption = $optionResources['db'];
+        $dbOption['params']['host'] = 'localhost';
         $dbOption['params']['username'] = 'root';
-        $dbOption['params']['password'] = '';
+        $dbOption['params']['password'] = '123456';
         $dbOption['params']['dbname'] = 'wp_f_team';
 
         $adapter = $dbOption['adapter'];
