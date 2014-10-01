@@ -4,7 +4,6 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
     protected $class_body = 'home';
     public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
-                $this->changLanguages();
                 $this->view->class_body = $this->class_body;
 	}
 	

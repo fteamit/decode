@@ -1,35 +1,50 @@
-<!-- Page heading -->
-<div class="page-head">
-    <!-- Page heading -->
-    <h2 class="pull-left">Page Heading 
-        <!-- page meta -->
-        <span class="page-meta">Something Goes Here</span>
-    </h2>
-    <!-- Breadcrumb -->
-    <div class="bread-crumb pull-right">
-        <a href="index.html"><i class="fa fa-home"></i> Home</a> 
-        <!-- Divider -->
-        <span class="divider">/</span> 
-        <a href="#" class="bread-current">Dashboard</a>
-    </div>
-    <div class="clearfix"></div>
-</div><!--/ Page heading ends -->
-
-<!-- Matter -->
-<div class="matter">
-    <div class="container-fluid">
-        <div class="row-fluid">
-
-            <!-- Content -->
-            <h3><?php echo __FILE__; ?></h3>
-            <h1><?php echo __('message'); ?></h1>
-            <?php
-            $currentUrl = $this->baseUrl($this->currentController . '/index');
-            echo $this->paginationControl($this->panigator, 'Sliding', 'pagination.phtml', array('currentUrl' => $currentUrl));
-            echo '<br/>';
-            echo Make_Title_Url('Nếu em là người ra đi thì sao?');
-            ?>
-
+<!-- Form area -->
+<div class="admin-form">
+    <!-- Widget starts -->
+    <div class="widget worange">
+        <!-- Widget head -->
+        <div class="widget-head">
+            <i class="fa fa-lock"></i> Login 
         </div>
-    </div>
-</div><!--/ Matter ends -->
+
+        <div class="widget-content">
+            <div class="padd">
+                <!-- Login form -->
+                <form class="form-horizontal">
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputEmail">Email</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputPassword">Password</label>
+                        <div class="col-lg-9">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <!-- Remember me checkbox and sign in button -->
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-danger">Sign in</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="widget-foot">
+            Not Registred? <a href="#">Register here</a>
+        </div>
+    </div>  
+</div>
