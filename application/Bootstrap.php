@@ -12,7 +12,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $dbOption['params']['host'] = 'localhost';
         $dbOption['params']['username'] = 'root';
         $dbOption['params']['password'] = '';
-        $dbOption['params']['dbname'] = 'wp_f_team';
+        $dbOption['params']['dbname'] = 'decode_db';
 
         $adapter = $dbOption['adapter'];
         $config = $dbOption['params'];

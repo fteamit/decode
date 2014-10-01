@@ -1,0 +1,50 @@
+<!-- Form area -->
+<div class="admin-form">
+    <!-- Widget starts -->
+    <div class="widget worange">
+        <!-- Widget head -->
+        <div class="widget-head">
+            <i class="fa fa-lock"></i> <?php echo __('login') ?> 
+        </div>
+
+        <div class="widget-content">
+            <div class="padd">
+                <!-- Login form -->
+                <form class="form-horizontal" action="<?php echo $this->baseUrl('/admin/login/index')?>" method="post">
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputEmail"><?php echo __('email')?></label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="<?php echo __('email')?>">
+                        </div>
+                    </div>
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputPassword"><?php echo __('password') ?></label>
+                        <div class="col-lg-9">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="<?php echo __('password') ?>">
+                        </div>
+                    </div>
+                    <!-- Remember me checkbox and sign in button -->
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember_me" value="1"> <?php echo __('remember me')?>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-danger"><?php echo __('sign in')?></button>
+                            <button type="reset" class="btn btn-default"><?php echo __('reset')?></button>
+                        </div>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+<!--        <div class="widget-foot">
+            Not Registred? <a href="#">Register here</a>
+        </div>-->
+    </div>  
+</div>

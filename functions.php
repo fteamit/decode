@@ -39,3 +39,9 @@ function BaseUrl_Template_Default(){
 function BaseUrl_Template_Admin(){
     return $this->baseUrl(ADMIN_TEMPLATE_URL); 
 } 
+//password
+function Password_Generator($str)
+{
+    $str .= '!%^&@#$%(&)^%';
+    return md5(sha1(md5($str)));
+}
