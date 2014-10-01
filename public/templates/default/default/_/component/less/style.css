@@ -142,7 +142,9 @@ header .header-content .flag-language ul li {
 	padding-left: 130px;
 	color: red;
 }
-
+.the-game .content .note a{
+    color: red;
+}
 .the-game .bot-content p.active{
 	color: red;
 }

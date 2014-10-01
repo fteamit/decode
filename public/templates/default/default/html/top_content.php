@@ -22,7 +22,7 @@
             <div class="embed-responsive embed-responsive-16by9"
                  style="border: 1px solid #ccc">
                 <iframe class="embed-responsive-item"
-                        src="//www.youtube.com/embed/ZBNfRiqo-MI?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0"></iframe>
+                        src="//www.youtube.com/embed/jbPW10koNj0?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0"></iframe>
             </div>
         </div>
     <?php elseif ($this->class_body === 'the-game'): ?>
@@ -30,7 +30,7 @@
             <div class="embed-responsive embed-responsive-16by9"
                  style="border: 1px solid #ccc">
                 <iframe class="embed-responsive-item"
-                        src="//www.youtube.com/embed/ZBNfRiqo-MI?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0"></iframe>
+                        src="//www.youtube.com/embed/jbPW10koNj0?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0"></iframe>
             </div>
         </div>
     <?php else: ?>
