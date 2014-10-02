@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 01, 2014 at 06:33 PM
+-- Generation Time: Oct 02, 2014 at 02:50 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -134,7 +134,14 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `user_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `user_status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_users`
+--
+
+INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, `user_status`) VALUES
+(1, 'admin@gmail.com', '722e0c45e1906f22b4afcb75ba164fb4', 'Phan The Binh', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
