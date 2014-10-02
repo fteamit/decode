@@ -1,5 +1,5 @@
 <div class="header-content">
-    <h2>WELLCOME TO DECODE VIETNAM</h2>
+    <h2>WELCOME TO DECODE VIETNAM</h2>
     <div class="booking-now">
     </div>
     <a href="<?php echo $this->baseUrl('bookings/index/bookings')?>" class="book-now">Book Now</a>
