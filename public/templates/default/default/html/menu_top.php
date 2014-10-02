@@ -19,9 +19,9 @@
         <div class="collapse navbar-collapse"
              id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li class="<?php echo $this->class_body === 'home' ? 'active':''?>"><a href="<?php echo $this->baseUrl(); ?>"><?php echo __('Home') ?></a></li>
+                <li class="<?php echo $this->class_body === 'home' ? 'active':''?>"><a href="<?php echo $this->baseUrl('default'); ?>"><?php echo __('Home') ?></a></li>
                 <li class="<?php echo $this->class_body === 'the-game' ? 'active':''?>"><a href="<?php echo $this->baseUrl('games'); ?>"><?php echo __('The game') ?></a></li>
-                <li class="<?php echo $this->class_body === 'booking' ? 'active':''?>"><a href="<?php echo $this->baseUrl('bookings'); ?>"><?php echo __('Booking') ?></a></li>
+                <li class="<?php echo ($this->class_body === 'booking' || $this->class_body === 'booking-detail') ? 'active':''?>"><a href="<?php echo $this->baseUrl('bookings'); ?>"><?php echo __('Booking') ?></a></li>
                 <li class="<?php echo $this->class_body === 'faq' ? 'active':''?>"><a href="<?php echo $this->baseUrl('faqs'); ?>"><?php echo __('FAQs') ?></a></li>
                 <li class="<?php echo $this->class_body === 'contact' ? 'active':''?>"><a href="<?php echo $this->baseUrl('options'); ?>"><?php echo __('Contact') ?></a></li>
             </ul>

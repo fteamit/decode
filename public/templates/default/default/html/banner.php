@@ -2,7 +2,7 @@
     <h2>WELLCOME TO DECODE VIETNAM</h2>
     <div class="booking-now">
     </div>
-    <a href="#" class="book-now">Book Now</a>
+    <a href="<?php echo $this->baseUrl('bookings/index/bookings')?>" class="book-now">Book Now</a>
 
     <div class="flag-language">
         <ul>
