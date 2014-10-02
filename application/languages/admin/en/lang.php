@@ -15,5 +15,7 @@ return array(
     'password'=>'Password',
     'remember me'=>'Remember me',
     'sign in'=>'Sign in',
-    'reset'=>'Reset'
+    'reset'=>'Reset',
+    //validate
+    'password is not equal confirm password'=>'Password is not equal confirm password',
 );
