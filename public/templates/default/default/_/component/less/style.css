@@ -153,6 +153,14 @@ header .header-content .flag-language ul li {
     color: red;
 }
 
+.the-game .content .note a {
+    color: red;
+}
+
+.the-game .content .note a:hover {
+    text-decoration: none;
+}
+
 .the-game .bot-content p.active{
     color: red;
 }
@@ -610,10 +618,26 @@ footer .main-footer {
         max-width: 180px;
     }
 
+    .the-game .content .note {
+        padding-left: 0px;
+        color: red;
+    }
+
 }
 
 /*=======================MAX-WIDTH: 480px======================*/
 @media (max-width: 480px) {
+
+    header .header-top .navbar-default .navbar-toggle{
+        margin-top: 60px;
+        margin-right: 0px;
+    }
+    header .header-top .navbar-default .logo {
+        max-width: 210px;
+    }
+    header .header-top .navbar-default .logo .navbar-brand {
+        padding-left: 0px;
+    }
 
     header .header-content .booking-now {
         width: 186px;
@@ -655,11 +679,35 @@ footer .main-footer {
         padding-left: 0px;
     }
 
+    .content .bot-content ul {
+        margin:auto;
+        width: 190px;
+    }
+
+    .the-game .bot-content ul.inline li img {
+        max-width: 221px;
+    }
+
+    .the-game .content .bot-content ul {
+        margin: 30px auto;
+        width: 100%;
+        padding-left: 30px;
+    }
+
 }
 
-/*=======================MAX-WIDTH: 768px======================*/
 
-@media (max-width: 768px) {
+/*=======================WIDTH: 480px->768px======================*/
+
+@media (min-width: 480px) and (max-width:768px) {
+    .content .bot-content ul {
+        margin:auto;
+        width: 480px;
+    }
+    .content .bot-content ul li {
+        padding: 30px;
+    }
+
     header .header-top .navbar-default .navbar-toggle{
         margin-top: 60px;
         margin-right: 0px;
@@ -678,40 +726,14 @@ footer .main-footer {
     }
 
     .the-game .content .bot-content ul {
-        margin: auto;
+        margin: 30px auto;
         width: 100%;
         padding-left: 10px;
     }
-}
 
-/*=======================MAX-WIDTH: 480px======================*/
-
-@media (max-width: 480px) {
-    .content .bot-content ul {
-        margin:auto;
-        width: 190px;
-    }
-
-    .the-game .bot-content ul.inline li img {
-        max-width: 221px;
-    }
-
-    .the-game .content .bot-content ul {
-        margin: auto;
-        width: 100%;
-        padding-left: 10px;
-    }
-}
-
-/*=======================WIDTH: 480px->768px======================*/
-
-@media (min-width: 480px) and (max-width:768px) {
-    .content .bot-content ul {
-        margin:auto;
-        width: 480px;
-    }
-    .content .bot-content ul li {
-        padding: 30px;
+    .the-game .content .note {
+        color: red;
+        padding-left: 0px;
     }
 
 }
