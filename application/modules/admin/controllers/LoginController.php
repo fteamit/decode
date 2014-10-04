@@ -12,6 +12,12 @@ class Admin_LoginController extends FTeam_Controller_Action
 
     public function indexAction()
     {
+        $login = new Zend_Session_Namespace('login_admin');
+        if (!empty($login->user_info))
+        {
+            $this->_helper->redirector('index', 'index');
+        }
+        
         if ($this->getRequest()->isPost())
         {
             $email_validate = array(
@@ -36,17 +42,15 @@ class Admin_LoginController extends FTeam_Controller_Action
             $validate = new FTeam_Validate_MyValidate();
             if ($validate->isValid($arr_validate, $arr_messages))
             {
-                $remember = $this->getRequest()->getParam('remember_me', 0);
                 $login = new Admin_Model_Login();
                 $arr_value = $validate->getValue();
                 $result = $login->login($arr_value['email'], $arr_value['password']);
-                if (!empty($result))
+                if (count($result) > 0)
                 {
-                    echo "<pre>";
-                    print_r($result);
-                    echo "</pre>";die;
                     $login = new Zend_Session_Namespace('login_admin');
-                    $login->user_info = '';
+                    $login->user_info = $result;
+                    $login->lock();
+                    $this->_helper->redirector('index', 'index');
                 }else{
                      $this->view->messages = __('email or password not correct');
                 }
@@ -57,6 +61,12 @@ class Admin_LoginController extends FTeam_Controller_Action
                 $this->view->value = $validate->getValue();
             }
         }
+    }
+    public function logoutAction()
+    {
+        $login = new Zend_Session_Namespace('login_admin');
+        $login->unsetAll();
+        $this->_helper->redirector('index', 'login');
     }
 
 }
