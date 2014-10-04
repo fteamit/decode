@@ -1,16 +1,22 @@
+<?php
+$general_settings = $this->general_settings;
+$home_setting = $this->home_setting;
+$game_setting = $this->game_setting;
+$contact_setting = $this->contact_setting;
+?>
 <!-- Page heading -->
 <div class="page-head">
     <!-- Page heading -->
-    <h2 class="pull-left">Settings
+    <h2 class="pull-left"><?php echo __('settings') ?>
         <!-- page meta -->
-        <span class="page-meta">Something Goes Here</span>
+        <span class="page-meta"><?php echo __('settings for website') ?></span>
     </h2>
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-        <a href="<?php echo $this->baseUrl('admin') ?>"><i class="fa fa-home"></i> Home</a> 
+        <a href="<?php echo $this->baseUrl('admin') ?>"><i class="fa fa-home"></i><?php echo __('home') ?></a> 
         <!-- Divider -->
         <span class="divider">/</span> 
-        <a href="javascript:void(0)" class="bread-current">Settings</a>
+        <a href="javascript:void(0)" class="bread-current"><?php echo __('settings') ?></a>
     </div>
     <div class="clearfix"></div>
 </div> <!--/ Page heading ends -->
@@ -20,77 +26,227 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="widget wred">
-                    <div class="widget-head">
-                        <div class="pull-left">Tables</div>
-                        <div class="widget-icons pull-right">
-                            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
-                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                <div class="row">
+                    <!--config menu-->
+                    <div class="col-md-6">
+                        <div class="widget wred">
+                            <div class="widget-head">
+                                <div class="pull-left"><?php echo __('general settings') ?></div>
+                                <div class="widget-icons pull-right">
+                                    <a href="javascript:void(0)" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+        <!--                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget-content">
+                                <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th><?php echo __('name') ?></th>
+                                            <th><?php echo __('group') ?></th>
+                                            <th><?php echo __('status') ?></th>
+                                            <th><?php echo __('action') ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($general_settings) > 0): ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($general_settings as $general): ?>
+                                                <tr>
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $general['option_name'] ?></td>
+                                                    <td><?php echo $general['option_group'] ?></td>
+                                                    <td>
+                                                        <?php if ($general['option_status'] == 1): ?>
+                                                            <span class="label label-success">Active</span>
+                                                        <?php else: ?>
+                                                            <span class="label label-important">Not Active</span>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </button>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="5"><?php echo __('no data') ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
+                    <!--end config menu-->
+                    <!--config home page-->
+                    <div class="col-md-6">
+                        <div class="widget wred">
+                            <div class="widget-head">
+                                <div class="pull-left"><?php echo __('setting for home page') ?></div>
+                                <div class="widget-icons pull-right">
+                                    <a href="javascript:void(0)" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+        <!--                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget-content">
+                                <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th><?php echo __('name') ?></th>
+                                            <th><?php echo __('group') ?></th>
+                                            <th><?php echo __('status') ?></th>
+                                            <th><?php echo __('action') ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($home_setting) > 0): ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($home_setting as $home): ?>
+                                                <tr>
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $home['option_name'] ?></td>
+                                                    <td><?php echo $home['option_group'] ?></td>
+                                                    <td>
+                                                        <?php if ($home['option_status'] == 1): ?>
+                                                            <span class="label label-success">Active</span>
+                                                        <?php else: ?>
+                                                            <span class="label label-important">Not Active</span>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </button>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="5"><?php echo __('no data') ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="clearfix"></div>
+                    </div>   
+                    <!--end config home-->
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <!--config the game-->
+                    <div class="col-md-6">
+                        <div class="widget wred">
+                            <div class="widget-head">
+                                <div class="pull-left"><?php echo __('setting for the game') ?></div>
+                                <div class="widget-icons pull-right">
+                                    <a href="javascript:void(0)" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+        <!--                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget-content">
+                                <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th><?php echo __('name') ?></th>
+                                            <th><?php echo __('group') ?></th>
+                                            <th><?php echo __('status') ?></th>
+                                            <th><?php echo __('action') ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($game_setting) > 0): ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($game_setting as $game): ?>
+                                                <tr>
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $game['option_name'] ?></td>
+                                                    <td><?php echo $game['option_group'] ?></td>
+                                                    <td>
+                                                        <?php if ($game['option_status'] == 1): ?>
+                                                            <span class="label label-success">Active</span>
+                                                        <?php else: ?>
+                                                            <span class="label label-important">Not Active</span>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </button>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="5"><?php echo __('no data') ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
                     </div>
-                    <div class="widget-content">
-                        <table class="table table-bordered ">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Location</th>
-                                    <th>Age</th>
-                                    <th>Education</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Ashok</td>
-                                    <td>India</td>
-                                    <td>23</td>
-                                    <td>B.Tech</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Kumarasamy</td>
-                                    <td>USA</td>
-                                    <td>22</td>
-                                    <td>BE</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Babura</td>
-                                    <td>UK</td>
-                                    <td>43</td>
-                                    <td>PhD</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Ravi Kumar</td>
-                                    <td>China</td>
-                                    <td>73</td>
-                                    <td>PUC</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Santhosh</td>
-                                    <td>Japan</td>
-                                    <td>43</td>
-                                    <td>M.Tech</td>
-                                </tr>                                                                        
-                            </tbody>
-                        </table>
+                    <!--end config the game-->
+                    <!--config contact-->
+                    <div class="col-md-6">
+                        <div class="widget wred">
+                            <div class="widget-head">
+                                <div class="pull-left"><?php echo __('setting for contact') ?></div>
+                                <div class="widget-icons pull-right">
+                                    <a href="javascript:void(0)" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+        <!--                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="widget-content">
+                                <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th><?php echo __('name') ?></th>
+                                            <th><?php echo __('group') ?></th>
+                                            <th><?php echo __('status') ?></th>
+                                            <th><?php echo __('action') ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (count($contact_setting) > 0): ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($contact_setting as $contact): ?>
+                                                <tr>
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $contact['option_name'] ?></td>
+                                                    <td><?php echo $contact['option_group'] ?></td>
+                                                    <td>
+                                                        <?php if ($contact['option_status'] == 1): ?>
+                                                            <span class="label label-success">Active</span>
+                                                        <?php else: ?>
+                                                            <span class="label label-important">Not Active</span>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> </button>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="5"><?php echo __('no data') ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
                     </div>
-                    <div class="widget-foot">
-                        <ul class="pagination pull-right">
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                        <div class="clearfix"></div> 
-                    </div>
-                </div>   
+                    <!--end config contact-->
+                </div>
             </div>
         </div>
 

@@ -73,15 +73,18 @@ $('.wclose').click(function(e){
 $('.wminimize').click(function(e){
 	//e.preventDefault();
 	var $wcontent = $(this).parent().parent().next('.widget-content');
+	var $whead = $(this).parent().parent('.widget-head');
 	if($wcontent.is(':visible')) 
 	{
 	  $(this).children('i').removeClass('fa fa-chevron-up');
 	  $(this).children('i').addClass('fa fa-chevron-down');
+          $whead.css({'background-color':'#932ab6', 'border':'#932ab6'});
 	}
 	else 
 	{
 	  $(this).children('i').removeClass('fa fa-chevron-down');
 	  $(this).children('i').addClass('fa fa-chevron-up');
+          $whead.css({'background-color':'#fa3031', 'border':'#fa3031'});
 	}            
 	$wcontent.toggle(500);
 }); 

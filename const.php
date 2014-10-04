@@ -46,3 +46,24 @@ define('PAGE_RANGE', 3);
 define('DEAULT_MODULE', 'default');
 
 
+
+//option group code
+//general settings
+define('GLOBAL_MENU_TOP', 'GLOBAL_MENU_TOP');
+define('GLOBAL_LOGO', 'GLOBAL_LOGO');
+//home page
+define('HOME_BANNER', 'HOME_BANNER');
+define('HOME_VIDEO', 'HOME_VIDEO');
+define('HOME_DECODE', 'HOME_DECODE');
+//the games
+define('GAMES_SLIDESHOW_IMG', 'GAMES_SLIDESHOW_IMG');
+define('GAMES_RULE', 'GAMES_RULE');
+//contact
+define('CONTACT_EMAIL', 'CONTACT_EMAIL');
+define('CONTACT_PHONE', 'CONTACT_PHONE');
+define('CONTACT_ADDRESS', 'CONTACT_ADDRESS');
+define('CONTACT_FACEBOOK', 'CONTACT_FACEBOOK');
+
+
+
+

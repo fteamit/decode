@@ -16,7 +16,7 @@
             <!-- Links -->
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    <a class="dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i> <?php echo __('languages') ?> 
                         <?php
                         $languages = New Zend_Session_Namespace('languages');
@@ -33,7 +33,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">            
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)">
                         <img src="<?php echo $this->imgUrl ?>/User_Circle.png" alt="" class="nav-user-pic img-responsive" />
                         <?php
                         $login = new Zend_Session_Namespace('login_admin');
