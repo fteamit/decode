@@ -18,4 +18,8 @@ return array(
     'reset'=>'Reset',
     //validate
     'password is not equal confirm password'=>'Password is not equal confirm password',
+    'email not empty'=>'Email not empty!',
+    'email is not a valid email address'=>'Email is not valid email address!',
+    'password not empty'=>'Password not empty!',
+    'email or password not correct'=>'Email or Password not correct!',
 );
