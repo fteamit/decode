@@ -12,58 +12,49 @@ class Admin_LoginController extends FTeam_Controller_Action
 
     public function indexAction()
     {
-        //Kiem tra chieu dai cua mot chuoi
-        $input = "Happvcbdtgddyd";
-        $validator = new Zend_Validate_StringLength(5, 10);
-
-        $validator->setMessages(array(
-            Zend_Validate_StringLength::TOO_SHORT => 'Chuoi nay thi qua ngan',
-            Zend_Validate_StringLength::TOO_LONG => 'Chuoi nay thi qua dai'
-                )
-        );
-        $v = New FTeam_Validate_MyValidate();
-        $v->add_validate($validator);
-        $arr_val = array(
-            $validator => $input
-        );
-        $v->set_list_fields($arr_val);
-        
-        if ($v->isValid())
-        {
-            echo 'Thoa dieu kien dua vao';
-        }
-        else
-        {
-            $messages = $validator->getMessages();
-            echo current($messages);
-            /* echo '<pre>';
-              print_r($messages);
-              echo '</pre>'; */
-        }
-        die;
-
-
-
         if ($this->getRequest()->isPost())
         {
-            $email = $this->getRequest()->getParam('email', '');
-            $pass = $this->getRequest()->getParam('password', '');
+            $email_validate = array(
+                new Zend_Validate_NotEmpty(),
+                new Zend_Validate_EmailAddress()
+            );
 
-            $validate = New Zend_Validate_EmailAddress();
-            $validate->isValid($email);
+            $arr_messages = array(
+                'email' => array(
+                    Zend_Validate_NotEmpty::IS_EMPTY => 'email not empty',
+                    Zend_Validate_EmailAddress::INVALID_FORMAT => 'email is not a valid email address'
+                ),
+                'password' => array(
+                    Zend_Validate_NotEmpty::IS_EMPTY => 'password not empty'
+                )
+            );
+            $arr_validate = array(
+                'email' => $email_validate,
+                'password' => new Zend_Validate_NotEmpty()
+            );
 
-
-            echo __FILE__;
-            var_dump($validate->isValid($email));
-            echo __LINE__;
-            die;
-
-            $remember = $this->getRequest()->getParam('remember_me', 0);
-            $login = new Admin_Model_Login();
-            $result = $login->login($email, $pass);
-            if (count($result) > 0)
+            $validate = new FTeam_Validate_MyValidate();
+            if ($validate->isValid($arr_validate, $arr_messages))
             {
-                
+                $remember = $this->getRequest()->getParam('remember_me', 0);
+                $login = new Admin_Model_Login();
+                $arr_value = $validate->getValue();
+                $result = $login->login($arr_value['email'], $arr_value['password']);
+                if (!empty($result))
+                {
+                    echo "<pre>";
+                    print_r($result);
+                    echo "</pre>";die;
+                    $login = new Zend_Session_Namespace('login_admin');
+                    $login->user_info = '';
+                }else{
+                     $this->view->messages = __('email or password not correct');
+                }
+            }
+            else
+            {
+                $this->view->messages = $validate->getMessages();
+                $this->view->value = $validate->getValue();
             }
         }
     }
