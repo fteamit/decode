@@ -42,7 +42,7 @@ class Admin_LoginController extends FTeam_Controller_Action
             $validate = new FTeam_Validate_MyValidate();
             if ($validate->isValid($arr_validate, $arr_messages))
             {
-                $login = new Admin_Model_Login();
+                $login = new Admin_Model_Users();
                 $arr_value = $validate->getValue();
                 $result = $login->login($arr_value['email'], $arr_value['password']);
                 if (count($result) > 0)

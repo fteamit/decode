@@ -2,6 +2,7 @@
 class FTeam_Controller_Action extends Zend_Controller_Action{
 	
     protected $class_body = 'home';
+    protected $languages = DEFAULT_LANGUAGES;
     public function init(){
 		$this->loadTemplate(DEFAULT_TEMPLATE);
                 $this->view->class_body = $this->class_body;
@@ -84,6 +85,7 @@ class FTeam_Controller_Action extends Zend_Controller_Action{
                 'content'=> $file,
                 'locale'=> $locale
             );
+            $this->languages = $locale;
             $translate = new Zend_Translate($option);
             Zend_Registry::set('Zend_Translate', $translate);
         }

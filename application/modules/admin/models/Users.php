@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Model_Login extends Zend_Db_Table
+class Admin_Model_Users extends Zend_Db_Table
 {
 
     protected $_name = 'tbl_users';
@@ -14,7 +14,10 @@ class Admin_Model_Login extends Zend_Db_Table
         $select = $this->select()
                 ->from($this->_name, $column)
                 ->where($where);
-        $result = $this->fetchRow($select)->toArray();
+        $result = $this->fetchRow($select);
+        if(count($result)){
+        	$result = $result->toArray();
+        }
         return $result;
     }
 
