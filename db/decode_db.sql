@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2014 at 02:50 AM
+-- Generation Time: Oct 05, 2014 at 07:10 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -89,7 +89,33 @@ CREATE TABLE IF NOT EXISTS `tbl_options` (
   `option_status` tinyint(2) NOT NULL DEFAULT '1',
   `option_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=36 ;
+
+--
+-- Dumping data for table `tbl_options`
+--
+
+INSERT INTO `tbl_options` (`option_id`, `option_name`, `option_value`, `option_image`, `option_group`, `option_status`, `option_lang`) VALUES
+(1, 'Logo1', 'Logo', '85658_201410050648.ogo.png', 'GLOBAL_LOGO', 1, 'en'),
+(7, 'Banner', 'WELCOME TO DECODE VIETNAM', 'Banner', 'HOME_BANNER', 1, 'en'),
+(8, 'Video Home', '//www.youtube.com/embed/jbPW10koNj0?rel=0&amp;controls=0&amp;modestbranding=1&amp;showinfo=0', 'Video Home', 'HOME_VIDEO', 1, 'en'),
+(9, 'DECODE - THE LIVE ESCAPE ROOM', 'Sign up for DECODE’s 45 minute escape challenge, where you will be locked in a room... or rooms, filled with mysteries, clues, brain teasers and puzzles, for you to decipher. Your chance of success rests on two factors: first, your teamwork,  and second, your brainpower. You will need plenty of both (and maybe a little luck) to finish our quest.Enough said. So... Ready to work side-by-side with your pals? Ready to release your inner detective? Challenge accepted? Book your escape now!', 'Decode Home', 'HOME_DECODE', 1, 'en'),
+(10, 'Slideshow The Game', 'Slideshow', 'Slideshow', 'GAMES_SLIDESHOW_IMG', 1, 'en'),
+(11, 'Rule', 'In a team of 2-5 people, you will be locked in a custom designed, captivating and pulse-raising environment, in which you will attempt to solve many riddles and puzzles in place. Unlocking the room’s mysteries will lead you to the final key to escape. To facilitate your quest, we will allow you 2 hints at anytime during the game. REMEMBER: to emerge a winner, you have to complete the quest in 45 minutes! It’s a race against the clock!<br/>\r\nWe have 4 room themes at the moment: The Butchery, Haunted Hotel, Mega-Nerd and Save Santa . Each theme is carefully crafted to cover you the entire emotional spectrum from shock and frantic to thrill and accomplished.', 'The Game Rule', 'GAMES_RULE', 1, 'en'),
+(12, 'Email', 'info@decode.com.vn', 'Contact Email', 'CONTACT_EMAIL', 1, 'en'),
+(13, 'Phone', '+84.000.000.000', 'Contact Phone', 'CONTACT_PHONE', 1, 'en'),
+(14, 'Address', '8th Floor,Qunimex Building, 29 Le Dai Hanh, Ha Noi, Viet Nam', 'Contact Address', 'CONTACT_ADDRESS', 1, 'en'),
+(15, 'Contact Facebook', 'http://facebook.com', 'Contact Facebook', 'CONTACT_FACEBOOK', 1, 'en'),
+(20, 'Logo', 'Decode', '83530_201410050847.ogo.png', 'GLOBAL_LOGO', 1, 'vi'),
+(27, 'Banner', 'CHÀO MỪNG BẠN ĐẾN VỚI DECODE VIỆT NAM', 'Banner', 'HOME_BANNER', 1, 'vi'),
+(28, 'Video Trang Chủ', 'Video Home', 'Video Home', 'HOME_VIDEO', 1, 'vi'),
+(29, 'Decode Trang Chủ', 'Decode Home', 'Decode Home', 'HOME_DECODE', 1, 'vi'),
+(30, 'Slideshow The Game', 'Slideshow', 'Slideshow', 'GAMES_SLIDESHOW_IMG', 1, 'vi'),
+(31, 'Quy tắc', 'The Game Rule', 'The Game Rule', 'GAMES_RULE', 1, 'vi'),
+(32, 'Email', 'Contact Email', 'Contact Email', 'CONTACT_EMAIL', 1, 'vi'),
+(33, 'SĐT', 'Contact Phone', 'Contact Phone', 'CONTACT_PHONE', 1, 'vi'),
+(34, 'Địa chỉ', 'Contact Address', 'Contact Address', 'CONTACT_ADDRESS', 1, 'vi'),
+(35, 'Liên kết Facebook', 'Contact Facebook', 'Contact Facebook', 'CONTACT_FACEBOOK', 1, 'vi');
 
 -- --------------------------------------------------------
 
