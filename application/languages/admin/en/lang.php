@@ -1,7 +1,13 @@
 <?php
 
 return array(
-    'message'=>'This is Enghlish of page Admin',
+    //top admin
+    'languages'=>'Languages',
+    'english' => 'English',
+    'vietnamese' => 'Vietnamese(Tiếng Việt)',
+    'profile' => 'Profile',
+    'settings' => 'Settings',
+    'logout' => 'Logout',
     //Phan trang
     'page'=>'Page',
     'of'=>'Of',

@@ -1,17 +1,7 @@
-<h3>DECODE - THE LIVE ESCAPE ROOM</h3>
+<?php $home_decode = $this->options_home_decode;?>
+<?php if(count($home_decode)>0):?>
+<h3><?php echo $home_decode['option_name']?></h3>
 <p>
-    Sign up for DECODE’s 45 minute escape challenge, where you will be locked in a
-
-    room... or rooms, filled with mysteries, clues, brain teasers and puzzles, for you 
-
-    to decipher. Your chance of success rests on two factors: first, your teamwork, 
-
-    and second, your brainpower. You will need plenty of both (and maybe a little 
-
-    luck) to finish our quest.
+    <?php echo $home_decode['option_value']?>
 </p>
-<p>
-    Enough said. So... Ready to work side-by-side with your pals? Ready to release
-
-    your inner detective? Challenge accepted? Book your escape now!
-</p>
+<?php endif;?>

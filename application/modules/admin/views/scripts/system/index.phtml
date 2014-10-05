@@ -22,7 +22,7 @@
         <div class="widget-content">
             <div class="padd">
                 <!-- Login form -->
-                <form class="form-horizontal" action="<?php echo $this->baseUrl('/admin/login/index') ?>" method="post">
+                <form class="form-horizontal" action="<?php echo $this->baseUrl('/admin/system/index') ?>" method="post">
                     <!-- Email -->
                     <div class="form-group">
                         <label class="control-label col-lg-3" for="email"><?php echo __('email') ?></label>
@@ -39,13 +39,6 @@
                     </div>
                     <!-- Remember me checkbox and sign in button -->
                     <div class="form-group">
-                        <div class="col-lg-9 col-lg-offset-3">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember_me" value="1"> <?php echo __('remember me') ?>
-                                </label>
-                            </div>
-                        </div>
                         <div class="col-lg-9 col-lg-offset-3">
                             <button type="submit" class="btn btn-danger"><?php echo __('sign in') ?></button>
                             <button type="reset" class="btn btn-default"><?php echo __('reset') ?></button>

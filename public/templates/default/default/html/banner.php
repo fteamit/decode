@@ -1,13 +1,24 @@
-<div class="header-content">
-    <h2>WELCOME TO DECODE VIETNAM</h2>
-    <div class="booking-now">
-    </div>
-    <a href="<?php echo $this->baseUrl('bookings/index/bookings')?>" class="book-now">Book Now</a>
+<?php $options_home_banner = $this->options_home_banner; ?>
+<?php if (count($options_home_banner) > 0): ?>
+    <div class="header-content">
+        <h2><?php echo $options_home_banner['option_value']?></h2>
+        <div class="booking-now">
+        </div>
+        <a href="<?php echo $this->baseUrl('bookings/index/bookings') ?>" class="book-now"><?php echo __('book now')?></a>
 
-    <div class="flag-language">
-        <ul>
-            <li class="en"><img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/top/flagen.png"/></li>
-            <li class="vn"><img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/top/flagvn.png"/></li>
-        </ul>
+        <div class="flag-language">
+            <ul>
+                <li class="en">
+                    <a href="<?php echo $this->baseUrl($this->currentController . "/index/lang/en") ?>">
+                        <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/top/flagen.png"/>
+                    </a>
+                </li>
+                <li class="vn">
+                    <a href="<?php echo $this->baseUrl($this->currentController . "/index/lang/vi") ?>">
+                        <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/top/flagvn.png"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+<?php endif; ?>
