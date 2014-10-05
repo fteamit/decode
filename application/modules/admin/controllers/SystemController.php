@@ -1,6 +1,6 @@
 <?php
 
-class Admin_LoginController extends FTeam_Controller_Action
+class Admin_SystemController extends FTeam_Controller_Action
 {
 
     public function init()
@@ -42,14 +42,15 @@ class Admin_LoginController extends FTeam_Controller_Action
             $validate = new FTeam_Validate_MyValidate();
             if ($validate->isValid($arr_validate, $arr_messages))
             {
-                $login = new Admin_Model_Users();
+                $login_user = new Admin_Model_Users();
                 $arr_value = $validate->getValue();
-                $result = $login->login($arr_value['email'], $arr_value['password']);
+                $result = $login_user->login($arr_value['email'], $arr_value['password']);
                 if (count($result) > 0)
                 {
                     $login = new Zend_Session_Namespace('login_admin');
                     $login->user_info = $result;
                     $login->lock();
+                    $login_user->createToken($arr_value['email']);
                     $this->_helper->redirector('index', 'index');
                 }else{
                      $this->view->messages = __('email or password not correct');
@@ -66,7 +67,9 @@ class Admin_LoginController extends FTeam_Controller_Action
     {
         $login = new Zend_Session_Namespace('login_admin');
         $login->unsetAll();
-        $this->_helper->redirector('index', 'login');
+        $session_token = new Zend_Session_Namespace('ns_token');
+        $session_token->unsetAll();
+        $this->_helper->redirector('index', 'system');
     }
 
 }

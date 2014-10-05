@@ -1,5 +1,5 @@
 <?php
-class Options_Model_Test extends Zend_Db_Table{
+class Contact_Model_Test extends Zend_Db_Table{
 	
 	public function test(){
 		echo '<br>' . __METHOD__;

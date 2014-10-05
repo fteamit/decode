@@ -60,3 +60,14 @@ function Password_Generator($str)
     return md5(sha1(md5($str)));
 }
 
+//check file exits upload forder
+function Check_File_Exists_Upload($file)
+{
+    if (file_exists(PUBLIC_PATH . '/upload/' . $file))
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+

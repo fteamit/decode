@@ -45,7 +45,8 @@ define('PAGE_RANGE', 3);
 //Module default
 define('DEAULT_MODULE', 'default');
 
-
+//Duong dan den thu muc /upload
+define('UPLOAD_URL', 'public/upload/');
 
 //option group code
 //general settings

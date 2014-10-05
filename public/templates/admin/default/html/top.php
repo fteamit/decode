@@ -28,8 +28,8 @@
                         <?php endif; ?>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-user"></i><?php echo __('english')?></a></li>
-                        <li><a href="#"><i class="fa fa-user"></i><?php echo __('vietnamese')?></a></li>
+                        <li><a href="<?php echo $this->baseUrl($this->currentController."/index/lang/en")?>"><i class="fa fa-user"></i><?php echo __('english')?></a></li>
+                        <li><a href="<?php echo $this->baseUrl($this->currentController."/index/lang/vi")?>"><i class="fa fa-user"></i><?php echo __('vietnamese')?></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">            
@@ -45,8 +45,8 @@
                     <!-- Dropdown menu -->
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-user"></i><?php echo __('profile')?></a></li>
-                        <li><a href="<?php echo $this->baseUrl('admin/options') ?>"><i class="fa fa-cogs"></i><?php echo __('settings')?></a></li>
-                        <li><a href="<?php echo $this->baseUrl('admin/login/logout') ?>"><i class="fa fa-power-off"></i><?php echo __('logout')?></a></li>
+                        <li><a href="<?php echo $this->baseUrl('admin/settings') ?>"><i class="fa fa-cogs"></i><?php echo __('settings')?></a></li>
+                        <li><a href="<?php echo $this->baseUrl('admin/system/logout') ?>"><i class="fa fa-power-off"></i><?php echo __('logout')?></a></li>
                     </ul>
                 </li>
             </ul>

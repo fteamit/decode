@@ -15,10 +15,23 @@ class Admin_Model_Users extends Zend_Db_Table
                 ->from($this->_name, $column)
                 ->where($where);
         $result = $this->fetchRow($select);
-        if(count($result)){
-        	$result = $result->toArray();
+        if (count($result))
+        {
+            $result = $result->toArray();
         }
         return $result;
+    }
+
+    public function createToken($user_email)
+    {
+        $session_token = new Zend_Session_Namespace('ns_token');
+        if (empty($session_token->token))
+        {
+            $token = sha1(md5(rand(999999, 99999999999) . '_' . date('Ymdhs') . $user_email));
+            $session_token->token = $token;
+            $session_token->lock();
+            Zend_Registry::set('token', $token);
+        }
     }
 
 }
