@@ -1,1 +1,4 @@
-Index
+<?php 
+$currentUrl = $this->baseUrl($thi->currentController.'/index');
+echo $this->paginationControl($this->pagination, 'Sliding','pagination.phtml',array('currentUrl'=>$currentUrl));
+?>
