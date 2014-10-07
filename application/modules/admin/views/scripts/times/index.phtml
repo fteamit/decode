@@ -59,14 +59,10 @@ $id = 1;
                 </table>
             </div>
             <div class="widget-foot">
-                <ul class="pagination pull-right">
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
+                <?php
+                $currentUrl = $this->baseUrl($this->currentController.'/index');
+                echo $this->paginationControl($this->pagination, 'Sliding','pagination.phtml',array('currentUrl'=>$currentUrl));
+                ?>
                 <div class="clearfix"></div>
             </div>
         </div>
