@@ -27,4 +27,10 @@ return array(
     'email is not a valid email address'=>'Email không đúng định dạng!',
     'password not empty'=>'Mật khẩu không được để trống!',
     'email or password not correct'=>'Email hoặc mật khẩu không đúng!',
+    'times'=>'hời gian',
+    'games'=> 'Trò chơi',
+    'name'=> 'Tên trò chơi',
+    'status'=> 'Trạng thái',
+    'edit'=> 'Chỉnh sửa',
+
 );
