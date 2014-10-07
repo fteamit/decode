@@ -1,7 +1,6 @@
 /nbproject
 /application/Bootstrap.php
-
-
 /application/configs/application.ini
-
-/.idea
+/decode
+/decode.pub
+.idea/
