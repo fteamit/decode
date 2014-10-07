@@ -402,6 +402,9 @@ header .header-content .flag-language ul li {
 
 .faq .content .mid-content .row {
     max-width: 730px;
+}
+
+.faq .content .mid-content .faq-toggle-1 {
     padding-top: 78px;
 }
 

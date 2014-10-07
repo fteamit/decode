@@ -1,0 +1,72 @@
+<div class="matter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget wgreen">
+                    <div class="widget-head">
+                        <div class="pull-left">Forms</div>
+                        <div class="widget-icons pull-right">
+                            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content">
+                        <div class="padd">
+
+                            <h6>Input Boxs</h6>
+                            <hr />
+                            <!-- Form starts.  -->
+                            <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->baseUrl('admin/faqs/edit/id/').$this->items['faq_id']?>">
+<!--                                --><?php //if($this->items): ?>
+<!--                                    --><?php //var_dump($this->items['faq_question'])?>
+<!--                                --><?php //endif;?>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Input Box</label>
+<!--                                    --><?php //var_dump($this->item);?>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder="Input Box" name="faq_question" value="<?php echo (isset($this->items['faq_question']))?$this->items['faq_question']:''?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">RadioBox</label>
+                                    <div class="col-md-8">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="faq_status" id="hien" value="1" <?php echo (($this->items['faq_status']) == 1)?'checked':''?>>
+                                                Hiện
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="faq_status" id="an" value="0" <?php echo (($this->items['faq_status']) == 0)?'checked':''?>>
+                                                Ẩn
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Answer</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" rows="10"  cols="10" placeholder="Textarea" name="faq_answer">
+                                            <?php if(isset($this->items['faq_answer'])) echo $this->items['faq_answer']?>
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-8">
+
+                                        <input type="submit" class="btn btn-success" value="Edit Question"/>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/ Matter ends -->

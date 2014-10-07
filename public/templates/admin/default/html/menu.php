@@ -41,8 +41,20 @@
                     <span class="pull-right"><i class="fa fa-angle-right"></i></span>
                 </a>
                 <ul>
-                    <li><a href="#">View all prices</a></li>
-                    <li><a href="#">Add new price</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/prices'); ?>">View all prices</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/prices/add'); ?>">Add new price</a></li>
+                </ul>
+            </li>
+            <li class="has_submenu nlightblue">
+                <a href="#">
+                    <!-- Menu name with icon -->
+                    <i class="fa fa-th"></i> Times
+                    <!-- Icon for dropdown -->
+                    <span class="pull-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+                <ul>
+                    <li><a href="<?php echo $this->baseUrl('admin/times'); ?>">View all times</a></li>
+                    <li><a href="#">Add new time</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">
@@ -53,8 +65,8 @@
                     <span class="pull-right"><i class="fa fa-angle-right"></i></span>
                 </a>
                 <ul>
-                    <li><a href="#">View all FAQs</a></li>
-                    <li><a href="#">Add new FAQ</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/faqs') ?>">View all FAQs</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/faqs/save')?>">Add new FAQ</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">

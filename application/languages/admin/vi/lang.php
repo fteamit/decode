@@ -27,4 +27,21 @@ return array(
     'email is not a valid email address'=>'Email không đúng định dạng!',
     'password not empty'=>'Mật khẩu không được để trống!',
     'email or password not correct'=>'Email hoặc mật khẩu không đúng!',
+    //Times page
+    'times'=>'Thời gian',
+    'STT'=>'STT',
+    'games'=> 'Trò chơi',
+    'games name'=> 'Tên trò chơi',
+    'name'=> 'Tên trò chơi',
+    'status'=> 'Trạng thái',
+    'edit times'=> 'Chỉnh sửa Thời gian',
+    'enable'=> 'Hoạt động',
+    'disable'=> 'Không hoạt động',
+    //Prices page
+    'prices table'=>'Bảng Giá Game',
+    'prices type'=> "Loại Giá",
+    'prices desc'=> "Mô tả Giá",
+    'prices'=> 'Giá',
+    'edit prices'=> 'Sửa Giá',
+
 );
