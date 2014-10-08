@@ -30,9 +30,20 @@ return array(
     'email or password not correct'=>'Email or Password not correct!',
     //Times page
     'times'=>'Times',
-    'games'=> 'Games',
+    'STT'=>'No.',
+    'games'=> "Games",
+    'games name'=> "Game"."'s Name",
     'name'=> 'Name',
     'status'=> 'Status',
-    'edit'=> 'Edit',
+    'edit times'=> 'Edit Times',
+    'enable'=> 'Enable',
+    'disable'=> 'Disable',
+    //Prices page
+    'prices table'=>'Prices Table',
+    'prices type'=> "Price"."'s Type",
+    'prices desc'=> "Price"."'s Desc",
+    'prices'=> 'Price',
+    'edit prices'=> 'Edit Price',
+
 
 );

@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `tbl_prices` (
   `price_id` int(11) NOT NULL AUTO_INCREMENT,
   `price_name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `price_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price_value` float NOT NULL,
   `price_status` tinyint(4) NOT NULL DEFAULT '1',
   `price_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`price_id`)

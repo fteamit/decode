@@ -1,0 +1,71 @@
+<!--TrangVT-->
+<?php
+$prices = new Admin_Model_Prices;
+$pricesCollection = $prices->getAllPrices();
+$id= 1;
+?>
+<div class="page-head">
+    <h2 class="pull-left"><?php echo __('prices table') ?></h2>
+</div>
+
+<div class="matter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget wviolet">
+                    <div class="widget-head">
+                        <div class="pull-left"><?php echo __('prices table') ?></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="widget-content">
+                        <table class="table table-bordered ">
+                            <thead>
+                            <tr>
+                                <th><?php echo __('STT')?></th>
+                                <th><?php echo __('prices type')?></th>
+                                <th><?php echo __('prices desc')?></th>
+                                <th><?php echo __('prices')?></th>
+                                <th><?php echo __('status')?></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($pricesCollection as $price):?>
+                                <?php
+                                if($price['price_status'] == 1){
+                                    $class = 'label-success';
+                                    $priceStatus = __('enable');
+                                }else{
+                                    $class = 'label-important';
+                                    $priceStatus = __('disable');
+                                }
+                                ?>
+                                <tr>
+                                    <td><?php echo $id ?></td>
+                                    <td><?php echo $price['price_name'] ?></td>
+                                    <td><?php echo $price['price_desc'] ?></td>
+                                    <td><?php echo $price['price_value'] ?></td>
+                                    <td><span class="label <?php echo $class?>"><?php echo $priceStatus ?></span></td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="#"><?php echo __('edit prices')?></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php $id++ ?>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget-foot">
+                        <?php
+                        $currentUrl = $this->baseUrl($this->currentController.'/index');
+                        echo $this->paginationControl($this->pagination, 'Sliding','pagination.phtml',array('currentUrl'=>$currentUrl));
+                        ?>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/ Matter ends -->
