@@ -63,7 +63,7 @@ class Bookings_Model_Dbtable_Times extends Zend_Db_Table
             echo "Message: " . $e->getMessage() . "\n";
             $intIsOk = -1;
         }
-        return $intIsOk;;
+        return $intIsOk;
     }
 
     /**
