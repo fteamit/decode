@@ -43,7 +43,6 @@ return array(
     'prices type'=> "Price"."'s Type",
     'prices desc'=> "Price"."'s Desc",
     'prices'=> 'Price',
-    'edit prices'=> 'Edit Price',
-
+    'add new price'=> 'Add New Price',
 
 );

@@ -173,3 +173,32 @@ INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, `user_status`) VALUES
+(1, 'admin@gmail.com', '722e0c45e1906f22b4afcb75ba164fb4', 'Phan The Binh', 1);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+# =================
+# update DB first
+# Add 'is_weekend' field for `tbl_times` table
+# trangvt
+ALTER TABLE `tbl_prices` ADD price_value FLOAT NOT NULL AFTER `price_desc`;
+ALTER TABLE `tbl_times` ADD `is_weekend` TINYINT( 1 ) NOT NULL COMMENT 'discrimination weekend with normal days';
+CREATE TABLE IF NOT EXISTS `tbl_bookinfo` (
+  `bookinfo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `time_id` int(11) NOT NULL,
+  `game_id` int(11) NOT NULL,
+  `price_id` int(11) NOT NULL,
+  PRIMARY
+
+  KEY (`bookinfo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1
+
+;
+ALTER TABLE `tbl_times`
+DROP `game_id`,
+DROP `price_id`;
+# ===================

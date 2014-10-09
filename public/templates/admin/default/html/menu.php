@@ -42,7 +42,7 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $this->baseUrl('admin/prices'); ?>">View all prices</a></li>
-                    <li><a href="<?php echo $this->baseUrl('admin/prices/add'); ?>">Add new price</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/prices/update'); ?>">Add new price</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">

@@ -77,7 +77,7 @@ class Admin_SettingsController extends FTeam_Controller_AdminAction
                     }
                     else
                     {
-                        $this->view->messages = array('update_fali' => array(__('update settings fail!')));
+                        $this->view->messages = array('update_fail' => array(__('update settings fail!')));
                     }
                 }
                 else

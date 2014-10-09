@@ -15,7 +15,8 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
         $this->view->pagination = $pagination->createPaginator(10, $this->_paginator);
     }
 
-    public function addAction(){
+    public function updateAction(){
+        $this->view->id = $this->getRequest()->getParam('id', 0);
 
     }
     public function saveAction(){

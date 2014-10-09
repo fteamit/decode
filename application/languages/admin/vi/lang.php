@@ -42,6 +42,6 @@ return array(
     'prices type'=> "Loại Giá",
     'prices desc'=> "Mô tả Giá",
     'prices'=> 'Giá',
-    'edit prices'=> 'Sửa Giá',
+    'add new price'=> 'Thêm Giá',
 
 );
