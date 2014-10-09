@@ -181,11 +181,11 @@ INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-# =================
-# update DB first
-# Add 'is_weekend' field for `tbl_times` table
-# trangvt
-ALTER TABLE `tbl_prices` ADD price_value FLOAT NOT NULL AFTER `price_desc`;
+-- # =================
+-- # update DB first
+-- # Add 'is_weekend' field for `tbl_times` table
+-- # trangvt
+ALTER TABLE `tbl_prices` ADD `price_value` FLOAT NOT NULL AFTER `price_desc`;
 ALTER TABLE `tbl_times` ADD `is_weekend` TINYINT( 1 ) NOT NULL COMMENT 'discrimination weekend with normal days';
 CREATE TABLE IF NOT EXISTS `tbl_bookinfo` (
   `bookinfo_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -201,4 +201,4 @@ CREATE TABLE IF NOT EXISTS `tbl_bookinfo` (
 ALTER TABLE `tbl_times`
 DROP `game_id`,
 DROP `price_id`;
-# ===================
+-- # ===================
