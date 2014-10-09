@@ -38,14 +38,12 @@ class Bookings_Model_Biz_TimesBusiness
     public function getDaysOfWeek()
     {
         $today = date('d-m-Y');
-        return array(
-            date('D', strtotime($today)) => $today,
-            date('D', strtotime($today . ' +1 day ')) => date('d-m-Y', strtotime($today . ' +1 day ')),
-            date('D', strtotime($today . ' +2 day ')) => date('d-m-Y', strtotime($today . ' +2 day ')),
-            date('D', strtotime($today . ' +3 day ')) => date('d-m-Y', strtotime($today . ' +3 day ')),
-            date('D', strtotime($today . ' +4 day ')) => date('d-m-Y', strtotime($today . ' +4 day ')),
-            date('D', strtotime($today . ' +5 day ')) => date('d-m-Y', strtotime($today . ' +5 day ')),
-            date('D', strtotime($today . ' +6 day ')) => date('d-m-Y', strtotime($today . ' +6 day '))
-        );
+        $aryDate = array();
+        for ($i = 0; $i <= 6; $i++) {
+            $day = date('D', strtotime($today . ' +' . $i . ' day '));
+            $date = date('d-m-Y', strtotime($today . ' +' . $i . ' day '));
+            $aryDate[$day] = $date;
+        }
+        return $aryDate;
     }
 }
