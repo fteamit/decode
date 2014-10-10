@@ -44,5 +44,26 @@ return array(
     'prices desc'=> "Price"."'s Desc",
     'prices'=> 'Price',
     'add new price'=> 'Add New Price',
+    //setting page
+    'update status option success!'=>'Update status setting success!',
+    'update status option fail!'=>'update status setting fail!',
+    'name not empty'=>'Name not empty.',
+    'settings'=>'Settings',
+    'settings for website'=>'Settings for website',
+    'home'=>'Home',
+    'general settings'=>'General settings',
+    'name'=>'Name',
+    'group'=>'Group',
+    'status'=>'Status',
+    'action'=>'Action',
+    'active'=>'Active',
+    'not active'=>'Not active',
+    'no data'=> 'No data',
+    'setting for home page'=>'Setting for home page',
+    'setting for the game'=>'Setting for the game',
+    'setting for contact'=>'Setting for contact',
+    'update settings'=>'Update settings',
+    'update'=>'Update',
+    'reset'=>'Reset'
 
 );
