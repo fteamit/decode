@@ -38,7 +38,7 @@ return array(
     'enable'=> 'Hoạt động',
     'disable'=> 'Không hoạt động',
     //Prices page
-    'prices table'=>'Bảng Giá Game',
+    'prices table'=>'Bảng Giá',
     'prices type'=> "Loại Giá",
     'prices desc'=> "Mô tả Giá",
     'prices'=> 'Giá',

@@ -1,9 +1,7 @@
 <!--TrangVT-->
 <?php
 $singlePrice = $this->singlePrice;
-//echo "<pre>";
-//var_dump($singlePrice);
-//echo "</pre>";
+$price_id = $singlePrice['price_id'];
 ?>
 <div class="col-md-7">
     <!-- Quick setting -->
@@ -29,21 +27,21 @@ $singlePrice = $this->singlePrice;
                         <div class="form-group">
                             <label class="control-label col-md-2" for="sitename"><?php echo __('prices type')?></label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" id="sitename" value="<?php echo $singlePrice['price_name'] ?>">
+                                <input type="text" class="form-control" id="sitename" name="price_name" value="<?php echo $singlePrice['price_name'] ?>">
                             </div>
                         </div>
                         <!-- Price Desc -->
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="sitedescription"><?php echo __('prices desc')?></label>
                             <div class="col-lg-7">
-                                <textarea class="form-control" id="sitedescription"><?php echo $singlePrice['price_desc'] ?></textarea>
+                                <textarea class="form-control" name="price_desc" id="sitedescription"><?php echo $singlePrice['price_desc'] ?></textarea>
                             </div>
                         </div>
                         <!-- Price -->
                         <div class="form-group">
                             <label class="control-label col-md-2" for="sitename"><?php echo __('prices')?></label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" id="sitename" value="<?php echo $singlePrice['price_value'] ?>">
+                                <input type="text" class="form-control" id="sitename" name="price_value" value="<?php echo $singlePrice['price_value'] ?>">
                             </div>
                         </div>
                         <!-- Price Status -->
@@ -51,10 +49,10 @@ $singlePrice = $this->singlePrice;
                             <label class="control-label col-lg-2"><?php echo __('status')?></label>
                             <div class="col-lg-7">
                                 <div class="radio">
-                                    <label><input type="radio" name="optionsRadios" id="1" value="1"><?php echo __('enable')?></label>
+                                    <label><input type="radio" name="<?php echo "price_status" ?>" id="1" value="1" <?php if($singlePrice['price_status'] == 1){echo 'checked';}?>><?php echo __('enable')?></label>
                                 </div>
                                 <div class="radio">
-                                    <label><input type="radio" name="optionsRadios" id="0" value="0"><?php echo __('disable')?></label>
+                                    <label><input type="radio" name="<?php echo "price_status" ?>" id="0" value="0" <?php if($singlePrice['price_status'] == 0){echo 'checked';}?>><?php echo __('disable')?></label>
                                 </div>
                             </div>
                         </div>

@@ -43,8 +43,17 @@ class Admin_Model_Prices extends Zend_Db_Table
         return $result;
     }
 
-    public function savePrice(){
-
+    public function updatePrice($singlePriceUpdate = array(), $price_id = null)
+    {
+        $where = '1=1 AND ';
+        if($price_id != null){
+            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
+        }
+        $update = $this->_db->update($this->_name, $singlePriceUpdate, $where);
+        $result = $this->fetchRow($update);
+        if(count($update)){
+            $result = $result->toArray();
+        }
+        return $result;
     }
-
 }
