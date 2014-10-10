@@ -1,11 +1,13 @@
 <!--TrangVT-->
 <?php
-echo 111;
-echo $this->id;
+$singlePrice = $this->singlePrice;
+//echo "<pre>";
+//var_dump($singlePrice);
+//echo "</pre>";
 ?>
 <div class="col-md-7">
     <!-- Quick setting -->
-    <div class="widget wviolet">
+    <div class="widget wred">
         <div class="widget-head">
             <div class="pull-left"><?php echo __('add new price')?></div>
             <div class="widget-icons pull-right">
@@ -20,33 +22,42 @@ echo $this->id;
 
                 <div class="form quick-post">
                     <!-- Quick setting form (not working)-->
-                    <form class="form-horizontal" role="form" action="<?php echo $this->baseUrl('admin/prices/add'); ?>" method="post">
-                        <!-- Name -->
+                    <form class="form-horizontal" role="form" action="<?php echo $this->baseUrl('admin/prices/save'); ?>" method="post">
+                        <input type="hidden" name="price_id" value="<?php echo $singlePrice['price_id'] ?>"/>
+                        <input type="hidden" name="price_lang" value="<?php echo $singlePrice['price_lang'] ?>"/>
+                        <!-- Price Type -->
                         <div class="form-group">
                             <label class="control-label col-md-2" for="sitename"><?php echo __('prices type')?></label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" id="sitename" placeholder="Metro King">
+                                <input type="text" class="form-control" id="sitename" value="<?php echo $singlePrice['price_name'] ?>">
                             </div>
                         </div>
-                        <!-- description -->
+                        <!-- Price Desc -->
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="sitedescription"><?php echo __('prices desc')?></label>
                             <div class="col-lg-7">
-                                <textarea class="form-control" id="sitedescription"></textarea>
+                                <textarea class="form-control" id="sitedescription"><?php echo $singlePrice['price_desc'] ?></textarea>
                             </div>
                         </div>
-                        <!-- User role Format -->
+                        <!-- Price -->
                         <div class="form-group">
-                            <label class="control-label col-lg-2"><?php echo __('prices')?></label>
-                            <div class="col-lg-7">
-                                <select class="form-control">
-                                    <option value='option1'>Author</option>
-                                    <option value='option2'>Moderator</option>
-                                    <option value='option3'>Editor</option>
-                                </select>
+                            <label class="control-label col-md-2" for="sitename"><?php echo __('prices')?></label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="sitename" value="<?php echo $singlePrice['price_value'] ?>">
                             </div>
                         </div>
-
+                        <!-- Price Status -->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"><?php echo __('status')?></label>
+                            <div class="col-lg-7">
+                                <div class="radio">
+                                    <label><input type="radio" name="optionsRadios" id="1" value="1"><?php echo __('enable')?></label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="optionsRadios" id="0" value="0"><?php echo __('disable')?></label>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Buttons -->
                         <div class="form-group">
                             <!-- Buttons -->

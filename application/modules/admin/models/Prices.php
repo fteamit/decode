@@ -12,37 +12,39 @@ class Admin_Model_Prices extends Zend_Db_Table
     {
         parent::__construct($config, $definition);
         $languages = New Zend_Session_Namespace('languages');
-        if (!empty($languages->languages))
-        {
+        if (!empty($languages->languages)) {
             $this->_languages = $languages->languages;
         }
     }
-    public function getAllPrices(){
+
+    public function getAllPrices()
+    {
         $where = "price_lang = '$this->_languages'";
         $result = $this->fetchall($where);
-        if (count($result))
-        {
+        if (count($result)) {
             $result = $result->toArray();
         }
         return $result;
     }
 
-    public function getSinglePrice($price_id, $status = -1)
+    public function getSinglePrice($price_id = null)
     {
-        $where = "price_id = $price_id AND price_id = '$this->_languages'";
-        if ($status !== -1)
-        {
-            $where .= " AND price_status = $status";
+        $where = '1=1 AND ';
+        if ($price_id) {
+            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
         }
         $select = $this->select()
             ->from($this->_name)
             ->where($where);
         $result = $this->fetchRow($select);
-        if (count($result))
-        {
+        if (count($result)) {
             $result = $result->toArray();
         }
         return $result;
+    }
+
+    public function savePrice(){
+
     }
 
 }

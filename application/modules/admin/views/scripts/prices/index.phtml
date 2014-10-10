@@ -18,7 +18,7 @@ $id= 1;
                         <div class="widget-icons pull-right">
                             <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                             <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                            <a href="<?php echo $this->baseUrl('admin/prices/update/id=0'); ?>" class=""><?php echo __('add new price')?></a>
+                            <a href="<?php echo $this->baseUrl('admin/prices/update/id/0'); ?>" class=""><?php echo __('add new price')?></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -53,7 +53,7 @@ $id= 1;
                                     <td><span class="label <?php echo $class?>"><?php echo $priceStatus ?></span></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="<?php echo $this->baseUrl('admin/prices/update/id='.$price['price_id']); ?>" class="btn btn-sm btn-warning">
+                                            <a href="<?php echo $this->baseUrl('admin/prices/update/id/'.$price['price_id']); ?>" class="btn btn-sm btn-warning">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </div>
