@@ -56,4 +56,4 @@ class Admin_Model_Prices extends Zend_Db_Table
         }
         return false;
     }
-}
+}//
