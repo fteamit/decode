@@ -50,10 +50,10 @@ class Admin_Model_Prices extends Zend_Db_Table
             $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
         }
         $update = $this->_db->update($this->_name, $singlePriceUpdate, $where);
-        $result = $this->fetchRow($update);
-        if(count($update)){
-            $result = $result->toArray();
+        if ($update != 0)
+        {
+            return true;
         }
-        return $result;
+        return false;
     }
 }

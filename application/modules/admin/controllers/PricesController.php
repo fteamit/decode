@@ -34,23 +34,29 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
     public function saveAction()
     {
         if($this->getRequest()->isPost()){
+            $price_validate = array(
+                new Zend_Validate_NotEmpty(),
+                new Zend_Validate_Float()
+            );
 
             $arr_messages = array(
-                'price_name' => array(
-                    Zend_Validate_NotEmpty::IS_EMPTY => 'price name is not empty',
-                ),
                 'price_value' => array(
-                    Zend_Validate_NotEmpty::IS_EMPTY => 'price is not empty'
+                    Zend_Validate_NotEmpty::IS_EMPTY => 'price is not empty!',
+                    Zend_Validate_Float::NOT_FLOAT => 'price is number!'
+                ),
+                'price_name' => array(
+                    Zend_Validate_NotEmpty::IS_EMPTY => 'name is not empty!'
                 )
             );
             $arr_validate = array(
-                'price_name' => new Zend_Validate_NotEmpty(),
-                'price_value' => new Zend_Validate_NotEmpty()
+                'price_value' => $price_validate,
+                'price_name' => new Zend_Validate_NotEmpty()
             );
             $validate = new FTeam_Validate_MyValidate();
-            if ($validate->isValid($arr_validate, $arr_messages)){
 
+            if ($validate->isValid($arr_validate, $arr_messages)){
                 $request = $this->getRequest()->getParams();
+
                 $value = $validate->getValue();
 
                 $price_id = $request['price_id'];
@@ -68,16 +74,18 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
                 $result = $this->_priceModel->updatePrice($singlePrice, $price_id);
 
                 if ($result){
-                    $this->view->messages = __('update settings success!');
+                    $this->view->messages = __('update success!');
+                    $this->_helper->redirector('index', 'prices');
                 }else{
-                    $this->view->messages = array('update_fail' => array(__('update settings fail!')));
+                    $this->view->messages = array('update_fail' => array(__('update fail!')));
+                    $this->_helper->redirector('updates','id',$price_id,'prices');
                 }
             }else{
                 $this->view->messages = $validate->getMessages();
+                $this->_helper->redirector('update','prices','admin',array('id'=>$this->getRequest()->getParam('price_id')));
             }
 
         }
-        $this->_helper->redirector('index', 'prices');
 
     }
 
