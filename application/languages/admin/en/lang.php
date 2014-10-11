@@ -44,6 +44,10 @@ return array(
     'prices desc'=> "Price"."'s Desc",
     'prices'=> 'Price',
     'add new price'=> 'Add New Price',
+    'back'=> 'Back',
+    'name is not empty!'=> "Price"."'s name is not empty!",
+    'price is not empty!'=> 'Price is not empty!',
+    'price is number!'=> 'Price is number!',
     //setting page
     'update status option success!'=>'Update status setting success!',
     'update status option fail!'=>'update status setting fail!',

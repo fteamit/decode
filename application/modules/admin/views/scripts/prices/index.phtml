@@ -1,10 +1,7 @@
 <!--TrangVT-->
 <?php
-$prices = new Admin_Model_Prices;
-$pricesCollection = $prices->getAllPrices();
-$id= 1;
-var_dump($this->messages);
-//
+$pricesCollection = $this->pricesCollection;
+$no= 1;
 ?>
 <div class="page-head">
     <h2 class="pull-left"><?php echo __('prices table') ?></h2>
@@ -20,7 +17,7 @@ var_dump($this->messages);
                         <div class="widget-icons pull-right">
                             <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                             <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                            <a href="<?php echo $this->baseUrl('admin/prices/update/id/0'); ?>" class=""><?php echo __('add new price')?></a>
+                            <a href="<?php echo $this->baseUrl('admin/prices/update'); ?>" class=""><?php echo __('add new price')?></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -48,7 +45,7 @@ var_dump($this->messages);
                                 }
                                 ?>
                                 <tr>
-                                    <td><?php echo $id ?></td>
+                                    <td><?php echo $no ?></td>
                                     <td><?php echo $price['price_name'] ?></td>
                                     <td><?php echo $price['price_desc'] ?></td>
                                     <td><?php echo $price['price_value'] ?></td>
@@ -61,7 +58,7 @@ var_dump($this->messages);
                                         </div>
                                     </td>
                                 </tr>
-                                <?php $id++ ?>
+                                <?php $no++ ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>
