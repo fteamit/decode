@@ -48,6 +48,8 @@ return array(
     'name is not empty!'=> "Price"."'s name is not empty!",
     'price is not empty!'=> 'Price is not empty!',
     'price is number!'=> 'Price is number!',
+    'updated successfully!'=> 'Updated Successfully!',
+    'wasnt changed!'=> "Wasn"."'t changed!",
     //setting page
     'update status option success!'=>'Update status setting success!',
     'update status option fail!'=>'update status setting fail!',
