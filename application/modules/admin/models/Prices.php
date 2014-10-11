@@ -46,13 +46,13 @@ class Admin_Model_Prices extends Zend_Db_Table
     /*
      * update status sql
      */
-    public function statusUpdate($option_id = null, $status = '')
+    public function statusUpdate($price_id = null, $price_status = '')
     {
-        if ($option_id != null && $status !== ''){
-            $where = "price_id = $option_id";
-            $data = array('price_status' => $status);
-            $update = $this->update($data, $where);
-            if ($update != 0){
+        if ($price_id != null && $price_status !== ''){
+            $where = "price_id = $price_id";
+            $data = array('price_status' => $price_status);
+            $result = $this->update($data, $where);
+            if ($result != 0){
                 return true;
             }
             return false;
@@ -67,8 +67,8 @@ class Admin_Model_Prices extends Zend_Db_Table
         if($price_id != null){
             $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
         }
-        $update = $this->_db->update($this->_name, $singlePriceUpdate, $where);
-        if ($update != 0){
+        $result = $this->_db->update($this->_name, $singlePriceUpdate, $where);
+        if ($result != 0){
             return true;
         }
         return false;
@@ -87,5 +87,19 @@ class Admin_Model_Prices extends Zend_Db_Table
             $result = $result->toArray();
         }
         return $result;
+    }
+    /*
+     * delete price
+     */
+    public function deletePrice($price_id = null){
+        $where = '1=1 AND ';
+        if($price_id != null){
+            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
+        }
+        $result = $this->delete($where);
+        if ($result != 0){
+            return true;
+        }
+        return false;
     }
 }

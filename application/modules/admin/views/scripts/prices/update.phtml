@@ -24,7 +24,6 @@ $price_id = $singlePrice['price_id'];
             <div class="pull-left"><?php if($price_id){echo __('edit price');}else{echo __('add new price');}?></div>
             <div class="widget-icons pull-right">
                 <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                <a href="#" class="wclose"><i class="fa fa-times"></i></a>
                 <a href="<?php echo $this->baseUrl('admin/prices/index/lang/'.$singlePrice['price_lang']); ?>"><?php echo __('back')?></a>
             </div>
             <div class="clearfix"></div>

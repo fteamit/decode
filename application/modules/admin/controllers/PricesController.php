@@ -94,8 +94,8 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
                     }
                 }else{
                     //insert a price
-                    $insert = $this->_priceModel->insertPrice($singlePrice);
-                    if ($insert){
+                    $result = $this->_priceModel->insertPrice($singlePrice);
+                    if ($result){
                         $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted successfully!');
                     }
                     else{
@@ -115,5 +115,19 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
             $singlePrice = $this->_priceModel->getSinglePrice($price_id);
             $this->view->singlePrice = $singlePrice;
         }//show insert form
+    }
+    /*
+     * delete the price
+     */
+    public function deleteAction(){
+        $price_id = $this->getRequest()->getParam('id');
+        $result = $this->_priceModel->deletePrice($price_id);
+        if ($result){
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('deleted successfully!');
+        }
+        else{
+            $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('deleted fail!');
+        }
+        $this->_helper->redirector('index', 'prices');
     }
 }
