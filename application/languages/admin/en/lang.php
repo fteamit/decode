@@ -44,6 +44,7 @@ return array(
     'prices desc'=> "Price"."'s Desc",
     'prices'=> 'Price',
     'add new price'=> 'Add New Price',
+    'edit price'=> 'Edit Price',
     'back'=> 'Back',
     'name is not empty!'=> "Price"."'s name is not empty!",
     'price is not empty!'=> 'Price is not empty!',

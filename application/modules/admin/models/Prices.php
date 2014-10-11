@@ -68,10 +68,24 @@ class Admin_Model_Prices extends Zend_Db_Table
             $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
         }
         $update = $this->_db->update($this->_name, $singlePriceUpdate, $where);
-        if ($update != 0)
-        {
+        if ($update != 0){
             return true;
         }
         return false;
+    }
+    /*
+     * insert price
+     */
+    public function insertPrice($singlePriceInsert = array()){
+        if($singlePriceInsert){
+            $price_lang = array('price_lang'=>$this->_languages);
+            $singlePriceInsert = array_merge($singlePriceInsert, $price_lang);
+            $insert = $this->insert($singlePriceInsert);
+        }
+        $result = $this->fetchRow($insert);
+        if (count($result)) {
+            $result = $result->toArray();
+        }
+        return $result;
     }
 }

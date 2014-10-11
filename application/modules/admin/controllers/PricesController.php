@@ -81,14 +81,27 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
                     'price_value' => $price_value,
                     'price_status' => $price_status
                 );
-                $result = $this->_priceModel->updatePrice($singlePrice, $price_id);
-                if ($result){
-                    //has changed
-                    $this->view->messages = __('updated successfully!');
+                if($price_id){
+                    //update the price
+                    $result = $this->_priceModel->updatePrice($singlePrice, $price_id);
+                    if ($result){
+                        //has changed
+                        $this->view->messages = __('updated successfully!');
+                    }else{
+                        //hasnt changed
+                        $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));
+                        //$this->_helper->redirector('update','prices','admin',array('id'=>$price_id));
+                    }
                 }else{
-                    //hasnt changed
-                    $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));
-                    //$this->_helper->redirector('update','prices','admin',array('id'=>$price_id));
+                    //insert a price
+                    $insert = $this->_priceModel->insertPrice($singlePrice);
+                    if ($insert){
+                        $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted successfully!');
+                    }
+                    else{
+                        $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('inserted fail!');
+                    }
+                    $this->_helper->redirector('index', 'prices');
                 }
             }else{
                 //didnt pass validate
@@ -101,8 +114,6 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
             $price_id = $this->getRequest()->getParam('id');
             $singlePrice = $this->_priceModel->getSinglePrice($price_id);
             $this->view->singlePrice = $singlePrice;
-        }else{
-            //show add form
-        }
+        }//show insert form
     }
 }

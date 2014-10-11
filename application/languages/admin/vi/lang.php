@@ -43,6 +43,7 @@ return array(
     'prices desc'=> "Mô tả Giá",
     'prices'=> 'Giá',
     'add new price'=> 'Thêm Giá',
+    'edit price'=> 'Sửa Giá',
     'back'=> 'Quay lại',
     'name is not empty!'=> 'Tên loại giá không được để trống!',
     'price is not empty!'=> 'Giá không được để trống!',
