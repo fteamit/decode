@@ -29,6 +29,7 @@ return array(
     'email or password not correct'=>'Email hoặc mật khẩu không đúng!',
     //Times page
     'times table'=>'Bảng thời gian',
+    'manage time'=>'Quản lý Thời gian',
     'times'=>'Thời gian',
     'STT'=>'STT',
     'name'=> 'Tên trò chơi',
@@ -42,6 +43,7 @@ return array(
     'no'=> 'Sai',
     //Prices page
     'prices table'=>'Bảng Giá',
+    'manage price'=>'Quản lý Giá',
     'prices type'=> "Loại Giá",
     'prices desc'=> "Mô tả Giá",
     'prices'=> 'Giá',

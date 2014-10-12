@@ -30,6 +30,7 @@ return array(
     'email or password not correct'=>'Email or Password not correct!',
     //Times page
     'times table'=>'Times Table',
+    'manage time'=>'Manage Time',
     'times'=>'Times',
     'STT'=>'No.',
     'name'=> 'Name',
@@ -43,6 +44,7 @@ return array(
     'no'=> 'No',
     //Prices page
     'prices table'=>'Prices Table',
+    'manage price'=>'Manage Price',
     'prices type'=> "Price"."'s Type",
     'prices desc'=> "Price"."'s Desc",
     'prices'=> 'Price',
