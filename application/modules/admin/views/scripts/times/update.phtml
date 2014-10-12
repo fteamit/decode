@@ -2,8 +2,15 @@
 <?php
 $singleTime = $this->singleTime;
 $time_id = $singleTime['time_id'];
-
 ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(function() {
+        $('#datetimepicker2').datetimepicker({
+            pickDate: false
+        });
+    });
+</script>
 <div class="col-md-7">
     <?php if (isset($this->messages)): ?>
         <?php if (is_array($this->messages)): ?>
@@ -25,6 +32,7 @@ $time_id = $singleTime['time_id'];
             <div class="pull-left"><?php if($time_id){echo __('edit time');}else{echo __('add new time');}?></div>
             <div class="widget-icons pull-right">
                 <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                <a href="<?php echo $this->baseUrl('admin/times/'); ?>"><?php echo __('back')?></a>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -35,13 +43,25 @@ $time_id = $singleTime['time_id'];
                 <div class="form quick-post">
                     <form class="form-horizontal" role="form" action="<?php echo $this->baseUrl('admin/times/update/id/'.$time_id); ?>" method="post">
                         <input type="hidden" name="time_id" value="<?php echo $singleTime['time_id'] ?>"/>
+                        <!--Time-->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"><?php echo __('times') ?></label>
+                            <div class="col-lg-7">
+                                <div id="datetimepicker2" class="input-append">
+                                    <input data-format="hh:mm:ss" class="picker" type="text" value="<?php echo $singleTime['time'] ?>" name="time">
+									<span class="add-on">
+									  &nbsp;<i data-time-icon="fa fa-clock-o"></i>
+									</span>
+                                </div>
+                            </div>
+                        </div>
                         <!--Weekend-->
                         <div class="form-group">
                             <label class="control-label col-lg-2"><?php echo __('weekend') ?></label>
                             <div class="col-lg-7">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" <?php if($singleTime['is_weekend']){echo 'checked';}?>> <?php echo __('is weekend') ?>
+                                        <input type="checkbox" name="is_weekend" <?php if($singleTime['is_weekend']){echo 'checked';}?>> <?php echo __('is weekend') ?>
                                     </label>
                                 </div>
                             </div>

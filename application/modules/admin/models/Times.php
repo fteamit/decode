@@ -36,7 +36,7 @@ class Admin_Model_Times extends Zend_Db_Table
     {
         $where = '1=1 AND ';
         if ($time_id) {
-            $where .= "time_id = $time_id";
+            $where .= "$this->_primary = $time_id";
         }
         $select = $this->select()->from($this->_name)->where($where);
         $result = $this->fetchRow($select);
@@ -48,17 +48,59 @@ class Admin_Model_Times extends Zend_Db_Table
     /*
      * update status sql
      */
-    public function statusUpdate($id = null, $status = '')
+    public function statusUpdate($price_id = null, $price_status = '')
     {
-        if ($id != null && $status !== ''){
-            $where = "time_id = $id";
-            $data = array('time_status' => $status);
+        if ($price_id != null && $price_status !== ''){
+            $where = "time_id = $price_id";
+            $data = array('time_status' => $price_status);
             $result = $this->update($data, $where);
             if ($result != 0){
                 return true;
             }
             return false;
         }
+    }
+    /*
+     * update single row sql
+     */
+    public function update($data = array(), $id = null)
+    {
+        $where = '1=1 AND ';
+        if($id != null){
+            $where .= "$this->_primary = $id";
+        }
+        $result = $this->_db->update($this->_name, $data, $where);
+        if ($result != 0){
+            return true;
+        }
+        return false;
+    }
+    /*
+     * insert a new time
+     */
+    public function insertTime($singleTimeInsert = array()){
+        if($singleTimeInsert){
+            $insert = $this->insert($singleTimeInsert);
+        }
+        $result = $this->fetchRow($insert);
+        if (count($result)) {
+            $result = $result->toArray();
+        }
+        return $result;
+    }
+    /*
+     * delete time
+     */
+    public function deleteTime($time_id = null){
+        $where = '1=1 AND ';
+        if($time_id != null){
+            $where .= "time_id = $time_id";
+        }
+        $result = $this->delete($where);
+        if ($result != 0){
+            return true;
+        }
+        return false;
     }
 
 }
