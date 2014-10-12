@@ -4,12 +4,12 @@
  */
 class Admin_PricesController extends FTeam_Controller_AdminAction
 {
-    protected $_priceModel;
+    protected $_model;
 
     public function init()
     {
         parent::init();
-        $this->_priceModel = new Admin_Model_Prices();
+        $this->_model = new Admin_Model_Prices();
     }
     /*
      * get prices collection
@@ -18,21 +18,21 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
     {
         $pagination = new FTeam_Paginator();
         $this->view->pagination = $pagination->createPaginator(10, $this->_paginator);
-        $this->view->pricesCollection = $this->_priceModel->getAllPrices();
+        $this->view->pricesCollection = $this->_model->getAllPrices();
     }
     /*
      * update status
      */
     public function updatestatusAction()
     {
-        $option_id = $this->getRequest()->getParam('id', 0);
-        $status = $this->getRequest()->getParam('status', -1);
-        $result = $this->_priceModel->statusUpdate($option_id, $status);
+        $id = $this->getRequest()->getParam('id');
+        $status = $this->getRequest()->getParam('status');
+        $result = $this->_model->statusUpdate($id, $status);
         if ($result){
-            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated successfully!');
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated status successfully!');
         }
         else{
-            $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
+            $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated status fail!');
         }
         $this->_helper->redirector('index', 'prices');
     }
@@ -83,7 +83,7 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
                 );
                 if($price_id){
                     //update the price
-                    $result = $this->_priceModel->updatePrice($singlePrice, $price_id);
+                    $result = $this->_model->updatePrice($singlePrice, $price_id);
                     if ($result){
                         //has changed
                         $this->view->messages = __('updated successfully!');
@@ -94,7 +94,7 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
                     }
                 }else{
                     //insert a price
-                    $result = $this->_priceModel->insertPrice($singlePrice);
+                    $result = $this->_model->insertPrice($singlePrice);
                     if ($result){
                         $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted successfully!');
                     }
@@ -112,7 +112,7 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
         if($this->getRequest()->getParam('id')){
             //show update form
             $price_id = $this->getRequest()->getParam('id');
-            $singlePrice = $this->_priceModel->getSinglePrice($price_id);
+            $singlePrice = $this->_model->getSinglePrice($price_id);
             $this->view->singlePrice = $singlePrice;
         }//show insert form
     }
@@ -120,8 +120,8 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
      * delete the price
      */
     public function deleteAction(){
-        $price_id = $this->getRequest()->getParam('id');
-        $result = $this->_priceModel->deletePrice($price_id);
+        $id = $this->getRequest()->getParam('id');
+        $result = $this->_model->deletePrice($id);
         if ($result){
             $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('deleted successfully!');
         }

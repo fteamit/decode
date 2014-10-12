@@ -29,15 +29,18 @@ return array(
     'password not empty'=>'Password not empty!',
     'email or password not correct'=>'Email or Password not correct!',
     //Times page
+    'times table'=>'Times Table',
     'times'=>'Times',
     'STT'=>'No.',
-    'games'=> "Games",
-    'games name'=> "Game"."'s Name",
     'name'=> 'Name',
     'status'=> 'Status',
-    'edit times'=> 'Edit Times',
+    'weekend'=> 'Weekend',
+    'edit time'=> 'Edit Time',
+    'add new time'=> 'Add New Time',
     'enable'=> 'Enable',
     'disable'=> 'Disable',
+    'yes'=> 'Yes',
+    'no'=> 'No',
     //Prices page
     'prices table'=>'Prices Table',
     'prices type'=> "Price"."'s Type",
@@ -55,13 +58,10 @@ return array(
     'update status option success!'=>'Update status setting success!',
     'update status option fail!'=>'update status setting fail!',
     'name not empty'=>'Name not empty.',
-    'settings'=>'Settings',
     'settings for website'=>'Settings for website',
     'home'=>'Home',
     'general settings'=>'General settings',
-    'name'=>'Name',
     'group'=>'Group',
-    'status'=>'Status',
     'action'=>'Action',
     'active'=>'Active',
     'not active'=>'Not active',
@@ -71,6 +71,4 @@ return array(
     'setting for contact'=>'Setting for contact',
     'update settings'=>'Update settings',
     'update'=>'Update',
-    'reset'=>'Reset'
-
 );
