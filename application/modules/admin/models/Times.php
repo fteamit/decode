@@ -48,11 +48,11 @@ class Admin_Model_Times extends Zend_Db_Table
     /*
      * update status sql
      */
-    public function statusUpdate($price_id = null, $price_status = '')
+    public function statusUpdate($id = null, $status = '')
     {
-        if ($price_id != null && $price_status !== ''){
-            $where = "time_id = $price_id";
-            $data = array('time_status' => $price_status);
+        if ($id != null && $status !== ''){
+            $where = "$this->_primary = $id";
+            $data = array('time_status' => $status);
             $result = $this->update($data, $where);
             if ($result != 0){
                 return true;
@@ -63,7 +63,7 @@ class Admin_Model_Times extends Zend_Db_Table
     /*
      * update single row sql
      */
-    public function update($data = array(), $id = null)
+    public function updateTime($data = array(), $id = null)
     {
         $where = '1=1 AND ';
         if($id != null){

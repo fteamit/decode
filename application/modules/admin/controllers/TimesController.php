@@ -33,7 +33,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
         }
-        $this->_helper->redirector('index', 'prices');
+        $this->_helper->redirector('index', 'times');
     }
     /*
      * update or insert action
@@ -73,7 +73,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                 );
                 if($time_id){
                     //update the price
-                    $result = $this->_timeModel->update($singleTime, $time_id);
+                    $result = $this->_timeModel->updateTime($singleTime, $time_id);
                     if ($result){
                         //has changed
                         $this->view->messages = __('updated time successfully!');
