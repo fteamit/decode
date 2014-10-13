@@ -55,4 +55,8 @@ return array(
     'price is number!'=> 'Giá phải là số!',
     'updated successfully!'=> 'Sửa giá thành công!',
     'wasnt changed!'=> "Không thay đổi!",
+    'inserted price successfully!'=> "Thêm giá thành công!",
+    'inserted fail!'=> "Thêm giá không thành công!",
+    'deleted successfully!'=> "Xóa thành công!",
+    'deleted fail!'=> "Xóa không thành công!",
 );

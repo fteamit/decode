@@ -56,6 +56,10 @@ return array(
     'price is number!'=> 'Price is number!',
     'updated successfully!'=> 'Updated Successfully!',
     'wasnt changed!'=> "Wasn"."'t changed!",
+    'inserted successfully!'=> "Inserted Successfully!",
+    'inserted fail!'=> "Inserted Fail!",
+    'deleted successfully!'=> "Deleted Successfully!",
+    'deleted fail!'=> "Deleted Fail!",
     //setting page
     'update status option success!'=>'Update status setting success!',
     'update status option fail!'=>'update status setting fail!',

@@ -76,7 +76,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                     $result = $this->_timeModel->updateTime($singleTime, $time_id);
                     if ($result){
                         //has changed
-                        $this->view->messages = __('updated time successfully!');
+                        $this->view->messages = __('updated successfully!');
                     }else{
                         //hasnt changed
                         $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));
@@ -85,7 +85,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                     //insert a price
                     $result = $this->_timeModel->insertTime($singleTime);
                     if ($result){
-                        $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted time successfully!');
+                        $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted successfully!');
                     }
                     else{
                         $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('inserted fail!');
@@ -112,7 +112,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
         $time_id = $this->getRequest()->getParam('id');
         $result = $this->_timeModel->deleteTime($time_id);
         if ($result){
-            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('deleted time successfully!');
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('deleted successfully!');
         }
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('deleted fail!');
