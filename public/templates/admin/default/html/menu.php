@@ -29,8 +29,8 @@
                     <span class="pull-right"><i class="fa fa-angle-right"></i></span>
                 </a>
                 <ul>
-                    <li><a href="#">View all games</a></li>
-                    <li><a href="#">Add new game</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/games'); ?>">View all games</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/games/add'); ?>">Add new game</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">
