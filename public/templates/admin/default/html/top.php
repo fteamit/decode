@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo $this->baseUrl('admin'); ?>" class="navbar-brand">Admin <span class="bold">Decode</span></a>
+            <a href="<?php echo $this->baseUrl('admin'); ?>" class="navbar-brand"><?php echo __('Admin') ?><span class="bold">Decode</span></a>
         </div>
         <!-- Site name for smallar screens -->
         <!-- Navigation starts -->

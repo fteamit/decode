@@ -82,4 +82,33 @@ return array(
     'games image'=> "Image",
     'edit game'=> "Edit Game",
     'game name is not empty!'=> "Name is not empty!",
+
+    //Games page
+    'games table'=> "Games Table",
+    'add new game'=> "Add New Game",
+    'games name'=> "Name",
+    'games desc'=> "Description",
+    'games image'=> "Images",
+    'edit game'=> "Edit Game",
+    'game name is not empty!'=> "Name is not empty!",
+    'Save Now'=> "Save Now",
+    'Reset'=> "Reset",
+
+
+
+    //Setting page in admin
+    'settings for website'=>'Settings For Website',
+    'general settings'=>'General Settings',
+    'group'=>'Group',
+    'action'=>'Action',
+    'active'=>'Enable',
+    'not active'=>'Disable',
+    'no data'=>'No Data',
+    'setting for home page'=>'Setting For Home Page',
+    'setting for the game'=>'Setting For The Game',
+    'setting for contact'=>'Setting For Contact',
+    'update status option success!'=>'Update Status Option Successful!',
+    'value'=>'Value',
+    'images'=>'Images',
+    'update settings'=>'Update Settings',
 );
