@@ -39,7 +39,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
         if($this->getRequest()->isPost()){
             $arr_messages = array(
                 'game_name' => array(
-                    Zend_Validate_NotEmpty::IS_EMPTY => 'name is not empty!'
+                    Zend_Validate_NotEmpty::IS_EMPTY => 'game name is not empty!'
                 )
             );
             $arr_validate = array(

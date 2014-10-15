@@ -55,4 +55,15 @@ return array(
     'inserted successfully!'=> 'Thêm thành công!',
     'deleted successfully!'=> 'Xóa thành công!',
     'wasnt changed!'=> "Không thay đổi!",
+
+    //Games page
+    'games table'=> "Bảng Danh Sách Trò Chơi",
+    'add new game'=> "Thêm Trò Chơi Mới",
+    'games name'=> "Tên Trò Chơi",
+    'games desc'=> "Mô Tả Trò Chơi",
+    'games image'=> "Hình Ảnh",
+    'edit game'=> "Sửa Trò Chơi",
+    'game name is not empty!'=> "Tên trò chơi không được để trống",
+    'Save Now'=> "Lưu",
+    'Reset'=> "Reset",
 );

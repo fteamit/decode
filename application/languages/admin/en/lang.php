@@ -73,4 +73,13 @@ return array(
     'setting for contact'=>'Setting for contact',
     'update settings'=>'Update settings',
     'update'=>'Update',
+
+    //game page
+    'games table'=> "Game Table",
+    'add new game'=> "Add New Game",
+    'games name'=> "Name",
+    'games desc'=> "Description",
+    'games image'=> "Image",
+    'edit game'=> "Edit Game",
+    'game name is not empty!'=> "Name is not empty!",
 );

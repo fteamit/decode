@@ -39,21 +39,21 @@ $arr_image = explode('|', $game_image);
                         <input type="hidden" name="game_lang" value="<?php echo $singlegame['game_lang'] ?>"/>
                         <!-- game Type -->
                         <div class="form-group">
-                            <label class="control-label col-md-2" for="sitename"><?php echo __('Name')?></label>
+                            <label class="control-label col-md-2" for="sitename"><?php echo __('games name')?></label>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" id="sitename" name="game_name" value="<?php echo $singlegame['game_name'] ?>">
                             </div>
                         </div>
                         <!-- game Desc -->
                         <div class="form-group">
-                            <label class="control-label col-lg-2" for="sitedescription"><?php echo __('Description')?></label>
+                            <label class="control-label col-lg-2" for="sitedescription"><?php echo __('games desc')?></label>
                             <div class="col-lg-7">
                                 <textarea class="form-control" rows="10" name="game_desc" id="sitedescription"><?php echo $singlegame['game_desc'] ?></textarea>
                             </div>
                         </div>
                         <!-- game image-->
                         <div class="form-group">
-                            <label class="col-md-2 control-label"><?php echo __('Images') ?></label>
+                            <label class="col-md-2 control-label"><?php echo __('games image') ?></label>
                             <div class="col-md-8">
                                 <input type="file" class="form-control" name="file_name[]" multiple="true">
                             </div>
@@ -88,8 +88,8 @@ $arr_image = explode('|', $game_image);
                         <div class="form-group">
                             <!-- Buttons -->
                             <div class="col-lg-9 col-lg-offset-2">
-                                <button type="submit" class="btn btn-info">Save Now</button>
-                                <button type="reset" class="btn btn-default">Reset</button>
+                                <button type="submit" class="btn btn-info"><?php echo __('Save Now')?></button>
+                                <button type="reset" class="btn btn-default"><?php echo __('Reset')?></button>
                             </div>
                         </div>
                     </form>
