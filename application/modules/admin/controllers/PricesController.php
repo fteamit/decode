@@ -5,6 +5,10 @@
 class Admin_PricesController extends FTeam_Controller_AdminAction
 {
     protected $_priceModel;
+    public $_paginator = array(
+        'itemCountPerPage' => ITEM_COUNT_PER_PAGE,
+        'pageRange' => 3,
+    );
 
     public function init()
     {
@@ -14,17 +18,16 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
     /*
      * get prices collection
      */
-    public function indexAction()
-    {
+    public function indexAction(){
+        $totalItem = count($this->_priceModel->getAllPrices());
         $pagination = new FTeam_Paginator();
-        $this->view->pagination = $pagination->createPaginator(10, $this->_paginator);
+        $this->view->pagination = $pagination->createPaginator($totalItem, $this->_paginator);
         $this->view->pricesCollection = $this->_priceModel->getAllPrices();
     }
     /*
      * update status
      */
-    public function updatestatusAction()
-    {
+    public function updatestatusAction(){
         $id = $this->getRequest()->getParam('id', 0);
         $status = $this->getRequest()->getParam('status', -1);
         $result = $this->_priceModel->statusUpdate($id, $status);
@@ -34,13 +37,12 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
         }
-        $this->_helper->redirector('index', 'times');
+        $this->_helper->redirector('index', 'prices');
     }
     /*
      * update or insert action
      */
-    public function updateAction()
-    {
+    public function updateAction(){
         if($this->getRequest()->isPost()){
             //has request
             $price_validate = array(

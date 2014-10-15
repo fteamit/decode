@@ -7,6 +7,7 @@ class Admin_Model_Times extends Zend_Db_Table
 
     protected $_name = 'tbl_times';
     protected $_primary = 'time_id';
+    protected $_languages = DEFAULT_LANGUAGES;
 
     public function __construct($config = array(), $definition = null)
     {
@@ -94,7 +95,7 @@ class Admin_Model_Times extends Zend_Db_Table
     public function deleteTime($time_id = null){
         $where = '1=1 AND ';
         if($time_id != null){
-            $where .= "time_id = $time_id";
+            $where .= "$this->_primary = $time_id";
         }
         $result = $this->delete($where);
         if ($result != 0){

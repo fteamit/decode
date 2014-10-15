@@ -1,5 +1,111 @@
 <?php
-$muser=new Admin_Model_Games();
-echo "<pre>";
-print_r($muser->getAllGame());
-echo "</pre>";
+$gameCollection = $this->gameCollection;
+$countRecord = count($gameCollection);
+$no= 1;
+?>
+<?php if($countRecord):?>
+    <div class="page-head">
+        <h2 class="pull-left"><?php echo __('games table') ?></h2>
+    </div>
+
+    <div class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger'); ?>
+                    <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
+                        <div class="alert alert-success">
+                            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                                <?php echo __($msg) ?>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($flashMessenger->setNamespace('fail')->hasMessages()): ?>
+                        <div class="alert alert-warning">
+                            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                                <?php echo __($msg) ?>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="widget wred">
+                        <div class="widget-head">
+                            <div class="pull-left"><?php echo __('games table') ?></div>
+                            <div class="widget-icons pull-right">
+                                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                <a href="<?php echo $this->baseUrl('admin/games/add'); ?>" class=""><?php echo __('add new game')?></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="widget-content">
+                            <table class="table table-bordered ">
+                                <thead>
+                                <tr>
+                                    <th><?php echo __('STT')?></th>
+                                    <th><?php echo __('games name')?></th>
+                                    <th><?php echo __('games desc')?></th>
+                                    <th><?php echo __('games image')?></th>
+                                    <th><?php echo __('status')?></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach($gameCollection as $game):?>
+                                    <?php
+                                    if($game['game_status'] == 1){
+                                        $class = 'label-success';
+                                        $gameStatus = __('enable');
+                                        $href = $this->baseUrl('admin/games/updatestatus/id/'.$game['game_id'].'/status/0');
+                                    }else{
+                                        $class = 'label-important';
+                                        $gameStatus = __('disable');
+                                        $href = $this->baseUrl('admin/games/updatestatus/id/'.$game['game_id'].'/status/1');
+                                    }
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no ?></td>
+                                        <td><?php echo $game['game_name'] ?></td>
+                                        <td><?php echo $game['game_desc'] ?></td>
+                                        <td><?php echo $game['game_image'] ?></td>
+                                        <td><a href="<?php echo $href ?>"><span class="label <?php echo $class?>"><?php echo $gameStatus ?></span></a></td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="<?php echo $this->baseUrl('admin/games/add/id/'.$game['game_id']); ?>" class="btn btn-sm btn-warning">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </div>
+                                            <a href="<?php echo $this->baseUrl('admin/games/delete/id/'.$game['game_id']); ?>"><div class="btn btn-sm btn-danger"><i class="fa fa-times"></i></div></a>
+                                        </td>
+                                    </tr>
+                                    <?php $no++ ?>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <?php
+                            $currentUrl = $this->baseUrl($this->currentController.'/index');
+                            echo $this->paginationControl($this->pagination, 'Sliding','pagination.phtml',array('currentUrl'=>$currentUrl));
+                            ?>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/ Matter ends -->
+<?php else: ?>
+    <div class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="widget wred">
+                        <div class="widget-head">
+                            <div class="pull-left"><a href="<?php echo $this->baseUrl('admin/games/add'); ?>" class=""><?php echo __('add new game')?></a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

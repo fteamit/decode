@@ -20,22 +20,24 @@
         </ul>
         <?php elseif ($this->class_body === 'the-game'): ?>
         <ul class="inline">
+            <?php
+            $games = new Admin_Model_Games();
+            $gamesCollection = $games->getAllGames();
+            foreach($gamesCollection as $game):
+                $game_image = $game['game_image'];
+                $arr_image = explode('|', $game_image);
+            ?>
             <li class="col-md-3">
-                <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="team building" />
-                <p class="active">The Butchery</p>	
+                <?php foreach ($arr_image as $img): ?>
+                    <?php if (Check_File_Exists_Upload($img)): ?>
+                        <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" width="250px" height="350px" alt="<?php echo $game['game_name'];?>"/>
+                    <?php else: ?>
+                        <img src="<?php echo $this->baseUrl(UPLOAD_URL . 'no_img.jpg') ?>"/>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <p class="active"><?php echo $game['game_name'];?></p>
             </li>
-            <li class="col-md-3">
-                <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="family" />
-                <p>Haunted Hotel</p>	
-            </li>
-            <li class="col-md-3">
-                <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="student" />
-                <p>Save Santa</p>
-            </li>
-            <li class="col-md-3">
-                <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/item.png" alt="Games" />
-                <p>Mega-Nerd</p>
-            </li>
+            <?php endforeach;?>
         </ul>
         <?php elseif ($this->class_body === 'booking'): ?>
         <div class="bot-booking">
@@ -58,3 +60,12 @@
         </div>
     <?php endif; ?>
 </div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.inline').bxSlider({
+            minSlides: 4,
+            maxSlides: 4,
+            slideWidth: 280
+        });
+    });
+</script>

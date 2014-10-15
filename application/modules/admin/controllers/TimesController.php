@@ -5,6 +5,10 @@
 class Admin_TimesController extends FTeam_Controller_AdminAction
 {
     protected $_timeModel;
+    public $_paginator = array(
+        'itemCountPerPage' => ITEM_COUNT_PER_PAGE,
+        'pageRange' => 3,
+    );
 
     public function init()
     {
@@ -15,15 +19,15 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
      * get times collection
      */
     public function indexAction(){
+        $totalItem = count($this->_timeModel->getAllTimes());
         $pagination = new FTeam_Paginator();
-        $this->view->pagination = $pagination->createPaginator(10, $this->_paginator);
+        $this->view->pagination = $pagination->createPaginator($totalItem, $this->_paginator);
         $this->view->timesCollection = $this->_timeModel->getAllTimes();
     }
     /*
      * update status
      */
-    public function updatestatusAction()
-    {
+    public function updatestatusAction(){
         $option_id = $this->getRequest()->getParam('id', 0);
         $status = $this->getRequest()->getParam('status', -1);
         $result = $this->_timeModel->statusUpdate($option_id, $status);
@@ -38,8 +42,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
     /*
      * update or insert action
      */
-    public function updateAction()
-    {
+    public function updateAction(){
         if($this->getRequest()->isPost()){
             //has request
             $arr_messages = array(
@@ -58,7 +61,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
 
                 $time_id = $request['time_id'];
                 $time_status = $request['time_status'];
-                if($request['is_weekend']){
+                if(isset($request['is_weekend'])){
                     $is_weekend = 1;
                 }else{
                     $is_weekend = 0;
@@ -72,7 +75,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                     'time_status' => $time_status,
                 );
                 if($time_id){
-                    //update the price
+                    //update the time
                     $result = $this->_timeModel->updateTime($singleTime, $time_id);
                     if ($result){
                         //has changed
@@ -82,7 +85,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                         $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));
                     }
                 }else{
-                    //insert a price
+                    //insert a time
                     $result = $this->_timeModel->insertTime($singleTime);
                     if ($result){
                         $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('inserted successfully!');

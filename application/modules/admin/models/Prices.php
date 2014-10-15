@@ -6,6 +6,7 @@ class Admin_Model_Prices extends Zend_Db_Table
 {
     protected $_name = 'tbl_prices';
     protected $_primary = 'price_id';
+    protected $_languages = DEFAULT_LANGUAGES;
 
     public function __construct($config = array(), $definition = null)
     {
@@ -34,7 +35,7 @@ class Admin_Model_Prices extends Zend_Db_Table
     {
         $where = '1=1 AND ';
         if ($price_id) {
-            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
+            $where .= "$this->_primary = $price_id AND price_lang = '$this->_languages'";
         }
         $select = $this->select()->from($this->_name)->where($where);
         $result = $this->fetchRow($select);
@@ -49,7 +50,7 @@ class Admin_Model_Prices extends Zend_Db_Table
     public function statusUpdate($price_id = null, $price_status = '')
     {
         if ($price_id != null && $price_status !== ''){
-            $where = "price_id = $price_id";
+            $where = "$this->_primary = $price_id";
             $data = array('price_status' => $price_status);
             $result = $this->update($data, $where);
             if ($result != 0){
@@ -65,7 +66,7 @@ class Admin_Model_Prices extends Zend_Db_Table
     {
         $where = '1=1 AND ';
         if($price_id != null){
-            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
+            $where .= "$this->_primary = $price_id AND price_lang = '$this->_languages'";
         }
         $result = $this->_db->update($this->_name, $singlePriceUpdate, $where);
         if ($result != 0){
@@ -94,7 +95,7 @@ class Admin_Model_Prices extends Zend_Db_Table
     public function deletePrice($price_id = null){
         $where = '1=1 AND ';
         if($price_id != null){
-            $where .= "price_id = $price_id AND price_lang = '$this->_languages'";
+            $where .= "$this->_primary = $price_id AND price_lang = '$this->_languages'";
         }
         $result = $this->delete($where);
         if ($result != 0){

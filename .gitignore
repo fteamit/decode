@@ -3,5 +3,4 @@
 /decode
 /decode.pub
 .idea/
-
-/application/Bootstrap.php
+/application/configs
