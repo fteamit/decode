@@ -54,7 +54,7 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $this->baseUrl('admin/times'); ?>">View all times</a></li>
-                    <li><a href="#">Add new time</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/times/update'); ?>">Add new time</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">

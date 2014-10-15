@@ -53,6 +53,8 @@ return array(
     'price is not empty!'=> 'Price is not empty!',
     'price is number!'=> 'Price is number!',
     'updated successfully!'=> 'Updated Successfully!',
+    'inserted successfully!'=> 'Inserted Successfully!',
+    'deleted successfully!'=> 'Deleted Successfully!',
     'wasnt changed!'=> "Wasn"."'t changed!",
     //setting page
     'update status option success!'=>'Update status setting success!',

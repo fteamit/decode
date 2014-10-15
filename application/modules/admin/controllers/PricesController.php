@@ -5,6 +5,10 @@
 class Admin_PricesController extends FTeam_Controller_AdminAction
 {
     protected $_priceModel;
+    public $_paginator = array(
+        'itemCountPerPage' => '3',
+        'pageRange' => '1'
+    );
 
     public function init()
     {
@@ -16,8 +20,10 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
      */
     public function indexAction()
     {
+
+        $totalItem = count($this->_priceModel->getAllPrices());
         $pagination = new FTeam_Paginator();
-        $this->view->pagination = $pagination->createPaginator(10, $this->_paginator);
+        $this->view->pagination = $pagination->createPaginator($totalItem, $this->_paginator);
         $this->view->pricesCollection = $this->_priceModel->getAllPrices();
     }
     /*
@@ -34,7 +40,7 @@ class Admin_PricesController extends FTeam_Controller_AdminAction
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
         }
-        $this->_helper->redirector('index', 'times');
+        $this->_helper->redirector('index', 'prices');
     }
     /*
      * update or insert action

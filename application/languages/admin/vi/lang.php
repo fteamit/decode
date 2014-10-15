@@ -51,6 +51,8 @@ return array(
     'name is not empty!'=> 'Tên loại giá không được để trống!',
     'price is not empty!'=> 'Giá không được để trống!',
     'price is number!'=> 'Giá phải là số!',
-    'updated successfully!'=> 'Sửa giá thành công!',
+    'updated successfully!'=> 'Sửa thành công!',
+    'inserted successfully!'=> 'Thêm thành công!',
+    'deleted successfully!'=> 'Xóa thành công!',
     'wasnt changed!'=> "Không thay đổi!",
 );
