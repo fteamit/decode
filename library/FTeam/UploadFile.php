@@ -21,9 +21,7 @@ class FTeam_UploadFile
                 {
                     $extension = substr($fileinfo['name'], strrpos($fileinfo['name'], '' . '') + 1);
                     $filename = rand(99, 99999) . '_' . date('Ymdhs') . '.' . $extension;
-                    $adapter->addFilter('Rename', array('target' => PUBLIC_PATH . '/upload/' . $filename,
-                        'overwrite' => true)
-                    );
+                    $adapter->setFilters(array(new Zend_Filter_File_Rename(array('target'=>PUBLIC_PATH . '/upload/' . $filename, 'overwrite'=>true))));
                     if ($adapter->receive($fileinfo['name']))
                     {
                         $this->file_name[] = $filename;

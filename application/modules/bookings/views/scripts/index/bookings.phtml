@@ -1,3 +1,7 @@
+<?php
+$aryTimes = $this->aryTime;
+$aryWeek = $this->curWeek;
+?>
 <h4>THE BUTCHERY</h4>
 <p class="desc-booking-detail">Please select your perferred time</p>
 
@@ -9,7 +13,9 @@
             </a>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-8 text-center">
-            <span class="schedule-week">26/10-1/11</span>
+            <span class="schedule-week">
+                <?php echo date('d/m', strtotime(date('d-m-Y'))) . ' - ' . date('d/m', strtotime(date('d-m-Y') . ' +6 day ')); ?>
+            </span>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-2 text-right">
             <a href="#" class="btn schedule-control next">
@@ -20,67 +26,27 @@
     <table class="table table-responsive">
         <thead>
 
-            <tr>
-                <td><p>Sun</p><p>(26/10/2014)</p></td>
-                <td><p>Mon</p><p>(27/10/2014)</p></td>
-                <td><p>Tue</p><p>(28/10/2014)</p></td>
-                <td><p>Wed</p><p>(29/10/2014)</p></td>
-                <td><p>Thu</p><p>(30/10/2014)</p></td>
-                <td><p>Fri</p><p>(31/10/2014)</p></td>
-                <td><p>Sat</p><p>(32/10/2014)</p></td>
-            </tr>
-            <tr class="space"></tr>
+        <tr>
+            <?php foreach ($aryWeek as $_day => $_date): ?>
+                <td>
+                    <p><?php echo $_day ?></p>
+
+                    <p><?php echo '(' . $_date . ')' ?></p>
+                </td>
+            <?php endforeach; ?>
+        </tr>
+        <tr class="space"></tr>
         </thead>
         <tbody>
+        <?php foreach ($aryTimes as $_time): ?>
             <tr align="center">
-                <td><a href="#">10:45</a></td>
-                <td><a href="#">10:45</a></td>
-                <td class="acti"><a href="#">10:45</a></td>
-                <td><a href="#">10:45</a></td>
-                <td><a href="#">10:45</a></td>
-                <td><a href="#">10:45</a></td>
-                <td><a href="#">10:45</a></td>
+                <?php for ($i = 1; $i <= 7; $i++) { ?>
+                    <td>
+                        <a href="#"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
+                    </td>
+                <?php } ?>
             </tr>
-            <tr class="space"></tr>
-            <tr align="center">
-                <td><a href="#">12:00</a></td>
-                <td><a href="#">12:00</a></td>
-                <td class="reserved">Reserved</td>
-                <td><a href="#">12:00</a></td>
-                <td><a href="#">12:00</a></td>
-                <td><a href="#">12:00</a></td>
-                <td><a href="#">12:00</a></td>
-            </tr>
-            <tr class="space"></tr>
-            <tr align="center">
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-                <td><a href="#">13:15</a></td>
-            </tr>
-            <tr class="space"></tr>
-            <tr align="center">
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-                <td><a href="#">14:30</a></td>
-            </tr>
-            <tr class="space"></tr>
-            <tr align="center">
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-                <td><a href="#">15:45</a></td>
-            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div><!-- schedule-container -->
@@ -102,9 +68,11 @@
     </div>
     <table class="table">
         <thead>
-            <tr>
-                <td><p>Sun</p><p>(26/10/2014)</p></td>
-            </tr>
+        <tr>
+            <td><p>Sun</p>
+
+                <p>(26/10/2014)</p></td>
+        </tr>
         </thead>
 
         <tr>

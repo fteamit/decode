@@ -1,0 +1,88 @@
+<!--TrangVT-->
+<?php
+$singlePrice = $this->singlePrice;
+$price_id = $singlePrice['price_id'];
+?>
+<div class="col-md-7">
+    <?php if (isset($this->messages)): ?>
+        <?php if (is_array($this->messages)): ?>
+            <div class="alert alert-warning">
+                <?php foreach ($this->messages as $filed => $arr_mess): ?>
+                    <?php foreach ($arr_mess as $mess): ?>
+                            <span style="display: block;"> <?php echo __($mess) ?> </span>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div class="alert alert-success">
+                <?php echo __($this->messages) ?>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+    <div class="widget wred">
+        <div class="widget-head">
+            <div class="pull-left"><?php if($price_id){echo __('edit price');}else{echo __('add new price');}?></div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                <a href="<?php echo $this->baseUrl('admin/prices/index/lang/'.$singlePrice['price_lang']); ?>"><?php echo __('back')?></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+            <div class="padd">
+
+                <div class="form quick-post">
+                    <form class="form-horizontal" role="form" action="<?php echo $this->baseUrl('admin/prices/update/id/'.$price_id); ?>" method="post">
+                        <input type="hidden" name="price_id" value="<?php echo $singlePrice['price_id'] ?>"/>
+                        <input type="hidden" name="price_lang" value="<?php echo $singlePrice['price_lang'] ?>"/>
+                        <!-- Price Type -->
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="sitename"><?php echo __('prices type')?></label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="sitename" name="price_name" value="<?php echo $singlePrice['price_name'] ?>">
+                            </div>
+                        </div>
+                        <!-- Price Desc -->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="sitedescription"><?php echo __('prices desc')?></label>
+                            <div class="col-lg-7">
+                                <textarea class="form-control" name="price_desc" id="sitedescription"><?php echo $singlePrice['price_desc'] ?></textarea>
+                            </div>
+                        </div>
+                        <!-- Price -->
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="sitename"><?php echo __('prices')?></label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="sitename" name="price_value" value="<?php echo $singlePrice['price_value'] ?>">
+                            </div>
+                        </div>
+                        <!-- Price Status -->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"><?php echo __('status')?></label>
+                            <div class="col-lg-7">
+                                <div class="radio">
+                                    <label><input type="radio" name="<?php echo "price_status" ?>" id="1" value="1" <?php if($singlePrice['price_status'] == 1){echo 'checked';}?>><?php echo __('enable')?></label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" name="<?php echo "price_status" ?>" id="0" value="0" <?php if($singlePrice['price_status'] == 0){echo 'checked';}?>><?php echo __('disable')?></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Buttons -->
+                        <div class="form-group">
+                            <!-- Buttons -->
+                            <div class="col-lg-9 col-lg-offset-2">
+                                <button type="submit" class="btn btn-info">Save Now</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

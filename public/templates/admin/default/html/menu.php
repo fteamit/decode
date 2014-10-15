@@ -29,8 +29,8 @@
                     <span class="pull-right"><i class="fa fa-angle-right"></i></span>
                 </a>
                 <ul>
-                    <li><a href="#">View all games</a></li>
-                    <li><a href="#">Add new game</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/games'); ?>">View all games</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/games/add'); ?>">Add new game</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">
@@ -42,7 +42,7 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $this->baseUrl('admin/prices'); ?>">View all prices</a></li>
-                    <li><a href="<?php echo $this->baseUrl('admin/prices/add'); ?>">Add new price</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/prices/update'); ?>">Add new price</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">
@@ -54,7 +54,7 @@
                 </a>
                 <ul>
                     <li><a href="<?php echo $this->baseUrl('admin/times'); ?>">View all times</a></li>
-                    <li><a href="#">Add new time</a></li>
+                    <li><a href="<?php echo $this->baseUrl('admin/times/update'); ?>">Add new time</a></li>
                 </ul>
             </li>
             <li class="has_submenu nlightblue">
