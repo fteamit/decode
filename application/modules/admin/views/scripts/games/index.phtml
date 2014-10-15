@@ -16,14 +16,14 @@ $no= 1;
                     <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
                         <div class="alert alert-success">
                             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                                <?php echo $msg ?>
+                                <?php echo __($msg) ?>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
                     <?php if ($flashMessenger->setNamespace('fail')->hasMessages()): ?>
                         <div class="alert alert-warning">
                             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                                <?php echo $msg ?>
+                                <?php echo __($msg) ?>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
