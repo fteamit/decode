@@ -1,0 +1,71 @@
+<?php
+$aryTimes = $this->aryTime;
+$aryWeek = $this->curWeek;
+?>
+<div id="desktop-times-content" class="schedule-container week hidden-xs">
+    <div class="row mmb schedule-bar">
+        <div class="col-xs-12 col-sm-3 col-md-2">
+            <a id="load-prev-time" href="#" class="btn schedule-control prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 text-center">
+            <span class="schedule-week"></span>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-2 text-right">
+            <a id="load-next-time" href="#" class="btn schedule-control next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+    <table id="times-table" class="table table-responsive">
+        <thead>
+
+        <tr>
+            <?php foreach ($aryWeek as $_day => $_date): ?>
+                <td>
+                    <p><?php echo $_day ?></p>
+
+                    <p class="date-booking" date="<?php echo date('d/m', strtotime($_date)) ?>"
+                       date_prev="<?php echo date('d-m-Y', strtotime($_date . ' -1 day')); ?>"
+                       date_next="<?php echo date('d-m-Y', strtotime($_date . ' +1 day')); ?>">
+                        <?php echo '(' . $_date . ')' ?>
+                    </p>
+                </td>
+            <?php endforeach; ?>
+        </tr>
+        <tr class="space"></tr>
+        </thead>
+        <tbody>
+        <?php foreach ($aryTimes as $_time): ?>
+            <tr align="center">
+                <?php for ($i = 1; $i <= 7; $i++) { ?>
+                    <td>
+                        <a href="#"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
+                    </td>
+                <?php } ?>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" language="javascript">
+    jQuery(document).ready(function ($) {
+
+        var elmLast = $('#times-table thead tr:first td:last p.date-booking');
+        var elmFirst = $('#times-table thead tr:first td:first p.date-booking');
+
+        $('#load-next-time').on('click', function () {
+            var et = elmLast.attr('date_next');
+            BookingController.getTimes(et, 1);
+        });
+
+        $('#load-prev-time').on('click', function () {
+            var st = elmFirst.attr('date_prev');
+            BookingController.getTimes(st, -1);
+        });
+
+        $('.schedule-week').text(elmFirst.attr('date') + ' - ' + elmLast.attr('date'));
+    });
+</script>
