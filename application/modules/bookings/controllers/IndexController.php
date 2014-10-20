@@ -6,6 +6,7 @@ class Bookings_IndexController extends FTeam_Controller_Action
     protected $class_body = 'booking';
     protected $_bizTimes;
     protected $_bizGames;
+    const ERR_LOAD = 'Can not load more time.';
 
     /**
      *
@@ -24,22 +25,8 @@ class Bookings_IndexController extends FTeam_Controller_Action
     {
         $aryGames = $this->_bizGames->getGames();
         $this->view->aryGames = $aryGames;
-
     }
 
-    /**
-     *
-     */
-    public function bookingsAction()
-    {
-        $id = $this->_request->getParam('id');
-        $game = $this->_bizGames->getGames($id);
-        if (!$id || empty($game)) {
-            $this->redirect('index');
-        } else {
-            $this->view->curGame = $game;
-        }
-    }
 
     /**
      * Process times booking table
@@ -49,24 +36,17 @@ class Bookings_IndexController extends FTeam_Controller_Action
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
 
+        $aryWeekDays = array();
+        $aryParams = $this->_request->getParams();
+
+        $isMoreDate = $this->_bizTimes->getDaysOfWeek($aryParams, $aryWeekDays);
+
+        $this->view->curGame = $this->getCurGame($this->_request->getParam('gId'));
         if ($aryTime = $this->_bizTimes->getTimeSlot()) {
             $this->view->aryTime = $aryTime;
         }
-
-        $aryParams = $this->_request->getParams();
-        $aryWeekDays = array();
-
-        $isMoreDate = $this->_bizTimes->getDaysOfWeek($aryParams, $aryWeekDays);
         $this->view->curWeek = $aryWeekDays;
-        $this->class_body = 'booking-detail';
-        $this->view->class_body = $this->class_body;
-
-        $html = $this->view->render('index/timesdesktop.phtml');
-        $aryRespone = array(
-            'html' => $html,
-            'isMore' => $isMoreDate
-        );
-        $this->_response->setBody(Zend_Json::encode($aryRespone));
+        $this->response($this->view->render('index/timesdesktop.phtml'), $isMoreDate, self::ERR_LOAD);
     }
 
     /**
@@ -80,11 +60,19 @@ class Bookings_IndexController extends FTeam_Controller_Action
 
     public function bookingformAction()
     {
-        $aryData = $this->_request->getParams();
-        $this->aryData = $aryData;
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
-        $this->view->class_body = 'booking-form';
+        $aryData = $this->_request->getParams();
+        $this->view->aryData = $aryData;
+        $this->view->class_body = "booking-form";
+        $this->response($this->view->render("index/bookingform.phtml"));
     }
 
+    public function getCurGame($id)
+    {
+        if ($game = $this->_bizGames->getGames($id)) {
+            return $game;
+        }
+        return array();
+    }
 }

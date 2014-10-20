@@ -431,6 +431,13 @@ header .header-content .flag-language ul li {
     font-weight: normal;
     font-size: 16px;
 }
+.booking-form .mid-content form select{
+    max-width: 100%;
+    width: 100%;
+    color: #000;
+    font-weight: normal;
+    font-size: 16px;
+}
 
 .contact .mid-content form textarea {
     max-width: 100%;

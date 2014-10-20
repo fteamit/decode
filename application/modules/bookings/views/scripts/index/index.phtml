@@ -4,29 +4,31 @@ $aryGames = $this->aryGames;
 <?php if (!$aryGames || empty($aryGames)): ?>
     <p><?php echo __('No game found'); ?></p>
 <?php else: ?>
-    <?php foreach ($aryGames as $_game): ?>
-        <div class="item-booking col-md-6">
-            <a href="#">
-                <img
-                    src="<?php echo ($_game['game_image'] !== null) ? $_game['game_image'] : BaseUrl_Template_Default('bookings/index/bookings') . '/_/component/images/Decode/icon/item.png' ?>"
-                    alt="item booking" class="img-item"/>
+    <div id="booking-container">
+        <?php foreach ($aryGames as $_game): ?>
+            <div class="item-booking col-md-6">
+                <a href="#">
+                    <img
+                        src="<?php echo ($_game['game_image'] !== null) ? $_game['game_image'] : BaseUrl_Template_Default('bookings/index/bookings') . '/_/component/images/Decode/icon/item.png' ?>"
+                        alt="item booking" class="img-item"/>
 
-            </a>
+                </a>
 
-            <div class="media-body">
-                <a href="#"><h4><?php echo $_game['game_name']; ?></h4></a>
+                <div class="media-body">
+                    <a href="#"><h4><?php echo $_game['game_name']; ?></h4></a>
 
-                <p>
-                    <?php echo $_game['game_desc'] ?>
-                </p>
+                    <p>
+                        <?php echo $_game['game_desc'] ?>
+                    </p>
                 <span>
                     <?php echo __('Difficulty: ') ?>
                     <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/difficult.png"/>
                 </span>
-                <a href="<?php echo $this->baseUrl('bookings/index/bookings/id/') . $_game['game_id']; ?>"
-                   class="btn-book"><?php echo __('Book Now') ?></a>
-            </div>
+                    <a onclick="BookingController.getTimes('<?php echo date('d-m-Y'); ?>',0,'<?php echo $_game['game_id'] ?>')"
+                       class="btn-book"><?php echo __('Book Now') ?></a>
+                </div>
 
-        </div>
-    <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
 <?php endif; ?>

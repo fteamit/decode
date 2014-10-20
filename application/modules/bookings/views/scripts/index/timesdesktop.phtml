@@ -1,60 +1,72 @@
 <?php
 $aryTimes = $this->aryTime;
 $aryWeek = $this->curWeek;
+$curGame = $this->curGame;
+$gameId = '';
+$gameName = '';
+if ($curGame[0] && !empty($curGame[0])) {
+    $gameName = $curGame[0]['game_name'];
+    $gameId = $curGame[0]['game_id'];
+}
 ?>
-<div id="desktop-times-content" class="schedule-container week hidden-xs">
-    <div class="row mmb schedule-bar">
-        <div class="col-xs-12 col-sm-3 col-md-2">
-            <a id="load-prev-time" href="#" class="btn schedule-control prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-8 text-center">
-            <span class="schedule-week"></span>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-2 text-right">
-            <a id="load-next-time" href="#" class="btn schedule-control next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div>
-    </div>
-    <table id="times-table" class="table table-responsive">
-        <thead>
+<h4 id="td-game-name"><?php echo $gameName; ?></h4>
+<div id="td-content">
+    <p class="desc-booking-detail"><?php echo __('Please select your perferred time') ?></p>
 
-        <tr>
-            <?php $j = 1; ?>
-            <?php foreach ($aryWeek as $_day => $_date): ?>
-                <td>
-                    <p><?php echo $_day ?></p>
+    <div id="desktop-times-content" class="schedule-container week hidden-xs">
+        <div class="row mmb schedule-bar">
+            <div class="col-xs-12 col-sm-3 col-md-2">
+                <a id="load-prev-time" href="#" class="btn schedule-control prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8 text-center">
+                <span class="schedule-week"></span>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-2 text-right">
+                <a id="load-next-time" href="#" class="btn schedule-control next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <table id="times-table" class="table table-responsive">
+            <thead>
 
-                    <p id="day_booking_<?php echo $j; ?>" class="date-booking"
-                       full_date="<?php echo date('d-m-Y', strtotime($_date)); ?>"
-                       date="<?php echo date('d/m', strtotime($_date)) ?>"
-                       date_prev="<?php echo date('d-m-Y', strtotime($_date . ' -1 day')); ?>"
-                       date_next="<?php echo date('d-m-Y', strtotime($_date . ' +1 day')); ?>">
-                        <?php echo '(' . $_date . ')' ?>
-                    </p>
-                </td>
-                <?php $j++; ?>
-            <?php endforeach; ?>
-        </tr>
-        <tr class="space"></tr>
-        </thead>
-        <tbody>
-        <?php foreach ($aryTimes as $_time): ?>
-            <tr align="center">
-                <?php for ($i = 1; $i <= 7; $i++) { ?>
+            <tr>
+                <?php $j = 1; ?>
+                <?php foreach ($aryWeek as $_day => $_date): ?>
                     <td>
-                        <a class="time_booking" href="#" data_day="<?php echo "day_booking_$i"; ?>"
-                           data_time="<?php echo $_time['time'] ?>"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
-                    </td>
-                <?php } ?>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
+                        <p><?php echo $_day ?></p>
 
+                        <p id="day_booking_<?php echo $j; ?>" class="date-booking"
+                           full_date="<?php echo date('d-m-Y', strtotime($_date)); ?>"
+                           date="<?php echo date('d/m', strtotime($_date)) ?>"
+                           date_prev="<?php echo date('d-m-Y', strtotime($_date . ' -1 day')); ?>"
+                           date_next="<?php echo date('d-m-Y', strtotime($_date . ' +1 day')); ?>">
+                            <?php echo '(' . $_date . ')' ?>
+                        </p>
+                    </td>
+                    <?php $j++; ?>
+                <?php endforeach; ?>
+            </tr>
+            <tr class="space"></tr>
+            </thead>
+            <tbody>
+            <?php foreach ($aryTimes as $_time): ?>
+                <tr align="center">
+                    <?php for ($i = 1; $i <= 7; $i++) { ?>
+                        <td>
+                            <a class="time_booking" data_day="<?php echo "day_booking_$i"; ?>"
+                               data_time="<?php echo $_time['time'] ?>"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
+                        </td>
+                    <?php } ?>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <input type="hidden" id="cur_game_id" value="<?php echo $gameId; ?>"/>
+</div>
 <script type="text/javascript" language="javascript">
     jQuery(document).ready(function ($) {
 
