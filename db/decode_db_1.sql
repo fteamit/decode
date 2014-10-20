@@ -206,3 +206,13 @@ DROP `price_id`;
 -- # trangvt
 ALTER TABLE `tbl_faqs` MODIFY `faq_answer` text COLLATE utf8_unicode_ci;
 ALTER TABLE `tbl_games` change `game-status` `game_status` tinyint(4);
+
+-- # update DB third, add tbl_analys
+-- # trangvt
+CREATE TABLE IF NOT EXISTS `tbl_analys` (
+  `analys_id` int(11) NOT NULL AUTO_INCREMENT,
+  `analys_time` time NOT NULL,
+  `analys_url` text COLLATE utf8_unicode_ci,
+  `analys_ip` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`analys_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

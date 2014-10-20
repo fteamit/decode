@@ -1,7 +1,6 @@
 <?php
 $options_home_banner = $this->options_home_banner;
 $ip = $_SERVER['REMOTE_ADDR'];
-echo $ip;
 ?>
 <script>
     var ip = '<?php echo $ip ?>';
