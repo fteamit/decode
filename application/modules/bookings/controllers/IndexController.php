@@ -5,6 +5,7 @@ class Bookings_IndexController extends FTeam_Controller_Action
 
     protected $class_body = 'booking';
     protected $_bizTimes;
+    protected $_bizGames;
 
     /**
      *
@@ -13,6 +14,7 @@ class Bookings_IndexController extends FTeam_Controller_Action
     {
         parent::init();
         $this->_bizTimes = new Bookings_Model_Biz_TimesBusiness();
+        $this->_bizGames = new Bookings_Model_Biz_GamesBusiness();
     }
 
     /**
@@ -20,6 +22,8 @@ class Bookings_IndexController extends FTeam_Controller_Action
      */
     public function indexAction()
     {
+        $aryGames = $this->_bizGames->getGames();
+        $this->view->aryGames = $aryGames;
 
     }
 
@@ -28,7 +32,13 @@ class Bookings_IndexController extends FTeam_Controller_Action
      */
     public function bookingsAction()
     {
-
+        $id = $this->_request->getParam('id');
+        $game = $this->_bizGames->getGames($id);
+        if (!$id || empty($game)) {
+            $this->redirect('index');
+        } else {
+            $this->view->curGame = $game;
+        }
     }
 
     /**
@@ -66,6 +76,15 @@ class Bookings_IndexController extends FTeam_Controller_Action
     {
         $this->_helper->layout()->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
+    }
+
+    public function bookingformAction()
+    {
+        $aryData = $this->_request->getParams();
+        $this->aryData = $aryData;
+        $this->_helper->layout()->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        $this->view->class_body = 'booking-form';
     }
 
 }

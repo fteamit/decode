@@ -22,16 +22,20 @@ $aryWeek = $this->curWeek;
         <thead>
 
         <tr>
+            <?php $j = 1; ?>
             <?php foreach ($aryWeek as $_day => $_date): ?>
                 <td>
                     <p><?php echo $_day ?></p>
 
-                    <p class="date-booking" date="<?php echo date('d/m', strtotime($_date)) ?>"
+                    <p id="day_booking_<?php echo $j; ?>" class="date-booking"
+                       full_date="<?php echo date('d-m-Y', strtotime($_date)); ?>"
+                       date="<?php echo date('d/m', strtotime($_date)) ?>"
                        date_prev="<?php echo date('d-m-Y', strtotime($_date . ' -1 day')); ?>"
                        date_next="<?php echo date('d-m-Y', strtotime($_date . ' +1 day')); ?>">
                         <?php echo '(' . $_date . ')' ?>
                     </p>
                 </td>
+                <?php $j++; ?>
             <?php endforeach; ?>
         </tr>
         <tr class="space"></tr>
@@ -41,7 +45,8 @@ $aryWeek = $this->curWeek;
             <tr align="center">
                 <?php for ($i = 1; $i <= 7; $i++) { ?>
                     <td>
-                        <a href="#"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
+                        <a class="time_booking" href="#" data_day="<?php echo "day_booking_$i"; ?>"
+                           data_time="<?php echo $_time['time'] ?>"><?php echo date('h:i', strtotime($_time['time'])); ?></a>
                     </td>
                 <?php } ?>
             </tr>
@@ -67,5 +72,12 @@ $aryWeek = $this->curWeek;
         });
 
         $('.schedule-week').text(elmFirst.attr('date') + ' - ' + elmLast.attr('date'));
+
+        $('.time_booking').on('click', function () {
+            var tm = $(this).attr('data_time');
+            var d = $("#" + $(this).attr('data_day')).attr('full_date');
+            var gd = $('#cur_game_id').val();
+            BookingController.bookingform(gd, tm, d);
+        });
     });
 </script>

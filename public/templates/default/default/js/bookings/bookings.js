@@ -20,5 +20,19 @@ var BookingController = {
                 }
             }
         });
+    },
+
+    bookingform: function (gd, tm, d) {
+        var action = 'bookingform';
+        var url = ROOT_URL + '/' + this.module + '/' + this.controller + '/' + action;
+        jQuery.ajax({
+            type: "post",
+            url: url,
+            data: "game=" + gd + "&time=" + tm + "&day=" + d,
+            success: function (data) {
+
+            }
+        });
     }
+
 }
