@@ -4,16 +4,14 @@
         <?php $i=1; foreach($this->faqs as $item):?>
         <div class="row faq-toggle faq-toggle-<?php echo $i?>" >
             <h4 class="top-title"><?php echo $item['faq_question'] ?></h4>
-            <h4 class="bottom-title active" ><?php echo substr($item['faq_question'],0,3).'...'?></h4>
+
             <p style="display: none"><?php echo $item['faq_answer']?></p>
         </div>
         <?php $i++; endforeach;?>
         <?php endif;?>
 </div>
 <style type="text/css">
-    .faq .faq-toggle h4{
-        display: none;
-    }
+    
 
     .faq .faq-toggle h4.active {
         display: block;
@@ -27,10 +25,9 @@
 
     $(document).ready(function() {
         $('.faq .faq-toggle-1 h4.top-title').addClass('active');
-        $('.faq .faq-toggle-1 h4.bottom-title').removeClass('active');
         $('.faq .faq-toggle-1 p').show();
         $('.faq h4.top-title').on('click', function() {
-            $(this).next().next().slideToggle();
+            $(this).next().slideToggle();
             $(this).removeClass('active').next().addClass('active');
         })
 
