@@ -71,6 +71,8 @@ return array(
     'Save Now'=> "Lưu",
     'Reset'=> "Reset",
     'games level' => 'Độ khó',
+    'updated game successfully!' =>'Sửa trờ chơi thành công!',
+    'inserted successfully!' =>'Thêm thành công!',
 
     //Menu admin
     'Bookings'=> "Đặt phòng",

@@ -89,6 +89,7 @@ return array(
     'Save Now'=> "Save Now",
     'Reset'=> "Reset",
     'games level' => 'Level',
+    'updated game successfully!' =>'Update successfully!',
 
 
 
