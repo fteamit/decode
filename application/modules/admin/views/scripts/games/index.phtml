@@ -43,6 +43,7 @@ $no= 1;
                                     <th><?php echo __('STT')?></th>
                                     <th><?php echo __('games name')?></th>
                                     <th><?php echo __('games desc')?></th>
+                                    <th><?php echo __('games level')?></th>
                                     <th><?php echo __('games image')?></th>
                                     <th><?php echo __('status')?></th>
                                     <th></th>
@@ -65,7 +66,21 @@ $no= 1;
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $game['game_name'] ?></td>
                                         <td><?php echo $game['game_desc'] ?></td>
-                                        <td><?php echo $game['game_image'] ?></td>
+                                        <td><?php echo $game['game_difficult'] ?></td>
+                                        <?php
+                                        $game_image = $game['game_image'];
+                                        $arr_image = explode('|', $game_image);
+                                        ?>
+                                        <td>
+                                            <?php foreach ($arr_image as $img): ?>
+                                                <?php if (Check_File_Exists_Upload($img)): ?>
+                                                    <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" width="70px" height="90px"
+                                                         alt="<?php echo $game['game_name']; ?>"/>
+                                                <?php else: ?>
+                                                    <img src="<?php echo $this->baseUrl(UPLOAD_URL . 'no_img.jpg') ?>" width="70px" height="90px"/>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </td>
                                         <td><a href="<?php echo $href ?>"><span class="label <?php echo $class?>"><?php echo $gameStatus ?></span></a></td>
                                         <td>
                                             <div class="btn-group">

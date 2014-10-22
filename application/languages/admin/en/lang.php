@@ -88,6 +88,7 @@ return array(
     'game name is not empty!'=> "Name is not empty!",
     'Save Now'=> "Save Now",
     'Reset'=> "Reset",
+    'games level' => 'Level',
 
 
 

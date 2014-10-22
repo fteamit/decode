@@ -70,6 +70,7 @@ return array(
     'game name is not empty!'=> "Tên trò chơi không được để trống",
     'Save Now'=> "Lưu",
     'Reset'=> "Reset",
+    'games level' => 'Độ khó',
 
     //Menu admin
     'Bookings'=> "Đặt phòng",

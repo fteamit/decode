@@ -15,7 +15,15 @@ class Admin_Model_Games extends Zend_Db_Table
     }
 
     public function getAllGames(){
-        return $this->fetchall()->toArray();
+        //return $this->fetchall()->toArray();
+
+        $where = "game_lang = '$this->_languages'";
+        $select = $this->select()->from($this->_name)->where($where);
+        $result = $this->fetchAll($select);
+        if (count($result)) {
+            $result = $result->toArray();
+        }
+        return $result;
     }
     public function getSingleGame($game_id = null)
     {

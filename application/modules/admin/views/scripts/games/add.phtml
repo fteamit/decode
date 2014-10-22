@@ -51,6 +51,20 @@ $arr_image = explode('|', $game_image);
                                 <textarea class="form-control" rows="10" name="game_desc" id="sitedescription"><?php echo $singlegame['game_desc'] ?></textarea>
                             </div>
                         </div>
+                        <!-- game level -->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2" for="sitedescription"><?php echo __('games level')?></label>
+                            <div class="col-lg-7">
+                                <select class="form-control" name="<?php echo "game_difficult" ?>">
+                                    <option value="1" <?php if($singlegame['game_difficult'] == 1) echo "selected='selected'"?>>1</option>
+                                    <option value="2" <?php if($singlegame['game_difficult'] == 2) echo "selected='selected'"?>>2</option>
+                                    <option value="3" <?php if($singlegame['game_difficult'] == 3) echo "selected='selected'"?>>3</option>
+                                    <option value="4" <?php if($singlegame['game_difficult'] == 4) echo "selected='selected'"?>>4</option>
+                                    <option value="5" <?php if($singlegame['game_difficult'] == 5) echo "selected='selected'"?>>5</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <!-- game image-->
                         <div class="form-group">
                             <label class="col-md-2 control-label"><?php echo __('games image') ?></label>

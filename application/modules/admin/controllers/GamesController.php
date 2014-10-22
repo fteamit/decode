@@ -36,6 +36,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
      */
     public function addAction()
     {
+
         if($this->getRequest()->isPost()){
             $arr_messages = array(
                 'game_name' => array(
@@ -56,21 +57,23 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
 
                 $game_desc = $request['game_desc'];
                 $game_status = $request['game_status'];
-
+                $game_difficult = $request['game_difficult'];
                 $game_name = $value['game_name'];
+                $singlegame = array(
+                    'game_name' => $game_name,
+                    'game_desc' => $game_desc,
+                    'game_status' => $game_status,
+                    'game_difficult' =>$game_difficult
+                );
                 $upload = new FTeam_UploadFile();
                 if ($upload->upload())
                 {
-                    $singlegame = array(
-                        'game_name' => $game_name,
-                        'game_desc' => $game_desc,
-                        'game_status' => $game_status
-                    );
                     $list_file = $upload->getListFile();
                     if(count($list_file) > 0){
                         $game_image = implode('|', $list_file);
                         $singlegame['game_image'] = $game_image;
                     }
+                }
                     if($game_id){
                         //update the game
                         $result = $this->_gameModel->updateGame($singlegame, $game_id);
@@ -93,7 +96,6 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
                         }
                         $this->_helper->redirector('index', 'games');
                     }
-                }
             }else{
                 //didnt pass validate
                 $this->view->messages = $validate->getMessages();
