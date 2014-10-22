@@ -34,7 +34,7 @@ define('ADMIN_TEMPLATE_URL', '/public/templates/default/admin');
 define('DEFAULT_TEMPLATE', TEMPLATE_PATH . "/default/default");
 
 //Ngon ngu mac dinh
-define('DEFAULT_LANGUAGES', 'en');
+define('DEFAULT_LANGUAGES', 'vi');
 
 //Số ban ghi trên 1 trang mac dinh
 define('ITEM_COUNT_PER_PAGE', 5);
