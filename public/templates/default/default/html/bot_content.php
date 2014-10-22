@@ -83,7 +83,7 @@
 </div>
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        jQuery('.inline').bxSlider({
+        jQuery('.the-game .inline').bxSlider({
             minSlides: 4,
             maxSlides: 4,
             slideWidth: 280
