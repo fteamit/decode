@@ -18,6 +18,7 @@ ul {
 
 a:hover {
     text-decoration: none;
+    color: #fff;
 }
 
 /*=======================TOP======================*/
@@ -124,9 +125,7 @@ header .header-content .flag-language ul li {
     /* 	border-bottom: 7px solid red; */
 }
 
-.the-game .content .mid-content h3 {
-    width: 125px;
-}
+
 
 .the-game .content .relax-flag {
     position: relative;
@@ -263,6 +262,8 @@ header .header-content .flag-language ul li {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 10px;
+    max-height: 220px;
+    overflow: hidden;
 }
 
 /* ---------------------BOOKING - DETAIL---------------------- */
@@ -319,8 +320,8 @@ header .header-content .flag-language ul li {
 }
 
 .booking-detail .mid-content table tr td a:hover {
-    text-decoration: none;
-    color: red;
+    text-decoration: none !important;
+    color: red !important;
 }
 
 .booking-detail .mid-content table tr td a {
@@ -457,6 +458,8 @@ header .header-content .flag-language ul li {
     background: url('../images/Decode/icon/button-submit.png') no-repeat;
     border: none;
     margin: auto;
+    color: #fff;
+    font-weight: bold;
 }
 
 .contact .content .mid-content h4,.booking-form .content .mid-content h4 {
@@ -540,6 +543,12 @@ header .header-content .flag-language ul li {
 
 .booking-form ul li span, .booking-form i {
     font-size: 18px;
+}
+
+.booking-form .mid-content form input[type=submit] {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .contact .content .mid-content .right, .booking-form .content .mid-content .right {
@@ -720,6 +729,10 @@ footer .main-footer {
         clear:both;
     }
 
+    /*.booking tbody a:hover {*/
+        /*color: #ff0000;*/
+    /*}*/
+
     .content .top-content {
         margin-bottom: 100px;
     }
@@ -896,6 +909,10 @@ footer .main-footer {
     }
     .content .bot-content ul li {
         padding: 30px;
+    }
+
+    .content .mid-content h3 {
+        font-size: 24px;
     }
 
     header .header-top .navbar-default .navbar-toggle{
