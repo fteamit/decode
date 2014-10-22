@@ -5,5 +5,7 @@ return array(
    'The game'=>'Trò chơi',
    'Contact'=>'Liên hệ',
    'FAQs'=>'Hỏi đáp',
-   'Booking'=>'Đặt phòng'
+   'Booking'=>'Đặt phòng',
+   'For more info:' =>'Tìm hiểu thêm:',
+   'check faqs' => 'Hỏi đáp',
     );

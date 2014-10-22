@@ -24,7 +24,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
         $status = $this->getRequest()->getParam('status', -1);
         $result = $this->_gameModel->statusUpdate($id, $status);
         if ($result){
-            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated successfully!');
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated game successfully!');
         }
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
@@ -38,6 +38,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
     {
 
         if($this->getRequest()->isPost()){
+
             $arr_messages = array(
                 'game_name' => array(
                     Zend_Validate_NotEmpty::IS_EMPTY => 'game name is not empty!'
@@ -79,7 +80,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
                         $result = $this->_gameModel->updateGame($singlegame, $game_id);
                         if ($result){
                             //has changed
-                            $this->view->messages = __('updated successfully!');
+                            $this->view->messages = __('updated game successfully!');
                         }else{
                             //hasnt changed
                             $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));

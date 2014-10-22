@@ -51,9 +51,9 @@
                         <?php foreach ($arr_img as $img): ?>
                             <div class="item <?php echo  $i === 0 ?'active':''?>">
                                 <?php if (Check_File_Exists_Upload($img)): ?>
-                                <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" alt="" style="height: 465px !important">
+                                <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" alt="" style="height: 465px !important; width: 100%">
                                 <?php else: ?>
-                                <img src="<?php echo $this->baseUrl(UPLOAD_URL . 'no_img.jpg') ?>" title="" style="height: 465px !important"/>
+                                <img src="<?php echo $this->baseUrl(UPLOAD_URL . 'no_img.jpg') ?>" title="" style="height: 465px !important;width: 100%"/>
                                 <?php endif; ?>
                                 <div class="carousel-caption">
 
