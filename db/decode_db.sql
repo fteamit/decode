@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `tbl_faqs` (
   `faq_status` tinyint(2) NOT NULL DEFAULT '1',
   `faq_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`faq_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `tbl_faqs`
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `tbl_games` (
   `game_status` tinyint(4) DEFAULT NULL,
   `game_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`game_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `tbl_games`
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `tbl_options` (
   `option_status` tinyint(2) NOT NULL DEFAULT '1',
   `option_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `tbl_options`
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `tbl_prices` (
   `price_status` tinyint(4) NOT NULL DEFAULT '1',
   `price_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`price_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `tbl_prices`
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `tbl_times` (
   `time_status` tinyint(4) NOT NULL DEFAULT '1',
   `is_weekend` tinyint(1) NOT NULL COMMENT 'discrimination weekend with normal days',
   PRIMARY KEY (`time_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `tbl_times`
@@ -259,3 +259,26 @@ INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `decode_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_analys`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_analys` (
+  `analys_id` int(11) NOT NULL AUTO_INCREMENT,
+  `analys_time` int(11) NOT NULL,
+  `analys_status` tinyint(1) DEFAULT NULL,
+  `analys_ip` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`analys_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

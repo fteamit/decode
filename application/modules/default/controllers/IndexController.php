@@ -28,14 +28,21 @@ class IndexController extends FTeam_Controller_Action
             'analys_time' => $analys_time,
             'analys_status' => $analys_status
         );
+        $singleRow = $this->_analysModel->getSingleRow($analys_ip);
         $count = count($this->_analysModel->getSingleRow($analys_ip));
         if($count == 0){
             $this->_analysModel->insertRow($data);
         }else{
-            $this->_analysModel->updateRow($data, $analys_ip);
+            $firstTime = $singleRow['analys_time'];
+            $limit = $firstTime - 5; //10 minutes
+            $currentTime = time();
+            $onlineTime = $currentTime - $firstTime;
+            if($onlineTime < $limit){
+                $this->_analysModel->updateRow($data, $analys_ip);
+            }
         }
         $this->view->online = count($this->_analysModel->getOnlineRow());
         $this->view->total = count($this->_analysModel->getAllRows());
+        //$this->_analysModel->statusUpdate($analys_ip);
     }
-
 }
