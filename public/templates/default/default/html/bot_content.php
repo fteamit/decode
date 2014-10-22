@@ -5,25 +5,25 @@
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/tem-building.png"
                      alt="team building"/>
 
-                <p>Team Building</p>
+                <p><?php echo __('Team Building') ?></p>
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/family.png"
                      alt="family"/>
 
-                <p>Friends/Family</p>
+                <p><?php echo __('Friends/Family') ?></p>
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/student.png"
                      alt="student"/>
 
-                <p>Students/Classes</p>
+                <p><?php echo __('Students/Classes')?></p>
             </li>
             <li class="col-md-3">
                 <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/games.png"
                      alt="Games"/>
 
-                <p>Gamers</p>
+                <p><?php echo __('Gamers') ?></p>
             </li>
         </ul>
     <?php elseif ($this->class_body === 'the-game'): ?>
