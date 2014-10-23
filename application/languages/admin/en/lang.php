@@ -77,6 +77,7 @@ return array(
     'setting for contact'=>'Setting for contact',
     'update settings'=>'Update settings',
     'update'=>'Update',
+    'updated fail!'=>'Updated Fail!',
 
     //Games page
     'games table'=> "Games Table",
@@ -91,21 +92,7 @@ return array(
     'games level' => 'Level',
     'updated game successfully!' =>'Update successfully!',
 
-
-
     //Setting page in admin
-    'settings for website'=>'Settings For Website',
-    'general settings'=>'General Settings',
-    'group'=>'Group',
-    'action'=>'Action',
-    'active'=>'Enable',
-    'not active'=>'Disable',
-    'no data'=>'No Data',
-    'setting for home page'=>'Setting For Home Page',
-    'setting for the game'=>'Setting For The Game',
-    'setting for contact'=>'Setting For Contact',
-    'update status option success!'=>'Update Status Option Successful!',
     'value'=>'Value',
     'images'=>'Images',
-    'update settings'=>'Update Settings',
 );

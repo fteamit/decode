@@ -73,11 +73,11 @@ class Admin_SettingsController extends FTeam_Controller_AdminAction
                     $result = $this->model_options->update_option($option_id, $arr_data);
                     if ($result)
                     {
-                        $this->view->messages = __('update settings success!');
+                        $this->view->messages = __('updated successfully!');
                     }
                     else
                     {
-                        $this->view->messages = array('update_fail' => array(__('update settings fail!')));
+                        $this->view->messages = array('update_fail' => array(__('updated fail!')));
                     }
                 }
                 else

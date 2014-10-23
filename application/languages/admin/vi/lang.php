@@ -53,7 +53,7 @@ return array(
     'name is not empty!'=> 'Tên loại giá không được để trống!',
     'price is not empty!'=> 'Giá không được để trống!',
     'price is number!'=> 'Giá phải là số!',
-    'updated successfully!'=> 'Sửa giá thành công!',
+    'updated successfully!'=> 'Sửa thành công!',
     'wasnt changed!'=> "Không thay đổi!",
     'inserted price successfully!'=> "Thêm giá thành công!",
     'inserted fail!'=> "Thêm giá không thành công!",
@@ -100,7 +100,6 @@ return array(
     'Admin'=>'Quản Trị ',
 
     //Setting page in admin
-    'Admin'=>'Quản Trị ',
     'settings for website'=>'Cài Đặt Cho Website',
     'general settings'=>'Cài Đặt Chung',
     'group'=>'Nhóm',
@@ -115,4 +114,5 @@ return array(
     'value'=>'Giá Trị',
     'images'=>'Hình Ảnh',
     'update settings'=>'Cập Nhật Cài Đặt',
+    'updated fail!'=>'Cập nhật không thành công!',
 );
