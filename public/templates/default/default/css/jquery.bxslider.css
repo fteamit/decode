@@ -204,3 +204,9 @@
 	font-size: .85em;
 	padding: 10px;
 }
+.active-game img{
+    border: 5px solid white;
+}
+.active-game .active{
+    color:white!important;
+}
