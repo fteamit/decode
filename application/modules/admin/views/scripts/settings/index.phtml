@@ -23,7 +23,7 @@ $contact_setting = $this->contact_setting;
     <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
         <div class="alert alert-success">
             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                <?php echo $msg ?>
+                <?php echo __($msg) ?>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>

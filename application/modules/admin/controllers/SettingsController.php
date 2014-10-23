@@ -26,11 +26,11 @@ class Admin_SettingsController extends FTeam_Controller_AdminAction
         $result = $this->model_options->update_status_option($option_id, $status);
         if ($result)
         {
-            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('update status option success!');
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated successfully!');
         }
         else
         {
-            $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('update status option fail!');
+            $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
         }
         $this->_helper->redirector('index', 'settings');
     }
