@@ -7,7 +7,7 @@
         <ul class="navi">
             <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
 
-            <li class="nred current"><a href="#"><i class="fa fa-desktop"></i> <?php echo __('Dashboard')?></a></li>
+            <li class="nred current"><a href="<?php echo $this->baseUrl('admin/settings'); ?>"><i class="fa fa-desktop"></i> <?php echo __('Dashboard')?></a></li>
             <!-- Menu with sub menu -->
             <li class="has_submenu nlightblue">
                 <a href="#">
