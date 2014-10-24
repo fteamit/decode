@@ -34,7 +34,5 @@ class IndexController extends FTeam_Controller_Action
         }else{
             $this->_analysModel->updateRow($data, $analys_ip);
         }
-        $this->view->total = count($this->_analysModel->getAllRows());
-        //$this->_analysModel->statusUpdate($analys_ip);
     }
 }

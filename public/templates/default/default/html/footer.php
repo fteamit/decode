@@ -23,7 +23,7 @@ foreach($allAnalys as $analys){
     $online = count($analysModel->getOnlineRow());
     echo __('Visitors currently online: ').$online;
     echo "<br/>";
-    $total = $this->total;
+    $total = count($analysModel->getAllRows());
     echo __('Total visitors: ').$total;
     ?>
     <div class="container">
