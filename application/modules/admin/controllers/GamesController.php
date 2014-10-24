@@ -59,12 +59,15 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
                 $game_desc = $request['game_desc'];
                 $game_status = $request['game_status'];
                 $game_difficult = $request['game_difficult'];
+                $game_sort = $request['game_sort'];
+
                 $game_name = $value['game_name'];
                 $singlegame = array(
                     'game_name' => $game_name,
                     'game_desc' => $game_desc,
                     'game_status' => $game_status,
-                    'game_difficult' =>$game_difficult
+                    'game_difficult' =>$game_difficult,
+                    'game_sort' =>$game_sort
                 );
                 $upload = new FTeam_UploadFile();
                 if ($upload->upload())
