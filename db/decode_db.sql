@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 15, 2014 at 06:14 PM
+-- Generation Time: Oct 24, 2014 at 12:00 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.4
 
@@ -19,6 +19,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `decode_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_analys`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_analys` (
+  `analys_id` int(11) NOT NULL AUTO_INCREMENT,
+  `analys_time` int(11) NOT NULL,
+  `analys_status` tinyint(1) DEFAULT NULL,
+  `analys_ip` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`analys_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `tbl_analys`
+--
+
+INSERT INTO `tbl_analys` (`analys_id`, `analys_time`, `analys_status`, `analys_ip`) VALUES
+  (19, 1414125911, 1, '127.0.0.1'),
+  (23, 1413977898, 0, '192.168.7.97');
 
 -- --------------------------------------------------------
 
@@ -69,30 +91,34 @@ CREATE TABLE IF NOT EXISTS `tbl_faqs` (
   `faq_status` tinyint(2) NOT NULL DEFAULT '1',
   `faq_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`faq_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `tbl_faqs`
 --
 
 INSERT INTO `tbl_faqs` (`faq_id`, `faq_question`, `faq_answer`, `faq_status`, `faq_lang`) VALUES
-  (1, 'DECODE là gì? ', 'DECODE là 1 trò chơi thực được chuyển thể từ các game online thoát khỏi phòng kín. Trong 1 nhóm 2-5 người, người chơi sẽ phải chạy đua với thời gian và vận dụng trí tuệ đã giải mã bí mật của căn phòng nơi bị nhốt để tìm chìa khoá thoát ra ngoài. Không có bất kỳ hoạt động nào trong trò chơi là nguy hiểm hay đòi hỏi khả năng thể lực cao. \r\nDECODE được sáng tạo với mục tiêu duy nhất là đem đến một trò chơi vui nhộn, khơi gợi tư duy sáng tạo và đầy tính hành động cho tất cả mọi người bất kể lứa tuổi. DECODE hy vọng tạo ra một sân chơi thú vị giúp gắn kết mọi người với nhau thông qua trải nghiệm chung vai sát cánh vượt qua thử thách. \r\nHiện tại DECODE có 4 chủ đề phòng khác nhau (sẽ được thay đổi định kỳ để giúp mọi người luôn có những trải nghiệm mới mẻ nhất).\r\nĐể hiểu thêm về trò chơi và đặt phòng, hãy ấn “Đặt phòng” trên thanh điều khiển của website.', 1, 'vi'),
+  (1, 'DECODE là gì? ', '<br />DECODE l&agrave; 1 tr&ograve; chơi thực được chuyển thể từ c&aacute;c game online tho&aacute;t khỏi&nbsp;ph&ograve;ng k&iacute;n. Trong 1 nh&oacute;m 2-5 người, người chơi sẽ phải chạy đua với thời&nbsp;gian v&agrave; vận dụng tr&iacute; tuệ đ&atilde; giải m&atilde; b&iacute; mật của căn ph&ograve;ng nơi bị nhốt để&nbsp;t&igrave;m ch&igrave;a kho&aacute; tho&aacute;t ra ngo&agrave;i. Kh&ocirc;ng c&oacute; bất kỳ hoạt động n&agrave;o trong tr&ograve; chơi&nbsp;l&agrave; nguy hiểm hay đ&ograve;i hỏi khả năng thể lực cao.&nbsp;<br /><br />&nbsp;DECODE được s&aacute;ng tạo với mục ti&ecirc;u duy nhất l&agrave; đem đến một tr&ograve; chơi vui&nbsp;nhộn, khơi gợi tư duy s&aacute;ng tạo v&agrave; đầy t&iacute;nh h&agrave;nh động cho tất cả mọi người&nbsp;bất kể lứa tuổi. ECODE hy vọng tạo ra một s&acirc;n chơi th&uacute; vị gi&uacute;p gắn kết&nbsp;mọi người với nhau th&ocirc;ng qua trải nghiệm chung vai s&aacute;t c&aacute;nh vượt qua&nbsp;thử th&aacute;ch.&nbsp;<br /><br />Hiện tại DECODE c&oacute; 4 chủ đề ph&ograve;ng kh&aacute;c nhau (sẽ được thay đổi định kỳ&nbsp;để gi&uacute;p mọi người lu&ocirc;n c&oacute; những trải nghiệm mới mẻ nhất).<br />Để hiểu th&ecirc;m về tr&ograve; chơi v&agrave; đặt ph&ograve;ng, h&atilde;y ấn &ldquo;Đặt ph&ograve;ng&rdquo; tr&ecirc;n thanh&nbsp;điều khiển của website.', 1, 'vi'),
   (2, 'Tại sao nên chọn DECODE?', 'DECODE chú trọng niềm vui của mọi người và hướng tới một sân chơi mới mẻ có khả năng “gây nghiện” với những khoảnh khắc đáng nhớ bên bạn bè và gia đình.\r\nGiá của DECODE được cân nhắc cẩn thận sao cho phù hợp với túi tiền người Việt – thấp hơn tới 40% so với các nước bạn như Malaysia, Singapore và Thái Lan! \r\nCác Game Master của DECODE sẽ tận tình quan tâm chăm sóc khách hàng từ lúc đến cho lúc đi. Khách sẽ được hướng dẫn tỉ mỉ cách chơi trò chơi và nếu như đi 1 nhóm 4 hoặc 5 người, khách sẽ nhận được 1 tấm ảnh polaroid miễn phí chụp cả nhóm với phông ảnh DECODE. \r\nDECODE quảng bá trí tuệ của người chơi với những người chơi khác: khách có thể được đề tên trên bảng vàng top 5 nhóm xuất sắc nhất mỗi tuần. Bảng được đặt ở ngay trụ sở DECODE và cả up lên Facebook!\r\n', 1, 'en'),
-  (4, 'Tôi nên chơi phòng nào trước? ', 'Mỗi phòng có 1 độ khó khác nhau ( được nêu rõ bên cạnh các poster phòng). Nếu như bạn lần đầu tới chơi, DECODE khuyến khích bạn nên bắt đầu từ căn phòng dễ nhất – bạn sẽ có khả năng giành chiến thắng cao hơn rất nhiều! \r\n2 căn phòng như “Lò mổ” và “Khách sạn ma  m\0﷽﷽﷽﷽﷽﷽﷽﷽﷽﷽﷽ư "ò  và,uysá =tư \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0ám” được xây dựng với nhiều chi tiết kinh dị có thể khiến bạn thót tim. Bạn nào yếu bóng vía có thể chơi 2 phòng còn lại.\r\nĐương nhiên, nếu như bạn thích bất kỳ 1 chủ đề phòng nào, bạn cứ việc thử! DECODE vô cùng hoan nghênh :D ', 1, 'vi'),
-  (5, 'Tôi nên chơi 1 nhóm bao nhiêu người? ', 'Vì DECODE là một trò chơi có tính đồng đội (và cũng vì độ khó của trò chơi), bạn cần ít nhất 2 người để chơi. Tuy nhiên, càng nhiều bộ não vận hành thì khả năng bạn thắng càng cao. Hãy tới cùng 4 người bạn khác (5 là con số tối đa cho 1 phòng chơi) và chiến thắng!', 1, 'vi'),
-  (6, 'DECODE phù hợp cho độ tuổi nào? ', 'DECODE là một trò chơi vui nhộn dành cho mọi lứa tuổi, mặc dù trẻ em dưới 9 tuổi có thể cảm thấy quá khó hiểu. Trẻ em từ độ tuổi 9-15 nên có ít nhất 1 người lớn đi cùng. \r\nNếu bạn có 1 trẻ em dưới 9 tuổi trong đội của bạn, bạn sẽ phải chịu hoàn toàn trách nhiệm đối với những hành động của trẻ (bao gồm đổ vỡ, gây hư hại cho đồ đạc trong phòng) và cần ký một giấy đảm bảo trước khi chơi. \r\nKhông có giới hạn độ tuổi trên. ', 1, 'vi'),
-  (7, 'Tôi sợ không gian kín. Tôi có thể chơi không? ', 'Các phòng của DECODE đều được thiết kế với trần nhà cao ít nhất 3.5m và diện tích phòng khá rộng rãi. \r\nCác phòng đều có camera và chuông kêu cứu để khách có thể bấm bất cứ lúc nào trong khi chơi và các Game Masters sẽ lập tức tới hỗ trợ. \r\nNếu như bạn cảm thấy không thoải mái, bạn có thể rời bỏ trò chơi bất cứ lúc nào.  ', 1, 'vi'),
-  (8, 'Làm thế nào để đặt phòng chơi?', 'Để xem khung thời gian còn trống cho các phòng, vui lòng xem phần “Đặt phòng”. Bạn có thể đặt phòng trước 4 tuần!\r\nSau khi bạn đã chọn được căn phòng yêu thích và khung thời gian, vui lòng điền vào mẫu đơn liên hệ sẵn có và bấm “Gửi”. Một xác nhận đặt phòng sẽ được gửi đến email của bạn. Hãy nhớ rằng bạn cần phải đến 10 phút sớm hơn thời gian đặt phòng để nghe hướng dẫn chơi.\r\nXong rồi, bây giờ bạn chỉ cần thả lỏng và thư giãn chờ đợi tới chuyến phiêu lưu ngoài đời thực của mình thôi!', 1, 'vi'),
-  (9, 'Làm thế nào để thanh toán? ', 'Hiện tại, DECODE chỉ chấp nhận thanh toán bằng tiền mặt ngay tại quầy lễ tân của DECODE tại tầng 8, toà nhà Qunimex, 29 Lê Đại Hành, Hà Nội. \r\n', 1, 'vi'),
-  (10, 'Tôi có thể không cần đặt mà cứ đi vào chơi không?', 'Bạn có thể! Tuy nhiên DECODE khó có thể đảm bảo cho bạn là sẽ có phòng trống. Để tránh bị thất vọng, bạn hãy sử dụng hệ thống đặt phòng của DECODE để đặt chỗ trước cho chắc chắn.', 1, 'vi'),
-  (11, 'Tổng thời gian đến chơi mất bao lâu?', 'Khoảng 60 phút! Thời gian tối đa bạn có thể ở trong phòng chơi là 45 phút. Tuy nhiên, bạn sẽ có 5-10 phút hướng dẫn trước khi chơi và 5 phút nữa để chụp ảnh với phông của DECODE và những đồ costume độc đáo. \r\nVui lòng đến sớm hơn 10 phút so với thời gian đặt phòng chơi. Nếu bạn đến muộn, hãy gọi điện thoại báo trước cho DECODE. Muộn quá 15 phút so với thời gian đặt phòng, DECODE sẽ không thể đảm bảo giữ phòng cho bạn. Mong bạn thông cảm!\r\n', 1, 'vi'),
+  (4, 'Tôi nên chơi phòng nào trước? ', '<br />Mỗi ph&ograve;ng c&oacute; 1 độ kh&oacute; kh&aacute;c nhau ( được n&ecirc;u r&otilde; b&ecirc;n cạnh c&aacute;c poster&nbsp;ph&ograve;ng). Nếu như bạn lần đầu tới chơi, DECODE khuyến kh&iacute;ch bạn n&ecirc;n bắt&nbsp;đầu từ căn ph&ograve;ng dễ nhất &ndash; bạn sẽ c&oacute; khả năng gi&agrave;nh chiến thắng cao hơn&nbsp;rất nhiều!&nbsp;<br /><br />2 căn ph&ograve;ng như &ldquo;L&ograve; mổ&rdquo; v&agrave; &ldquo;Kh&aacute;ch sạn ma &aacute;m&rdquo; được x&acirc;y dựng với nhiều&nbsp;chi tiết kinh dị c&oacute; thể khiến bạn th&oacute;t tim. Bạn n&agrave;o yếu b&oacute;ng v&iacute;a c&oacute; thể chơi&nbsp;2 ph&ograve;ng c&ograve;n lại.<br /><br />Đương nhi&ecirc;n, nếu như bạn th&iacute;ch bất kỳ 1 chủ đề ph&ograve;ng n&agrave;o, bạn cứ việc&nbsp;thử! DECODE v&ocirc; c&ugrave;ng hoan ngh&ecirc;nh :D', 1, 'vi'),
+  (5, 'Tôi nên chơi 1 nhóm bao nhiêu người? ', '<br />V&igrave; DECODE l&agrave; một tr&ograve; chơi c&oacute; t&iacute;nh đồng đội (v&agrave; cũng v&igrave; độ kh&oacute; của tr&ograve;&nbsp;chơi), bạn cần &iacute;t nhất 2 người để chơi. Tuy nhi&ecirc;n, c&agrave;ng nhiều bộ n&atilde;o vận&nbsp;h&agrave;nh th&igrave; khả năng bạn thắng c&agrave;ng cao. H&atilde;y tới c&ugrave;ng 4 người bạn kh&aacute;c (5 l&agrave;&nbsp;con số tối đa cho 1 ph&ograve;ng chơi) v&agrave; chiến thắng!', 1, 'vi'),
+  (6, 'DECODE phù hợp cho độ tuổi nào? ', '<br />DECODE l&agrave; một tr&ograve; chơi vui nhộn d&agrave;nh cho mọi lứa tuổi, mặc d&ugrave; trẻ em&nbsp;dưới 9 tuổi c&oacute; thể cảm thấy qu&aacute; kh&oacute; hiểu. Trẻ em từ độ tuổi 9-15 n&ecirc;n c&oacute; &iacute;t&nbsp;nhất 1 người lớn đi c&ugrave;ng.&nbsp;<br /><br />Nếu bạn c&oacute; 1 trẻ em dưới 9 tuổi trong đội của bạn, bạn sẽ phải chịu ho&agrave;n&nbsp;to&agrave;n tr&aacute;ch nhiệm đối với những h&agrave;nh động của trẻ (bao gồm đổ vỡ, g&acirc;y hư&nbsp;hại cho đồ đạc trong ph&ograve;ng) v&agrave; cần k&yacute; một giấy đảm bảo trước khi chơi.&nbsp;<br /><br />Kh&ocirc;ng c&oacute; giới hạn độ tuổi tr&ecirc;n.', 1, 'vi'),
+  (7, 'Tôi sợ không gian kín. Tôi có thể chơi không? ', '<br />C&aacute;c ph&ograve;ng của DECODE đều được thiết kế với trần nh&agrave; cao &iacute;t nhất 3.5m v&agrave;&nbsp;diện t&iacute;ch ph&ograve;ng kh&aacute; rộng r&atilde;i.&nbsp;<br /><br />C&aacute;c ph&ograve;ng đều c&oacute; camera v&agrave; chu&ocirc;ng k&ecirc;u cứu để kh&aacute;ch c&oacute; thể bấm bất cứ&nbsp;l&uacute;c n&agrave;o trong khi chơi v&agrave; c&aacute;c Game Masters sẽ lập tức tới hỗ trợ.<br /><br />Nếu như bạn cảm thấy kh&ocirc;ng thoải m&aacute;i, bạn c&oacute; thể rời bỏ tr&ograve; chơi bất cứ&nbsp;l&uacute;c n&agrave;o.', 1, 'vi'),
+  (8, 'Làm thế nào để đặt phòng chơi?', '<br />Để xem khung thời gian c&ograve;n trống cho c&aacute;c ph&ograve;ng, vui l&ograve;ng xem phần &ldquo;Đặt&nbsp;ph&ograve;ng&rdquo;. Bạn c&oacute; thể đặt ph&ograve;ng trước 4 tuần!<br /><br />Sau khi bạn đ&atilde; chọn được căn ph&ograve;ng y&ecirc;u th&iacute;ch v&agrave; khung thời gian, vui&nbsp;l&ograve;ng điền v&agrave;o mẫu đơn li&ecirc;n hệ sẵn c&oacute; v&agrave; bấm &ldquo;Gửi&rdquo;. Một x&aacute;c nhận đặt&nbsp;ph&ograve;ng sẽ được gửi đến email của bạn. H&atilde;y nhớ rằng bạn cần phải đến 10&nbsp;ph&uacute;t sớm hơn thời gian đặt ph&ograve;ng để nghe hướng dẫn chơi.<br /><br />Xong rồi, b&acirc;y giờ bạn chỉ cần thả lỏng v&agrave; thư gi&atilde;n chờ đợi tới chuyến&nbsp;phi&ecirc;u lưu ngo&agrave;i đời thực của m&igrave;nh th&ocirc;i!', 1, 'vi'),
+  (9, 'Làm thế nào để thanh toán? ', '<br />Hiện tại, DECODE chỉ chấp nhận thanh to&aacute;n bằng tiền mặt ngay tại quầy lễ t&acirc;n của DECODE tại tầng 8, to&agrave; nh&agrave; Qunimex, 29 L&ecirc; Đại H&agrave;nh, H&agrave; Nội.', 1, 'vi'),
+  (10, 'Tôi có thể không cần đặt mà cứ đi vào chơi không?', '<br />Bạn c&oacute; thể! Tuy nhi&ecirc;n DECODE kh&oacute; c&oacute; thể đảm bảo cho bạn l&agrave; sẽ c&oacute; ph&ograve;ng&nbsp;trống. Để tr&aacute;nh bị thất vọng, bạn h&atilde;y sử dụng hệ thống đặt ph&ograve;ng của&nbsp;DECODE để đặt chỗ trước cho chắc chắn.', 1, 'vi'),
+  (11, 'Tổng thời gian đến chơi mất bao lâu?', '<br />Khoảng 60 ph&uacute;t! Thời gian tối đa bạn c&oacute; thể ở trong ph&ograve;ng chơi l&agrave; 45&nbsp;ph&uacute;t. Tuy nhi&ecirc;n, bạn sẽ c&oacute; 5-10 ph&uacute;t hướng dẫn trước khi chơi v&agrave; 5 ph&uacute;t&nbsp;nữa để chụp ảnh với ph&ocirc;ng của DECODE v&agrave; những đồ costume độc đ&aacute;o.&nbsp;<br /><br />Vui l&ograve;ng đến sớm hơn 10 ph&uacute;t so với thời gian đặt ph&ograve;ng chơi. Nếu bạn&nbsp;đến muộn, h&atilde;y gọi điện thoại b&aacute;o trước cho DECODE. Muộn qu&aacute; 15 ph&uacute;t&nbsp;so với thời gian đặt ph&ograve;ng, DECODE sẽ kh&ocirc;ng thể đảm bảo giữ ph&ograve;ng cho&nbsp;bạn. Mong bạn th&ocirc;ng cảm!', 1, 'vi'),
   (12, 'Tôi sẽ có bao nhiêu gợi ý?', 'Đội của bạn sẽ có nhiều nhất 2 gợi ý từ các Game Masters của DECODE. Các bạn có thể nhấn chuông xin gợi ý bất cứ lúc nào trong cuộc chơi. ', 1, 'en'),
   (13, 'Tôi nên đến lúc mấy giờ? ', 'Vui lòng chỉ đến sớm hơn 10 phút so với thời gian đặt phòng chơi của bạn vì DECODE không có nhiều phòng đợi. \r\nNếu bạn đến muộn, vui lòng báo sớm cho DECODE qua điện thoại.', 1, 'en'),
-  (14, 'Giá tiền như thế nào? ', 'Tất cả các phòng của DECODE đều cùng 1 giá: \r\n1. Ban ngày (trước 5h chiều từ thứ Hai đến thứ Năm): 120k VND \r\n2. Buổi tối (sau 5h chiều từ thứ Hai đến thứ Năm): 140k VND\r\n3. Cuối tuần (tất cả các giờ từ thứ Sáu đến CN): 160k VND  \r\nDECODE có chương trình giảm giá 10% cho học sinh sinh viên. Chỉ cần bạn đưa ra thẻ học sinh, sinh viên là sẽ được giảm giá ngay! \r\nDECODE có những ưu đãi giảm giá khác không định kỳ. Hãy theo dõi DECODE trên FB để “chộp” được nhiều ưu đãi vô cùng hấp dẫn: www.facebook.com/decodetvvn ', 1, 'vi'),
-  (15, 'Hỗ trợ người khuyết tật và các nhu cầu đặc biệt khác', 'DECODE rất tiếc ở thời điểm này các căn phòng của DECODE chưa được trang bị cho các thiết bị như xe lăn. Trong khi chơi, DECODE có hệ thống loa mỗi phòng để tăng độ kịch tính nhưng người chơi không nhất thiết cần nghe loa mới giải được mật mã. \r\nNếu bạn có nhu cầu đặc biệt khác, vui lòng liên hệ DECODE và chúng tôi sẽ cố gắng hết sức để đáp ứng nhu cầu của bạn.', 1, 'vi'),
-  (16, 'Làm thế nào để đi đến DECODE? H', 'Địa chỉ DECODE: tầng 8, toà nhà Qunimex, 29 Lê Đại Hành, Hà Nội. Toà Qunimex nằm ngay đối diện Vincom Bà Triệu và sát cạnh Starbucks Coffee.\r\nKhi sử dụng thang máy, vui lòng bấm lên tầng 7 và đi 1 quãng thang bộ ngắn lên tầng 8. ', 1, 'vi'),
+  (14, 'Giá tiền như thế nào? ', '<br />Tất cả c&aacute;c ph&ograve;ng của DECODE đều c&ugrave;ng 1 gi&aacute;:<br />1. Ban ng&agrave;y (trước 5h chiều từ thứ Hai đến thứ Năm): 120k VND&nbsp;<br />2. Buổi tối (sau 5h chiều từ thứ Hai đến thứ Năm): 140k VND<br />3. Cuối tuần (tất cả c&aacute;c giờ từ thứ S&aacute;u đến CN): 160k VND&nbsp;<br /><br />DECODE c&oacute; chương tr&igrave;nh giảm gi&aacute; 10% cho học sinh sinh vi&ecirc;n. Chỉ cần&nbsp;bạn đưa ra thẻ học sinh, sinh vi&ecirc;n l&agrave; sẽ được giảm gi&aacute; ngay!&nbsp;<br /><br />DECODE c&oacute; những ưu đ&atilde;i giảm gi&aacute; kh&aacute;c kh&ocirc;ng định kỳ. H&atilde;y theo&nbsp;d&otilde;i DECODE tr&ecirc;n FB để &ldquo;chộp&rdquo; được nhiều ưu đ&atilde;i v&ocirc; c&ugrave;ng hấp dẫn:&nbsp;<a href="http://www.facebook.com/decodetvvn">www.facebook.com/decodetvvn</a>', 1, 'vi'),
+  (15, 'Hỗ trợ người khuyết tật và các nhu cầu đặc biệt khác', '<br />DECODE rất tiếc ở thời điểm n&agrave;y c&aacute;c căn ph&ograve;ng của DECODE chưa được&nbsp;trang bị cho c&aacute;c thiết bị như xe lăn. Trong khi chơi, DECODE c&oacute; hệ thống&nbsp;loa mỗi ph&ograve;ng để tăng độ kịch t&iacute;nh nhưng người chơi kh&ocirc;ng nhất thiết cần&nbsp;nghe loa mới giải được mật m&atilde;.&nbsp;<br /><br />Nếu bạn c&oacute; nhu cầu đặc biệt kh&aacute;c, vui l&ograve;ng li&ecirc;n hệ DECODE v&agrave; ch&uacute;ng t&ocirc;i sẽ&nbsp;cố gắng hết sức để đ&aacute;p ứng nhu cầu của bạn.', 1, 'vi'),
+  (16, 'Làm thế nào để đi đến DECODE?', '<br />Địa chỉ DECODE: tầng 8, to&agrave; nh&agrave; Qunimex, 29 L&ecirc; Đại H&agrave;nh, H&agrave; Nội. To&agrave;&nbsp;Qunimex nằm ngay đối diện Vincom B&agrave; Triệu v&agrave; s&aacute;t cạnh Starbucks&nbsp;Coffee.<br /><br />Khi sử dụng thang m&aacute;y, vui l&ograve;ng bấm l&ecirc;n tầng 7 v&agrave; đi 1 qu&atilde;ng thang bộ&nbsp;ngắn l&ecirc;n tầng 8.', 1, 'vi'),
   (17, 'Bãi đỗ xe ô tô và xe máy ', 'Vào ban ngày DECODE không có nhiều chỗ để xe máy, nếu hết chỗ, vui lòng để xe dưới hầm Vincom. Vào buổi tối khách có thể để xe trực tiếp ở DECODE thoải mái. Các chú bảo vệ vui tính của DECODE sẽ rất tận tình hướng dẫn chỗ để xe hợp lý. \r\nDECODE không có hầm để xe ô tô. Vui lòng đỗ xe ô tô dưới hầm Vincom. \r\nDECODE khuyên khách hàng nên để xe dưới hầm Vincom (chỉ từ 2-3k VND cho xe máy và quãng đường từ Vincom ra DECODE rất gần chưa tới 3 phút đi bộ). Có rất nhiều địa điểm khác có thể đỗ xe, tuy nhiên giá trông xe có thể cao tới 10-15k VND tuỳ thuộc đơn vị trông xe. ', 1, 'en'),
-  (18, 'Khi bạn đặt chân tới DECODE ', 'Khi bạn tới DECODE, vui lòng giới thiệu với lễ tân mục đích đến thăm của bạn. Nếu bạn đã đặt phòng, bạn chỉ cần báo cho lễ tân thông tin đặt phòng và thanh toán.\r\nNếu lễ tân đang bận tiếp khách khác, xin hãy thoải mái thư giãn tại khu vực giải trí của DECODE trong khi chờ đợi.\r\n', 1, 'vi');
+  (18, 'Khi bạn đặt chân tới DECODE ', '<br />Khi bạn tới DECODE, vui l&ograve;ng giới thiệu với lễ t&acirc;n mục đ&iacute;ch đến thăm của&nbsp;bạn. Nếu bạn đ&atilde; đặt ph&ograve;ng, bạn chỉ cần b&aacute;o cho lễ t&acirc;n th&ocirc;ng tin đặt ph&ograve;ng&nbsp;v&agrave; thanh to&aacute;n.<br /><br />Nếu lễ t&acirc;n đang bận tiếp kh&aacute;ch kh&aacute;c, xin h&atilde;y thoải m&aacute;i thư gi&atilde;n tại khu&nbsp;vực giải tr&iacute; của DECODE trong khi chờ đợi.', 1, 'vi'),
+  (19, 'Tại sao nên chọn DECODE?', '<br />DECODE ch&uacute; trọng niềm vui của mọi người v&agrave; hướng tới một s&acirc;n chơi&nbsp;mới mẻ c&oacute; khả năng &ldquo;g&acirc;y nghiện&rdquo; với những khoảnh khắc đ&aacute;ng nhớ b&ecirc;n&nbsp;bạn b&egrave; v&agrave; gia đ&igrave;nh.<br /><br />Gi&aacute; của DECODE được c&acirc;n nhắc cẩn thận sao cho ph&ugrave; hợp với t&uacute;i tiền&nbsp;người Việt &ndash; thấp hơn tới 40% so với c&aacute;c nước bạn như Malaysia,&nbsp;Singapore v&agrave; Th&aacute;i Lan!&nbsp;<br /><br />C&aacute;c Game Master của DECODE sẽ tận t&igrave;nh quan t&acirc;m chăm s&oacute;c kh&aacute;ch h&agrave;ng&nbsp;từ l&uacute;c đến cho l&uacute;c đi. Kh&aacute;ch sẽ được hướng dẫn tỉ mỉ c&aacute;ch chơi tr&ograve; chơi&nbsp;v&agrave; nếu như đi 1 nh&oacute;m 4 hoặc 5 người, kh&aacute;ch sẽ nhận được 1 tấm ảnh&nbsp;polaroid miễn ph&iacute; chụp cả nh&oacute;m với ph&ocirc;ng ảnh DECODE.&nbsp;<br /><br />DECODE quảng b&aacute; tr&iacute; tuệ của người chơi với những người chơi kh&aacute;c:&nbsp;kh&aacute;ch c&oacute; thể được đề t&ecirc;n tr&ecirc;n bảng v&agrave;ng top 5 nh&oacute;m xuất sắc nhất mỗi&nbsp;tuần. Bảng được đặt ở ngay trụ sở DECODE v&agrave; cả up l&ecirc;n Facebook!', 1, 'vi'),
+  (20, 'Tôi sẽ có bao nhiêu gợi ý?', '<br />Đội của bạn sẽ c&oacute; nhiều nhất 2 gợi &yacute; từ c&aacute;c Game Masters của DECODE.&nbsp;C&aacute;c bạn c&oacute; thể nhấn chu&ocirc;ng xin gợi &yacute; bất cứ l&uacute;c n&agrave;o trong cuộc chơi.', 1, 'vi'),
+  (21, 'Tôi nên đến lúc mấy giờ?', '<br />Vui l&ograve;ng chỉ đến sớm hơn 10 ph&uacute;t so với thời gian đặt ph&ograve;ng chơi của bạn&nbsp;v&igrave; DECODE kh&ocirc;ng c&oacute; nhiều ph&ograve;ng đợi.&nbsp;<br /><br />Nếu bạn đến muộn, vui l&ograve;ng b&aacute;o sớm cho DECODE qua điện thoại.', 1, 'vi'),
+  (22, 'Bãi đỗ xe ô tô và xe máy', '<br />V&agrave;o ban ng&agrave;y DECODE kh&ocirc;ng c&oacute; nhiều chỗ để xe m&aacute;y, nếu hết chỗ, vui&nbsp;l&ograve;ng để xe dưới hầm Vincom. V&agrave;o buổi tối kh&aacute;ch c&oacute; thể để xe trực tiếp ở&nbsp;DECODE thoải m&aacute;i. C&aacute;c ch&uacute; bảo vệ vui t&iacute;nh của DECODE sẽ rất tận t&igrave;nh&nbsp;hướng dẫn chỗ để xe hợp l&yacute;.&nbsp;<br /><br />DECODE kh&ocirc;ng c&oacute; hầm để xe &ocirc; t&ocirc;. Vui l&ograve;ng đỗ xe &ocirc; t&ocirc; dưới hầm Vincom.&nbsp;<br /><br />DECODE khuy&ecirc;n kh&aacute;ch h&agrave;ng n&ecirc;n để xe dưới hầm Vincom (chỉ từ 2-3k&nbsp;VND cho xe m&aacute;y v&agrave; qu&atilde;ng đường từ Vincom ra DECODE rất gần chưa tới 3&nbsp;ph&uacute;t đi bộ). C&oacute; rất nhiều địa điểm kh&aacute;c c&oacute; thể đỗ xe, tuy nhi&ecirc;n gi&aacute; tr&ocirc;ng xe&nbsp;c&oacute; thể cao tới 10-15k VND tuỳ thuộc đơn vị tr&ocirc;ng xe.', 1, 'vi');
 
 -- --------------------------------------------------------
 
@@ -109,17 +135,17 @@ CREATE TABLE IF NOT EXISTS `tbl_games` (
   `game_status` tinyint(4) DEFAULT NULL,
   `game_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`game_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `tbl_games`
 --
 
 INSERT INTO `tbl_games` (`game_id`, `game_name`, `game_desc`, `game_image`, `game_difficult`, `game_status`, `game_lang`) VALUES
-  (1, 'Lò mổ', 'Bùm! Bạn thức dậy trong 1 căn phòng tối tăm với những mảnh cơ thể người ghê rợn và những con chuột to đen trũi. Cửa đã bị khoá chặt. Tại sao bạn lại ở đây? Có phải bạn đã rơi vào bàn tay tên sát nhân đồ tể? Quá nhiều câu hỏi, quá ít thời gian! Bạn chỉ biết, nếu bạn không nhanh chân, bạn sẽ trở thành thứ trong cái túi bóng lơ lửng kia. Liệu bạn có trốn kịp trước khi tên sát nhân quay lại? ', NULL, 1, 1, 'vi'),
+  (1, 'Lò mổ', 'Bùm! Bạn thức dậy trong 1 căn phòng tối tăm với những mảnh cơ thể người ghê rợn và những con chuột to đen trũi. Cửa đã bị khoá chặt. Tại sao bạn lại ở đây? Có phải bạn đã rơi vào bàn tay tên sát nhân đồ tể? Quá nhiều câu hỏi, quá ít thời gian! Bạn chỉ biết, nếu bạn không nhanh chân, bạn sẽ trở thành thứ trong cái túi bóng lơ lửng kia. Liệu bạn có trốn kịp trước khi tên sát nhân quay lại? ', NULL, 4, 1, 'vi'),
   (3, 'Khách sạn ma ám', 'Lời đồn khách sạn Castello bị ma ám bắt nguồn từ 4000 năm trước, khi nữ hoàng Mary bị giam ở đây vào đêm cuối trước ngày hành quyết vì tội phù thuỷ. Đêm đêm tiếng kêu khóc nỉ non xen kẽ với tiếng cười the thé khiến người ta dựng tóc gáy. Kinh hoàng hơn, sáng ra, 1 vị khách sẽ biến mất. Bạn có phải là vị khách đó?', NULL, 1, 1, 'vi'),
   (5, 'Giải cứu Santa', 'Một lời nguyền hắc ám hùng mạnh đã khiến những yêu tinh vui vẻ ở Bắc Cực trở nên xấu xa và nổi dậy bắt trói ông già Noel. Bạn được tiên Nicole trao cho nhiệm vụ giải cứu vô cùng khó khăn: đột nhập Bắc Cực và giải cứu ông già Noel trước khi những yêu tinh canh gác tỉnh dậy!! Năm nay trẻ em toàn thế giới có được đón Noel không?!! Tất cả đều do bạn quyết định!', NULL, 1, 1, 'vi'),
-  (6, 'Siêu mọt sách', 'Bạn - một kẻ to xác luôn bắt nạt bạn bè sắp nhận được sự trả đũa từ những nạn nhân bé nhỏ bạn thường cười nhạo. Những siêu mọt sách đã bắt cóc và nhốt bạn vào 1 căn phòng kỳ bí nằm ngay cạnh Hố Đen Vũ Trụ Hoặc là bạn giải những câu đố của siêu mọt sách thật nhanh, hoặc bạn sẽ bị hút vào Hố Đen mãi mãi… ', NULL, 1, 1, 'vi');
+  (6, 'Siêu mọt sách', 'Bạn - một kẻ to x&aacute;c lu&ocirc;n bắt nạt bạn b&egrave; sắp nhận được sự trả đũa từ những nạn&nbsp;nh&acirc;n b&eacute; nhỏ bạn thường cười nhạo. Những si&ecirc;u mọt s&aacute;ch đ&atilde; bắt c&oacute;c v&agrave; nhốt bạn&nbsp;v&agrave;o 1 căn ph&ograve;ng kỳ b&iacute; nằm ngay cạnh Hố Đen Vũ Trụ Hoặc l&agrave; bạn giải những c&acirc;u&nbsp;đố của si&ecirc;u mọt s&aacute;ch thật nhanh, hoặc bạn sẽ bị h&uacute;t v&agrave;o Hố Đen m&atilde;i m&atilde;i...', NULL, 1, 1, 'vi');
 
 -- --------------------------------------------------------
 
@@ -136,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `tbl_options` (
   `option_status` tinyint(2) NOT NULL DEFAULT '1',
   `option_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `tbl_options`
@@ -178,19 +204,19 @@ CREATE TABLE IF NOT EXISTS `tbl_prices` (
   `price_status` tinyint(4) NOT NULL DEFAULT '1',
   `price_lang` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'en',
   PRIMARY KEY (`price_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tbl_prices`
 --
 
 INSERT INTO `tbl_prices` (`price_id`, `price_name`, `price_desc`, `price_value`, `price_status`, `price_lang`) VALUES
-  (1, 'off-peak', '2 - 5, before 5 pm', 5, 1, 'en'),
-  (2, 'evening', '2 - 5 before 5pm', 6, 1, 'en'),
-  (3, 'off-peak', '2 - 5, trước 17 giờ', 100, 1, 'vi'),
-  (4, 'evening', '2 - 5, sau 17 giờ', 120, 1, 'vi'),
-  (5, 'weekend', '6 - Sunday', 7.5, 1, 'en'),
-  (8, 'evening', '6 - Chủ Nhật', 150, 1, 'vi');
+  (1, 'Off-peak', '2 - 5, before 5 pm', 5, 1, 'en'),
+  (2, 'Evening', '2 - 5 before 5pm', 6, 1, 'en'),
+  (3, 'Off-peak', '2 - 5, trước 17 giờ', 100, 1, 'vi'),
+  (4, 'Evening', '2 - 5, sau 17 giờ', 120, 1, 'vi'),
+  (5, 'Weekend', '6 - Sunday', 7.5, 1, 'en'),
+  (8, 'Weekend', '6 - Chủ Nhật', 150, 1, 'vi');
 
 -- --------------------------------------------------------
 
@@ -204,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `tbl_times` (
   `time_status` tinyint(4) NOT NULL DEFAULT '1',
   `is_weekend` tinyint(1) NOT NULL COMMENT 'discrimination weekend with normal days',
   PRIMARY KEY (`time_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `tbl_times`
@@ -259,26 +285,3 @@ INSERT INTO `tbl_users` (`user_id`, `user_email`, `user_password`, `user_name`, 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `decode_db`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_analys`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_analys` (
-  `analys_id` int(11) NOT NULL AUTO_INCREMENT,
-  `analys_time` int(11) NOT NULL,
-  `analys_status` tinyint(1) DEFAULT NULL,
-  `analys_ip` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`analys_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
