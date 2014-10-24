@@ -19,6 +19,7 @@ class Faqs_Model_Faqs extends Zend_Db_Table{
         $data=$this->select();
         $data->from($this->_name);
         $data->where('faq_lang = ?', $this->_languages);
+        $data->order('faq_sort ASC');
         $data = $this->fetchAll($data);
         return $data;
     }
