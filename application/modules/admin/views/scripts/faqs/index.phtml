@@ -21,27 +21,26 @@
                                 <th>#</th>
                                 <th>Question</th>
                                 <th>Status</th>
+                                <th><?php echo __('STT')?></th>
                                 <th>Control</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                                $stt = 1;
-                                foreach($this->faqs as $faq):
-                            ?>
-                            <tr>
-                                <td><?php echo $stt;?></td>
-                                <td><?php echo $faq['faq_question']?></td>
-                                <td><?php echo ($faq['faq_status'] == 1)?'Hiện':'Ẩn';?></td>
-
-
-                                <td>
-
-                                    <a class="btn btn-sm btn-warning"  title="Edit" href="<?php echo $this->baseUrl('admin/faqs/edit/id/').$faq['faq_id'];?>"><i class="fa fa-pencil"></i> </a>
-                                    <a class="btn btn-sm btn-danger"  title="Delete" href="<?php echo $this->baseUrl('admin/faqs/delete/id/').$faq['faq_id'];?>" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i> </a>
-                                </td>
-                            </tr>
-                            <?php $stt++;endforeach;?>
+                                <?php
+                                    $stt = 1;
+                                    foreach($this->faqs as $faq):
+                                ?>
+                                <tr>
+                                    <td><?php echo $stt;?></td>
+                                    <td><?php echo $faq['faq_question']?></td>
+                                    <td><?php echo ($faq['faq_status'] == 1)?'Hiện':'Ẩn';?></td>
+                                    <td><?php echo $faq['faq_sort'] ?></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-warning"  title="Edit" href="<?php echo $this->baseUrl('admin/faqs/edit/id/').$faq['faq_id'];?>"><i class="fa fa-pencil"></i> </a>
+                                        <a class="btn btn-sm btn-danger"  title="Delete" href="<?php echo $this->baseUrl('admin/faqs/delete/id/').$faq['faq_id'];?>" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i> </a>
+                                    </td>
+                                </tr>
+                                <?php $stt++;endforeach;?>
                             </tbody>
                         </table>
                     </div>

@@ -55,6 +55,7 @@ class Admin_FaqsController extends FTeam_Controller_AdminAction
                         'faq_question' => $this->_request->getParam('faq_question'),
                         'faq_answer' => trim($this->_request->getParam('faq_answer')),
                         'faq_status' => $this->_request->getParam('faq_status'),
+                        'faq_sort' => $this->_request->getParam('faq_sort'),
                         'faq_lang' => $this->languages
                     );
                     $faqModel = new Admin_Model_Faqs();
@@ -64,6 +65,7 @@ class Admin_FaqsController extends FTeam_Controller_AdminAction
                         'faq_question' => $this->_request->getParam('faq_question'),
                         'faq_answer' => trim($this->_request->getParam('faq_answer')),
                         'faq_status' => $this->_request->getParam('faq_status'),
+                        'faq_sort' => $this->_request->getParam('faq_sort'),
                         'faq_lang' => $this->languages
                     );
                     $faqModel = new Admin_Model_Faqs();
