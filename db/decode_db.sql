@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2014 at 05:37 PM
+-- Generation Time: Oct 24, 2014 at 06:07 PM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.4
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `tbl_analys` (
 --
 
 INSERT INTO `tbl_analys` (`analys_id`, `analys_time`, `analys_status`, `analys_ip`) VALUES
-  (19, 1414147009, 1, '127.0.0.1'),
+  (19, 1414147529, 1, '127.0.0.1'),
   (23, 1414144699, 1, '192.168.7.97');
 
 -- --------------------------------------------------------
@@ -76,6 +76,23 @@ CREATE TABLE IF NOT EXISTS `tbl_bookings` (
   `total_price` float NOT NULL,
   `booking_status` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`booking_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_contacts`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_contacts` (
+  `contact_id` int(10) NOT NULL AUTO_INCREMENT,
+  `contacts_ho` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `contacts_ten` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `contacts_diachi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `contacts_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `contacts_tinnhan` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `contacts_status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`contact_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
