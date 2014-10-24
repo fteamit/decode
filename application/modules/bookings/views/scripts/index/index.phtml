@@ -6,12 +6,21 @@ $aryGames = $this->aryGames;
 <?php else: ?>
     <div id="booking-container">
         <?php foreach ($aryGames as $_game): ?>
+            <?php
+            if($_game['game_image']){
+                $gameImg = $this->baseUrl('public/upload/').$_game['game_image'];
+            }else{
+                $gameImg = $this->baseUrl('public/upload/no_img.jpg');
+            }
+            if($_game['game_difficult']){
+                $gameDif = (int)$_game['game_difficult'];
+            }else{
+                $gameDif = "N/A";
+            }
+            ?>
             <div class="item-booking col-md-6">
                 <a href="#">
-                    <img
-                        src="<?php echo ($_game['game_image'] !== null) ? $_game['game_image'] : BaseUrl_Template_Default('bookings/index/bookings') . '/_/component/images/Decode/icon/item.png' ?>"
-                        alt="item booking" class="img-item"/>
-
+                    <img src="<?php echo $gameImg ?>" alt="item booking" class="img-item" width="244px" height="313px"/>
                 </a>
 
                 <div class="media-body">
@@ -22,7 +31,9 @@ $aryGames = $this->aryGames;
                     </p>
                 <span>
                     <?php echo __('Difficulty: ') ?>
-                    <img src="<?php echo BaseUrl_Template_Default(); ?>/_/component/images/Decode/icon/difficult.png"/>
+                    <?php for($i = 1; $i <= $gameDif; $i ++): ?>
+                        <img src="<?php echo  $this->baseUrl('public/upload/difficult.png')?>"/>
+                    <?php endfor; ?>
                 </span>
                     <a onclick="BookingController.getTimes('<?php echo date('d-m-Y'); ?>',0,'<?php echo $_game['game_id'] ?>')"
                        class="btn-book"><?php echo __('Book Now') ?></a>
