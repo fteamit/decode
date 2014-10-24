@@ -43,10 +43,11 @@ $no= 1;
                             <table class="table table-bordered ">
                                 <thead>
                                 <tr>
-                                    <th><?php echo __('STT')?></th>
+                                    <th><?php echo __('#')?></th>
                                     <th><?php echo __('times')?></th>
                                     <th><?php echo __('status')?></th>
                                     <th><?php echo __('weekend')?></th>
+                                    <th><?php echo __('STT')?></th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -68,6 +69,7 @@ $no= 1;
                                         <td><?php echo $times['time'] ?></td>
                                         <td><a href="<?php echo $href ?>"><span class="label <?php echo $class?>"><?php echo $timeStatus ?></span></a></td>
                                         <td><?php if($times['is_weekend']){echo __('yes');}else{echo __('no');} ?></td>
+                                        <td><?php echo $times['time_sort'];?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $this->baseUrl('admin/times/update/id/'.$times['time_id']); ?>" class="btn btn-sm btn-warning">
