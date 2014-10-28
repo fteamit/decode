@@ -2,15 +2,15 @@
 $aryData = $this->aryData;
 ?>
 <div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12">
-    <form>
+    <form method="post" id="booking-form">
         <quote><?php echo __('Please fill in your details') ?></quote>
         <div class="col-md-6 left-left col-sm-12 col-xs-12 ">
             <label><?php echo __('First Name') ?></label>
-            <input type="text"/>
+            <input type="text" name="first_name"/>
             <label><?php echo __('Contact No') ?></label>
-            <input type="text"/>
+            <input type="text" name="contact_no"/>
             <label><?php echo __('Gender') ?></label>
-            <select>
+            <select name="gender">
                 <option value="0" selected><?php echo __('-----Please select-----') ?></option>
                 <option value="1"><?php echo __('Male'); ?></option>
                 <option value="2"><?php echo __('Female'); ?></option>
@@ -20,9 +20,9 @@ $aryData = $this->aryData;
         <div class="col-md-6 left-right col-sm-12 col-xs-12">
 
             <label><?php echo __('Last Name') ?></label>
-            <input type="text"/>
+            <input type="text" name="last_name"/>
             <label><?php echo __('Email Address') ?></label>
-            <input type="text"/>
+            <input type="text" name="email"/>
             <label><?php echo __('Participants(2-5)') ?></label>
             <select id="num-player">
                 <option value="0" selected><?php echo __('-----Please select-----') ?></option>
@@ -31,7 +31,7 @@ $aryData = $this->aryData;
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <input type="submit" value="SUBMIT"/>
+            <input type="button" value="SUBMIT" onclick="BookingController.save('#booking-form')"/>
         </div>
         <div style="display: none">
             <input type="hidden" name="game_id" value="<?php echo $aryData['gameId']; ?>">

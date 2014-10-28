@@ -80,6 +80,7 @@ class Bookings_Model_Dbtable_Times extends Zend_Db_Table
     {
         if (empty($aryData)) {
             $intIsOk = -1;
+            return $intIsOk;
         }
         try {
             $this->_db->insert($this->_TABLE_NAME, $aryData);

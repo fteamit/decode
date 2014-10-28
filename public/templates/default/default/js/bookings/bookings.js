@@ -27,8 +27,8 @@ var BookingController = {
     },
 
     bookingform: function (gd, tm, d) {
-        var action = 'bookingform';
-        var url = ROOT_URL + '/' + this.module + '/' + this.controller + '/' + action;
+        var act = 'bookingform';
+        var url = ROOT_URL + '/' + this.module + '/' + this.controller + '/' + act;
         jQuery.ajax({
             type: "post",
             url: url,
@@ -40,6 +40,20 @@ var BookingController = {
             }
         });
     },
+
+    save: function (fId) {
+        var act = 'save';
+        var url = ROOT_URL + '/' + this.module + '/' + this.controller + '/' + act;
+        jQuery.ajax({
+            type: "post",
+            url: url,
+            data: $(fId).serialize(),
+            success: function (data) {
+
+            }
+        });
+    },
+
     notice: function (mes) {
         return alert(mes);
     }
