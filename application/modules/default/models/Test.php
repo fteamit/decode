@@ -71,4 +71,16 @@ class Default_Model_Test extends Zend_Db_Table{
         }
         return $result;
     }
+    public function statusUpdate($analys_id = null)
+    {
+        if ($analys_id != null){
+            $where = "analys_ip = '$analys_id'";
+            $data = array('analys_status' => 0);
+            $result = $this->update($data, $where);
+            if ($result != 0){
+                return true;
+            }
+            return false;
+        }
+    }
 }

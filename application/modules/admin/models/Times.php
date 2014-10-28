@@ -23,12 +23,17 @@ class Admin_Model_Times extends Zend_Db_Table
      */
     public function getAllTimes()
     {
-        $where = "1 = 1";
-        $result = $this->fetchall($where);
-        if (count($result)) {
-            $result = $result->toArray();
-        }
-        return $result;
+//        $where = "1 = 1";
+//        $result = $this->fetchall($where);
+//        if (count($result)) {
+//            $result = $result->toArray();
+//        }
+//        return $result;
+        $data=$this->select();
+        $data->from($this->_name);
+        $data->order('time_sort ASC');
+        $data = $this->fetchAll($data);
+        return $data;
     }
     /*
      * get single time row

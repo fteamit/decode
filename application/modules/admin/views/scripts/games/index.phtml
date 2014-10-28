@@ -40,12 +40,13 @@ $no= 1;
                             <table class="table table-bordered ">
                                 <thead>
                                 <tr>
-                                    <th><?php echo __('STT')?></th>
-                                    <th><?php echo __('games name')?></th>
-                                    <th><?php echo __('games desc')?></th>
+                                    <th><?php echo __('#')?></th>
+                                    <th style="width: 100px"><?php echo __('games name')?></th>
+                                    <th style="width: 400px"><?php echo __('games desc')?></th>
                                     <th><?php echo __('games level')?></th>
                                     <th><?php echo __('games image')?></th>
                                     <th><?php echo __('status')?></th>
+                                    <th><?php echo __('STT')?></th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -82,6 +83,7 @@ $no= 1;
                                             <?php endforeach; ?>
                                         </td>
                                         <td><a href="<?php echo $href ?>"><span class="label <?php echo $class?>"><?php echo $gameStatus ?></span></a></td>
+                                        <td><?php echo $game['game_sort'];?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $this->baseUrl('admin/games/add/id/'.$game['game_id']); ?>" class="btn btn-sm btn-warning">

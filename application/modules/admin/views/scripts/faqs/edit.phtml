@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="widget wgreen">
+                <div class="widget wred">
                     <div class="widget-head">
                         <div class="pull-left">Forms</div>
                         <div class="widget-icons pull-right">
                             <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                            <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                            <a href="<?php echo $this->baseUrl('admin/faqs/index/lang/'.$this->items['faq_lang']); ?>"><?php echo __('back')?></a>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -49,12 +49,18 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">Answer</label>
                                     <div class="col-md-8">
-                                        <textarea class="form-control" rows="10"  cols="10" placeholder="Textarea" name="faq_answer">
+                                        <textarea class="form-control ckeditor" rows="10"  cols="10" placeholder="Textarea" name="faq_answer">
                                             <?php if(isset($this->items['faq_answer'])) echo $this->items['faq_answer']?>
                                         </textarea>
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="control-label col-lg-2"><?php echo __('STT')?></label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" id="sitename" name="faq_sort" value="<?php echo $this->items['faq_sort'] ?>">
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-8">
 

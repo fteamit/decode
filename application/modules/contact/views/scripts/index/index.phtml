@@ -1,20 +1,20 @@
 <div class="left col-md-6">
-    <form>
+    <form class="form-horizontal" role="form" action="<?php echo $this->baseUrl('contact/index'); ?>" method="post">
         <div class="col-md-6 left-left">
             <h4><?php echo __('contact') ?></h4>
             <label><?php echo __('first name') ?></label>
-            <input type="text" />
+            <input type="text" class="form-control" name="contacts_ho" value="">
             <label><?php echo __('contact no') ?></label>
-            <input type="text" />
+            <input type="text" class="form-control" name="contacts_diachi" value="">
             <label><?php echo __('reasons to contact') ?></label>
         </div>
         <div class="col-md-6 left-right">
 
             <label><?php echo __('last name') ?></label>
-            <input type="text" />
+            <input type="text" class="form-control" name="contacts_ten" value="">
             <label><?php echo __('email address') ?></label>
-            <input type="text" />
-            <textarea></textarea>
+            <input type="text" class="form-control" name="contacts_email" value="">
+            <textarea class="form-control"name="contacts_tinnhan"></textarea>
             <input type="submit" value="<?php echo __('SUBMIT') ?>"/>
         </div>
     </form>

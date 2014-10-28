@@ -24,7 +24,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
         $status = $this->getRequest()->getParam('status', -1);
         $result = $this->_gameModel->statusUpdate($id, $status);
         if ($result){
-            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated game successfully!');
+            $this->_helper->FlashMessenger()->setNamespace('success')->addMessage('updated successfully!');
         }
         else{
             $this->_helper->FlashMessenger()->setNamespace('fail')->addMessage('updated fail!');
@@ -59,12 +59,15 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
                 $game_desc = $request['game_desc'];
                 $game_status = $request['game_status'];
                 $game_difficult = $request['game_difficult'];
+                $game_sort = $request['game_sort'];
+
                 $game_name = $value['game_name'];
                 $singlegame = array(
                     'game_name' => $game_name,
                     'game_desc' => $game_desc,
                     'game_status' => $game_status,
-                    'game_difficult' =>$game_difficult
+                    'game_difficult' =>$game_difficult,
+                    'game_sort' =>$game_sort
                 );
                 $upload = new FTeam_UploadFile();
                 if ($upload->upload())
@@ -80,7 +83,7 @@ class Admin_GamesController extends FTeam_Controller_AdminAction
                         $result = $this->_gameModel->updateGame($singlegame, $game_id);
                         if ($result){
                             //has changed
-                            $this->view->messages = __('updated game successfully!');
+                            $this->view->messages = __('updated successfully!');
                         }else{
                             //hasnt changed
                             $this->view->messages = array('wasnt_changed' => array(__('wasnt changed!')));

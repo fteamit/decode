@@ -61,6 +61,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
 
                 $time_id = $request['time_id'];
                 $time_status = $request['time_status'];
+                $time_sort = $request['time_sort'];
                 if(isset($request['is_weekend'])){
                     $is_weekend = 1;
                 }else{
@@ -73,6 +74,7 @@ class Admin_TimesController extends FTeam_Controller_AdminAction
                     'time' => $time,
                     'is_weekend' => $is_weekend,
                     'time_status' => $time_status,
+                    'time_sort' => $time_sort,
                 );
                 if($time_id){
                     //update the time

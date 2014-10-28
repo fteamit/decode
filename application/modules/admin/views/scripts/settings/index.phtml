@@ -23,7 +23,7 @@ $contact_setting = $this->contact_setting;
     <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
         <div class="alert alert-success">
             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                <?php echo $msg ?>
+                <?php echo __($msg) ?>
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
@@ -57,7 +57,7 @@ $contact_setting = $this->contact_setting;
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th><?php echo __('STT')?></th>
                                             <th><?php echo __('name') ?></th>
                                             <th><?php echo __('group') ?></th>
                                             <th><?php echo __('status') ?></th>
@@ -123,7 +123,7 @@ $contact_setting = $this->contact_setting;
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th><?php echo __('STT')?></th>
                                             <th><?php echo __('name') ?></th>
                                             <th><?php echo __('group') ?></th>
                                             <th><?php echo __('status') ?></th>
@@ -192,7 +192,7 @@ $contact_setting = $this->contact_setting;
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th><?php echo __('STT')?></th>
                                             <th><?php echo __('name') ?></th>
                                             <th><?php echo __('group') ?></th>
                                             <th><?php echo __('status') ?></th>
@@ -258,7 +258,7 @@ $contact_setting = $this->contact_setting;
                                 <table class="table table-bordered ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th><?php echo __('STT')?></th>
                                             <th><?php echo __('name') ?></th>
                                             <th><?php echo __('group') ?></th>
                                             <th><?php echo __('status') ?></th>

@@ -37,14 +37,16 @@
                 ?>
                 <li class="col-md-3">
                     <?php foreach ($arr_image as $img): ?>
+                    <a href="<?php echo $this->baseUrl('bookings') ?>" class="item-game">
                         <?php if (Check_File_Exists_Upload($img)): ?>
-                            <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" width="250px" height="350px"
-                                 alt="<?php echo $game['game_name']; ?>"/>
+                                <img src="<?php echo $this->baseUrl(UPLOAD_URL . $img) ?>" width="250px" height="350px"
+                                     alt="<?php echo $game['game_name']; ?>"/>
                         <?php else: ?>
                             <img src="<?php echo $this->baseUrl(UPLOAD_URL . 'no_img.jpg') ?>" width="250px" height="350px"/>
                         <?php endif; ?>
                     <?php endforeach; ?>
                     <p class="active"><?php echo $game['game_name']; ?></p>
+                    </a>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -87,6 +89,15 @@
             minSlides: 4,
             maxSlides: 4,
             slideWidth: 280
+        });
+        jQuery('.item-game').each(function(){
+            jQuery(this).hover(
+                function() {
+                    jQuery(this).addClass('active-game');
+                }, function() {
+                    jQuery(this).removeClass('active-game');
+                }
+            );
         });
     });
 </script>

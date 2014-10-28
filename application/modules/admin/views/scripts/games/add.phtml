@@ -4,7 +4,7 @@ $game_id = $singlegame['game_id'];
 $game_image = $singlegame['game_image'];
 $arr_image = explode('|', $game_image);
 ?>
-<div class="col-md-7">
+<div class="col-md-12">
     <?php if (isset($this->messages)): ?>
         <?php if (is_array($this->messages)): ?>
             <div class="alert alert-warning">
@@ -16,7 +16,7 @@ $arr_image = explode('|', $game_image);
             </div>
         <?php else: ?>
             <div class="alert alert-success">
-                <?php echo $this->messages ?>
+                <?php echo __($this->messages); ?>
             </div>
         <?php endif; ?>
     <?php endif; ?>
@@ -48,7 +48,7 @@ $arr_image = explode('|', $game_image);
                         <div class="form-group">
                             <label class="control-label col-lg-2" for="sitedescription"><?php echo __('games desc')?></label>
                             <div class="col-lg-7">
-                                <textarea class="form-control" rows="10" name="game_desc" id="sitedescription"><?php echo $singlegame['game_desc'] ?></textarea>
+                                <textarea class="form-control ckeditor" rows="10" name="game_desc" id="sitedescription"><?php echo $singlegame['game_desc'] ?></textarea>
                             </div>
                         </div>
                         <!-- game level -->
@@ -96,6 +96,13 @@ $arr_image = explode('|', $game_image);
                                 <div class="radio">
                                     <label><input type="radio" name="<?php echo "game_status" ?>" id="0" value="0" <?php if($singlegame['game_status'] == 0){echo 'checked';}?>><?php echo __('disable')?></label>
                                 </div>
+                            </div>
+                        </div>
+                        <!-- g No -->
+                        <div class="form-group">
+                            <label class="control-label col-lg-2"><?php echo __('STT')?></label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" id="sitename" name="game_sort" value="<?php echo $singlegame['game_sort'] ?>">
                             </div>
                         </div>
                         <!-- Buttons -->
