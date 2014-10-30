@@ -58,6 +58,8 @@ var BookingController = {
                     setTimeout(function () {
                         window.location = ROOT_URL;
                     }, 5000);
+                } else {
+                    jQuery('#booking_false').show();
                 }
             }
         });
