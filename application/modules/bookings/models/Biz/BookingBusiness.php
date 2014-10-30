@@ -3,6 +3,9 @@
 class Bookings_Model_Biz_BookingBusiness
 {
     protected $_dbBooking;
+    const EMAIL_TEMPLATE = '/modules/bookings/views/scripts/emails/';
+    const HOST_MAIL = 'thainv@gmail.com';
+    const HOST_NAME = 'Thai';
 
     public function __construct()
     {
@@ -26,18 +29,26 @@ class Bookings_Model_Biz_BookingBusiness
             $intIsOk = $this->_dbBooking->insertData($bookingInfo, $id);
         }
         if ($intIsOk == 1) {
-            $this->confirmBooking();
+            $this->confirmBooking($bookingInfo);
         }
         return $intIsOk;
     }
 
-    public function confirmBooking()
+    public function confirmBooking($data = array())
     {
-        $mail = new Zend_Mail();
-        $mail->setBodyText('This is the text of the mail.');
-        $mail->setFrom('somebody@example.com', 'Some Sender');
-        $mail->addTo('tahivanhus@gmail.com', 'Some Recipient');
-        $mail->setSubject('TestSubject');
-        $mail->send();
+        if (!empty($data)) {
+            $html = new Zend_View();
+            $html->setScriptPath(APPLICATION_PATH . self::EMAIL_TEMPLATE);
+            $html->assign('name', $data['last_name'] . ' ' . $data['first_name']);
+
+            $mail = new Zend_Mail('utf-8');
+            $bodyText = $html->render('ConfirmBooking.phtml');
+
+            $mail->addTo($data['email']);
+            $mail->setSubject('Welcome to Decode.com.vn');
+            $mail->setFrom(self::HOST_MAIL, self::HOST_NAME);
+            $mail->setBodyHtml($bodyText);
+            $mail->send();
+        }
     }
 }

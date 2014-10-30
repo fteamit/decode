@@ -50,7 +50,15 @@ var BookingController = {
             data: $(fId).serialize(),
             success: function (data) {
                 var ob = jQuery.parseJSON(data);
-                alert(ob.isCorrect);
+                if (ob.isCorrect == 1) {
+                    jQuery('#confirm_booking').show();
+                    jQuery('html, body').animate({
+                        scrollTop: jQuery('#td-game-name').offset().top
+                    }, 1000);
+                    setTimeout(function () {
+                        window.location = ROOT_URL;
+                    }, 5000);
+                }
             }
         });
     },

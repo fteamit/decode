@@ -3,6 +3,8 @@ $aryData = $this->aryData;
 ?>
 <div class="left col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <form method="post" id="booking-form">
+        <h5 id="confirm_booking" style="display: none"><?php echo __('Thank you. We will sent you email to verify your booking.'); ?></h5>
+
         <quote><?php echo __('Please fill in your details') ?></quote>
         <div class="col-md-6 left-left col-sm-12 col-xs-12 ">
             <label><?php echo __('First Name') ?></label>
@@ -59,6 +61,7 @@ $aryData = $this->aryData;
     </div>
 
 </div>
+
 <script type="text/javascript" language="JavaScript">
     jQuery(document).ready(function ($) {
         $('#bf_sum_game_name').text($('#td-game-name').text());
