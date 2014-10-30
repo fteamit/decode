@@ -49,7 +49,8 @@ var BookingController = {
             url: url,
             data: $(fId).serialize(),
             success: function (data) {
-
+                var ob = jQuery.parseJSON(data);
+                alert(ob.isCorrect);
             }
         });
     },

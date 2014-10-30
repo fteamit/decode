@@ -6,6 +6,7 @@ class Bookings_IndexController extends FTeam_Controller_Action
     protected $class_body = 'booking';
     protected $_bizTimes;
     protected $_bizGames;
+    protected $_bizBooking;
     const ERR_LOAD = 'Can not load more time.';
 
     /**
@@ -16,6 +17,7 @@ class Bookings_IndexController extends FTeam_Controller_Action
         parent::init();
         $this->_bizTimes = new Bookings_Model_Biz_TimesBusiness();
         $this->_bizGames = new Bookings_Model_Biz_GamesBusiness();
+        $this->_bizBooking = new Bookings_Model_Biz_BookingBusiness();
     }
 
     /**
@@ -75,4 +77,21 @@ class Bookings_IndexController extends FTeam_Controller_Action
         }
         return array();
     }
+
+    public function saveAction()
+    {
+        $this->_helper->layout()->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        $aryData = $this->_request->getParams();
+        $intIsOk = -1;
+        if ($aryData && !empty($aryData)) {
+            try {
+                $intIsOk = $this->_bizBooking->prepareSave($aryData);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+        $this->response(null, $intIsOk);
+    }
+
 }
